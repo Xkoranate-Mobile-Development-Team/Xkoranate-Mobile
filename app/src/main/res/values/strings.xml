@@ -3,4 +3,11 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="desired_username">Desired username</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email_optional">Email (Optional)</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up">sign up</string>
+    <string name="cancel">cancel</string>
 </resources>

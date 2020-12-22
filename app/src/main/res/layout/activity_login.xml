@@ -7,11 +7,20 @@
     android:background="@color/yellow"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/xkonarate_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dadd1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/product_sans_regular"
         android:text="@string/username"
         android:textAllCaps="true"
@@ -20,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/xkonarate_image" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernameTextLayout"
@@ -34,14 +43,14 @@
         android:gravity="center"
         android:inputType="textNoSuggestions|textPersonName"
         android:textAlignment="center"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/passwordTextView"
+        android:id="@+id/passwordLoginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -56,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/usernameTextLayout" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordLoginEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -66,10 +76,10 @@
         android:gravity="center"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLoginTextView" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/ButtonStyle"
