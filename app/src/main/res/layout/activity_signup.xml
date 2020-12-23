@@ -1,194 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/yellow"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:context=".SignupActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/desiredUsernameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/desired_username"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/desiredUsernameEditText"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textNoSuggestions|textPersonName"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/firstNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/first_name"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/firstNameEditText"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textAutoComplete|textPersonName|textCapSentences"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/lastNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/last_name"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastNameEditText"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textAutoComplete|textPersonName|textCapSentences"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/emailTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/email_optional"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditText"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/passwordSignUpTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/password"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordSignEditText"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textPassword"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/confirmPasswordTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/confirm_password"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirmPasswordEditTExt"
-            android:layout_width="379dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:inputType="textPassword"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
+        android:layout_height="match_parent"
+        android:background="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".SignUpActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/cancelButton"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/desiredUsernameTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                android:text="@string/cancel"
-                android:textColor="@color/blue"
-                app:cornerRadius="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/signUpButton" />
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/desired_username"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/signUpButton"
-                style="@style/ButtonStyle"
-                android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/desiredUsernameEditText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                android:text="@string/sign_up"
-                app:cornerRadius="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textNoSuggestions|textPersonName"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/firstNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/first_name"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/firstNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textAutoComplete|textPersonName|textCapSentences"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lastNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/last_name"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textAutoComplete|textPersonName|textCapSentences"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/email_optional"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/passwordSignUpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/password"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordSignEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/confirmPasswordTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/confirm_password"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordEditTExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancelButton"
+                    style="@style/ButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signUpButtonForSignUpActivity"
+                    style="@style/ButtonElevatedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/sign_up"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</layout>
+
