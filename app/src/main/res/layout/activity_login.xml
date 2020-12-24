@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellow"
-    tools:context=".LoginActivity">
+    android:id="@+id/motionContainer"
+    app:layoutDescription="@xml/activity_login_scene" tools:context=".LoginActivity">
+
 
     <ImageView
         android:id="@+id/xkonarate_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_dadd1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/signature_xkoranate_20p8"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/usernameTextView"
@@ -25,11 +25,7 @@
         android:text="@string/username"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/xkonarate_image" />
+        android:textSize="20sp"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernameTextLayout"
@@ -43,10 +39,7 @@
         android:gravity="center"
         android:inputType="textNoSuggestions|textPersonName"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
+        android:textColor="@color/black"/>
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -58,11 +51,7 @@
         android:text="@string/password"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameTextLayout" />
+        android:textSize="20sp"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passwordLoginEditText"
@@ -76,22 +65,22 @@
         android:gravity="center"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLoginTextView" />
+        android:textColor="@color/black"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
         style="@style/ButtonStyle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:text="@string/login"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:cornerRadius="12dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:indeterminateTint="@color/white"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
