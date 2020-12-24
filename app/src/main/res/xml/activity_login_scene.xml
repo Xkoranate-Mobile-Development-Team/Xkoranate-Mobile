@@ -15,7 +15,6 @@
     </Transition>
 
     <Transition
-        android:id="@+id/lol"
         motion:constraintSetStart="@id/begin"
         motion:constraintSetEnd="@id/start">
 
@@ -23,6 +22,11 @@
     </Transition>
 
     <ConstraintSet android:id="@+id/begin">
+
+        <Constraint
+            android:id="@+id/motionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <Constraint
             android:id="@+id/progress_bar"
@@ -72,6 +76,20 @@
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    motion:layout_constraintStart_toEndOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp"/>
+
+        <Constraint android:id="@+id/have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    motion:layout_constraintEnd_toStartOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="16dp"/>
+
+        <Constraint android:id="@+id/sign_up_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     motion:layout_constraintStart_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="16dp"/>
@@ -137,10 +155,12 @@
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
                     motion:layout_constraintStart_toStartOf="parent"
                     motion:layout_constraintEnd_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="50dp"/>
+
 
 
     </ConstraintSet>
@@ -196,6 +216,20 @@
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    motion:layout_constraintStart_toEndOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp"/>
+
+        <Constraint android:id="@+id/have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    motion:layout_constraintEnd_toStartOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="16dp"/>
+
+        <Constraint android:id="@+id/sign_up_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     motion:layout_constraintStart_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="16dp"/>
