@@ -2,6 +2,8 @@ package com.xkoranate
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.xkoranate.databinding.ActivitySignupBinding
@@ -25,4 +27,9 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
+
+//    private fun View.hideKeyboard() {
+//        val inputMethodManager = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+//        inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
+//    }
 }
