@@ -1,10 +1,9 @@
-package com.xkoranate.ui
+package com.xkoranate
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.xkoranate.R
 
 class MainActivity : AppCompatActivity() {
 

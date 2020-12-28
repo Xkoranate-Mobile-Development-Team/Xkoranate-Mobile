@@ -1,8 +1,7 @@
-package com.xkoranate.ui
+package com.xkoranate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.xkoranate.R
 
 class MainScreenActivity : AppCompatActivity() {
 

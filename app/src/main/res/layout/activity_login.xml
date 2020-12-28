@@ -1,108 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/yellow"
-    android:id="@+id/motionContainer"
-    app:layoutDescription="@xml/activity_login_scene"
-    tools:context=".ui.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-
-    <ImageView
-        android:id="@+id/xkonarate_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/signature_xkoranate_20p8"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/usernameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:fontFamily="@font/product_sans_regular"
-        android:text="@string/username"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/usernameTextLayout"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/rounded_corners"
-        android:fontFamily="@font/product_sans_regular"
-        android:gravity="center"
-        android:inputType="textNoSuggestions|textPersonName"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/passwordLoginTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/product_sans_regular"
-        android:text="@string/password"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/passwordLoginEditText"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/rounded_corners"
-        android:fontFamily="@font/product_sans_regular"
-        android:gravity="center"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:layout_height="match_parent"
+        android:background="@color/yellow">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signUpButtonForLoginActivity"
-        style="@style/ButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:text="@string/sign_up"
-        app:cornerRadius="12dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/marginMid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"
-    />
+            <ImageView
+                android:id="@+id/xkonarate_image"
+                android:layout_width="267dp"
+                android:layout_height="239dp"
+                android:contentDescription="@string/xkoranate_image"
+                android:src="@drawable/signature_xkoranate_20p8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
-        style="@style/ButtonElevatedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="5dp"
-        android:paddingEnd="20dp"
-        android:text="@string/login"
-        app:cornerRadius="12dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/username"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/xkonarate_image" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:inputType="textNoSuggestions|textPersonName"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:indeterminateTint="@color/white"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/passwordLoginTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:text="@string/password"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/usernameTextLayout" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordLoginEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordLoginTextView" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                app:layout_constraintTop_toBottomOf="@+id/passwordLoginEditText">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signUpButtonForLoginActivity"
+                    style="@style/ButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/sign_up"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/loginButton"
+                    style="@style/ButtonElevatedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_weight="1"
+                    android:text="@string/login"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
 
