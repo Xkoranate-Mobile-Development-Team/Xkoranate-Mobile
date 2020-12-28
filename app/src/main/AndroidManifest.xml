@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+<<<<<<< HEAD
+        <activity android:name=".ui.SignUpActivity">
+
+        </activity>
+
+        <activity android:name=".ui.MainScreenActivity" />
+        <activity android:name=".ui.LoginActivity">
+
+=======
         <activity android:name=".SignUpActivity"
             android:windowSoftInputMode="stateHidden"/>
 
@@ -17,14 +26,21 @@
 
         <activity android:name=".LoginActivity"
             android:windowSoftInputMode="stateHidden">
+>>>>>>> master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity android:name=".ui.MainActivity">
+
+
+=======
 
         <activity android:name=".MainActivity">
+>>>>>>> master
 
         </activity>
 
