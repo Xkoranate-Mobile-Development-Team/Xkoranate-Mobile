@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable name="viewModel" type="com.xkoranate.ui.viewmodels.AuthViewModel"/>
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".SignUpActivity">
+        tools:context=".ui.SignUpActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,6 +118,7 @@
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.email}"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
@@ -141,6 +146,7 @@
                 android:id="@+id/passwordSignEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.password}"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
@@ -201,6 +207,7 @@
                     style="@style/ButtonElevatedStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.signUp()}"
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="8dp"
                     android:layout_weight="1"

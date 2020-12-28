@@ -75,25 +75,19 @@
 
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     motion:layout_constraintStart_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="50dp"/>
 
-        <Constraint android:id="@+id/have_account_text"
+        <Constraint android:id="@+id/signUpButtonForLoginActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     motion:layout_constraintEnd_toStartOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp"/>
-
-        <Constraint android:id="@+id/sign_up_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    motion:layout_constraintStart_toEndOf="parent"
-                    motion:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp"/>
-
+                    android:layout_marginBottom="50dp"/>
     </ConstraintSet>
 
 
@@ -154,13 +148,20 @@
 
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    motion:layout_constraintStart_toStartOf="parent"
-                    motion:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"
+                    motion:layout_constraintStart_toEndOf="@id/marginMid"
                     motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="5dp"
                     android:layout_marginBottom="50dp"/>
 
+        <Constraint android:id="@+id/signUpButtonForLoginActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    motion:layout_constraintEnd_toStartOf="@id/marginMid"
+                    motion:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp"/>
 
 
     </ConstraintSet>
@@ -175,7 +176,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
 
         <Constraint android:id="@+id/xkonarate_image"
                     android:layout_width="wrap_content"
@@ -213,26 +214,23 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"/>
 
+
         <Constraint android:id="@+id/materialButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     motion:layout_constraintStart_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="50dp"/>
 
-        <Constraint android:id="@+id/have_account_text"
+        <Constraint android:id="@+id/signUpButtonForLoginActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    motion:layout_constraintEnd_toStartOf="parent"
-                    motion:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp"/>
-
-        <Constraint android:id="@+id/sign_up_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     motion:layout_constraintStart_toEndOf="parent"
                     motion:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="50dp"/>
+
 
     </ConstraintSet>
 
