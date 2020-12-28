@@ -10,8 +10,8 @@
         <KeyFrameSet>
         </KeyFrameSet>
 
-        <OnClick
-            motion:targetId="@id/materialButton"/>
+<!--        <OnClick-->
+<!--            motion:targetId="@id/materialButton"/>-->
     </Transition>
 
     <Transition
@@ -176,7 +176,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
 
         <Constraint android:id="@+id/xkonarate_image"
                     android:layout_width="wrap_content"

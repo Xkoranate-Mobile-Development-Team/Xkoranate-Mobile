@@ -1,118 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    android:id="@+id/motionContainer"
+    app:layoutDescription="@xml/activity_login_scene"
+    tools:context=".ui.LoginActivity">
 
-    <data>
-        <import type="android.view.View"/>
-        <variable name="viewModel" type="com.xkoranate.ui.viewmodels.AuthViewModel"/>
-    </data>
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <ImageView
+        android:id="@+id/xkonarate_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/signature_xkoranate_20p8"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/usernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="@string/username"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/usernameTextLayout"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_corners"
+        android:fontFamily="@font/product_sans_regular"
+        android:gravity="center"
+        android:inputType="textNoSuggestions|textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/passwordLoginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="@string/password"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordLoginEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/yellow"
-        android:id="@+id/motionContainer"
-        app:layoutDescription="@xml/activity_login_scene"
-        tools:context=".ui.LoginActivity">
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_corners"
+        android:fontFamily="@font/product_sans_regular"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signUpButtonForLoginActivity"
+        style="@style/ButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/sign_up"
+        app:cornerRadius="12dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+    />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        style="@style/ButtonElevatedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="5dp"
+        android:paddingEnd="20dp"
+        android:text="@string/login"
+        app:cornerRadius="12dp"/>
 
 
-        <ImageView
-            android:id="@+id/xkonarate_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/signature_xkoranate_20p8"/>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:indeterminateTint="@color/white"/>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/usernameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/username"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="20sp"/>
+</androidx.constraintlayout.motion.widget.MotionLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameTextLayout"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:text="@={viewModel.email}"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:gravity="center"
-            android:inputType="textNoSuggestions|textPersonName"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
-
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/passwordLoginTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/product_sans_regular"
-            android:text="@string/password"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="20sp"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordLoginEditText"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@={viewModel.password}"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/rounded_corners"
-            android:fontFamily="@font/product_sans_regular"
-            android:gravity="center"
-            android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signUpButtonForLoginActivity"
-            style="@style/ButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="@string/sign_up"
-            app:cornerRadius="12dp"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/marginMid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5"
-        />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
-            style="@style/ButtonElevatedStyle"
-            android:layout_width="wrap_content"
-            android:onClick="@{() -> viewModel.login()}"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="5dp"
-            android:paddingEnd="20dp"
-            android:text="@string/login"
-            app:cornerRadius="12dp"/>
-
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:indeterminateTint="@color/white"/>
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
-
-</layout>

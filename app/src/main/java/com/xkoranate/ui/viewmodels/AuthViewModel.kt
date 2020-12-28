@@ -42,7 +42,7 @@ class AuthViewModel: ViewModel() {
         disposables.add(disposable)
     }
 
-    fun login() {
+    fun login(email: String, password: String) {
         if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             authListener?.onFailure("Please input all values")
             return
