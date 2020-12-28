@@ -94,6 +94,12 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         progressBar.visibility = View.INVISIBLE
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+        finish()
+    }
 }
 
 

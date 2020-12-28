@@ -52,4 +52,10 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
     override fun onFailure(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
+    }
 }
