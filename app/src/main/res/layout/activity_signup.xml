@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="viewModel" type="com.xkoranate.ui.viewmodels.AuthViewModel"/>
+
+        <variable
+            name="viewModel"
+            type="com.xkoranate.ui.viewmodels.AuthViewModel" />
     </data>
 
     <ScrollView
@@ -21,124 +24,89 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-<!--            <com.google.android.material.textview.MaterialTextView-->
-<!--                android:id="@+id/desiredUsernameTextView"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="40dp"-->
-<!--                android:layout_marginTop="24dp"-->
-<!--                android:fontFamily="@font/product_sans_regular"-->
-<!--                android:text="@string/desired_username"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="18sp" />-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="36dp"
+                android:src="@drawable/signature_xkoranate_20p8" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/desiredUsernameEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/product_sans_regular"
+                android:fontFamily="@font/meiryo_ui_w53_regular"
+                android:gravity="center"
+                android:hint="@string/desired_username"
                 android:inputType="textNoSuggestions|textPersonName"
-                android:padding="12dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
-
-<!--            <com.google.android.material.textview.MaterialTextView-->
-<!--                android:id="@+id/firstNameTextView"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="40dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/product_sans_regular"-->
-<!--                android:text="@string/first_name"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="18sp" />-->
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/product_sans_regular"
-                android:inputType="textAutoComplete|textPersonName|textCapSentences"
-                android:padding="12dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/product_sans_regular"
-                android:inputType="textAutoComplete|textPersonName|textCapSentences"
-                android:padding="12dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:textColorHint="@color/white" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@={viewModel.email}"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:padding="12dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:text="@={viewModel.email}"
+                android:textColorHint="@color/white" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordSignEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@={viewModel.password}"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="12dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:text="@={viewModel.password}"
+                android:textColorHint="@color/white" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirmPasswordEditTExt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:hint="@string/confirm_password"
                 android:inputType="textPassword"
-                android:padding="12dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:textColorHint="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
@@ -152,19 +120,19 @@
                     android:layout_marginBottom="8dp"
                     android:layout_weight="1"
                     android:text="@string/cancel"
-                    app:cornerRadius="12dp" />
+                    app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/signUpButtonForSignUpActivity"
                     style="@style/ButtonElevatedStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewModel.signUp()}"
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="8dp"
                     android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.signUp()}"
                     android:text="@string/sign_up"
-                    app:cornerRadius="12dp" />
+                    app:cornerRadius="18dp" />
 
             </LinearLayout>
 
