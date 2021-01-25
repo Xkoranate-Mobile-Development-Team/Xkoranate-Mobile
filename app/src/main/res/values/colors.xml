@@ -8,6 +8,7 @@
     <color name="white">#FFFF</color>
     <color name="black">#1C1C1C</color>
     <color name="cards">#BF0A0A0A</color>
+    <color name="green">#00BE98</color>
     <color name="gradient_red_like">#BA625E</color>
     <color name="gradient_yellow_like">#EDB81B</color>
 </resources>
