@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Xkoranate</string>
     <string name="username">username</string>
     <string name="password">password</string>
@@ -9,7 +9,7 @@
     <string name="email_optional">Email (Optional)</string>
     <string name="confirm_password">Confirm password</string>
     <string name="sign_up">sign up</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
     <string name="xkoranate_image">Xkoranate Image</string>
     <string name="no_account">Are you a new?</string>
 </resources>
