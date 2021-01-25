@@ -11,12 +11,12 @@
 
     <style name="ButtonElevatedStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/green</item>
-        <item name="fontFamily">@font/product_sans_regular</item>
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="ButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="fontFamily">@font/product_sans_regular</item>
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
