@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         } else {
-            startActivity(Intent(this, MainScreenActivity::class.java))
+//            startActivity(Intent(this, MainScreenActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 
