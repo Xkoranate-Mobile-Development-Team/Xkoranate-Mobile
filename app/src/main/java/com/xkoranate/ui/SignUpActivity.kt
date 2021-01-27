@@ -30,6 +30,8 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
         signUpBinding.viewModel = viewModel
         viewModel.authListener = this
 
+//        overridePendingTransition(R.anim.right_to_left, R.anim.stay_put)
+
         window.decorView.post {
             signUpBinding.motionContainerS.apply {
                 setTransition(R.id.animEnd, R.id.animStart)
