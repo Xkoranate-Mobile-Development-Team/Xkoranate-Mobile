@@ -30,6 +30,14 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
         signUpBinding.viewModel = viewModel
         viewModel.authListener = this
 
+        window.decorView.post {
+            signUpBinding.motionContainerS.apply {
+                setTransition(R.id.animEnd, R.id.animStart)
+                setTransitionDuration(1200)
+                transitionToEnd()
+            }
+        }
+
         signUpBinding.cancelButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -37,8 +45,6 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
 
 
     }
-
-
 
     override fun onStarted() {
         Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()

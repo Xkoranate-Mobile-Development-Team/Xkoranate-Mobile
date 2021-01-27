@@ -14,9 +14,7 @@
         android:id="@+id/xkonarate_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/signature_xkoranate_20p8"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="297dp" />
+        android:src="@drawable/signature_xkoranate_20p8" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernameTextLayout"

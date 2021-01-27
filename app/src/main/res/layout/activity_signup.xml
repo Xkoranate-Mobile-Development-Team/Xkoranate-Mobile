@@ -10,139 +10,111 @@
             type="com.xkoranate.ui.viewmodels.AuthViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionContainerS"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layoutDescription="@xml/activity_signup_scene"
         tools:context=".ui.SignUpActivity">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/xkoranateImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/xkoranate_image"
+            app:srcCompat="@drawable/signature_xkoranate_20p8" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/desiredUsernameEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:hint="@string/desired_username"
+            android:inputType="textNoSuggestions|textPersonName"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="200dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="36dp"
-                android:src="@drawable/signature_xkoranate_20p8" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@={viewModel.email}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/desiredUsernameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:gravity="center"
-                android:hint="@string/desired_username"
-                android:inputType="textNoSuggestions|textPersonName"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textColorHint="@color/white" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordSignEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@={viewModel.password}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:gravity="center"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="@={viewModel.email}"
-                android:textColorHint="@color/white" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirmPasswordEditTExt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordSignEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:gravity="center"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="@={viewModel.password}"
-                android:textColorHint="@color/white" />
+        <LinearLayout
+            android:id="@+id/lineatLayoutForButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirmPasswordEditTExt"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/rounded_corners"
-                android:textColor="@color/white"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:gravity="center"
-                android:hint="@string/confirm_password"
-                android:inputType="textPassword"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textColorHint="@color/white" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelButton"
+                style="@style/ButtonOutlinedStyle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                app:cornerRadius="18dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/cancelButton"
-                    style="@style/ButtonOutlinedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/cancel"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/signUpButtonForSignUpActivity"
-                    style="@style/ButtonElevatedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:onClick="@{() -> viewModel.signUp()}"
-                    android:text="@string/sign_up"
-                    app:cornerRadius="18dp" />
-
-            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signUpButtonForSignUpActivity"
+                style="@style/ButtonElevatedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:onClick="@{() -> viewModel.signUp()}"
+                android:text="@string/sign_up"
+                app:cornerRadius="18dp" />
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </layout>
 
