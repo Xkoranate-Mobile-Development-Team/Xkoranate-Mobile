@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.xkoranate.ui.viewmodels.AuthViewModel" />
@@ -14,8 +13,8 @@
         android:id="@+id/motionContainerS"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_color"
         app:layoutDescription="@xml/activity_signup_scene"
+        android:background="@drawable/gradient_color"
         tools:context=".ui.SignUpActivity">
 
         <ImageView

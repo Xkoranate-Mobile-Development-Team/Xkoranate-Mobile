@@ -57,7 +57,6 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         signUpButton.setOnClickListener {
             Toast.makeText(this, "Okayyy", Toast.LENGTH_LONG).show()
             val intent = Intent(this, SignUpActivity::class.java)
-
             startActivity(intent)
             finish()
         }

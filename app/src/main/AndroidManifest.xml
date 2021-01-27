@@ -11,25 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--<<<<<<< HEAD-->
         <activity android:name=".ui.SignUpActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
         </activity>
 
-        <activity android:name=".ui.MainScreenActivity" />
-
-        <activity android:name=".ui.LoginActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
-<!--=======-->
-
-<!--&gt;>>>>>> master-->
-<!--<<<<<<< HEAD-->
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,8 +25,14 @@
             </intent-filter>
         </activity>
 
-<!--=======-->
-<!--&gt;>>>>>> master-->
+        <activity android:name=".ui.LoginActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity android:name=".ui.MainActivity">
+
+        </activity>
 
     </application>
 
