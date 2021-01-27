@@ -35,7 +35,7 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
         window.decorView.post {
             signUpBinding.motionContainerS.apply {
                 setTransition(R.id.animEnd, R.id.animStart)
-                setTransitionDuration(1200)
+                setTransitionDuration(1000)
                 transitionToEnd()
             }
         }
