@@ -60,96 +60,18 @@
                 android:id="@+id/eventsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="36dp"
-                android:text="@string/events"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:textSize="24sp"/>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/rounded_corners"
-                android:elevation="5dp"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/leagueTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/meiryo_ui_w53_regular"
-                    android:text="@string/premier_league"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/meiryo_ui_w53_regular"
-                    android:text="@string/sun_12_dec"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/leagueTextView"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/versusLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/leagueTextView">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="2"
-                        android:src="@drawable/gorilla" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        android:text="@string/v"
-                        android:textColor="@color/white"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="2"
-                        android:src="@drawable/gorilla"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/timeLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/versusLinearLayout">
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_margin="36dp"
+                android:fontFamily="@font/meiryo_ui_w53_regular"
+                android:text="@string/events"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/recyclerview_child"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/recyclerview_child" />
 
         </LinearLayout>
 
