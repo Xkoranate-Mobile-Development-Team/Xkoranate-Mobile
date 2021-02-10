@@ -20,4 +20,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="PromptTextStyle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+    </style>
+
 </resources>
