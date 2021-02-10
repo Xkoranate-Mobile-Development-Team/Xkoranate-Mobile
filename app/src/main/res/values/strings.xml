@@ -20,4 +20,5 @@
     <string name="_9_00_pm">9:00 pm</string>
     <string name="choose_an_event">Choose an event</string>
     <string name="continue_button">continue</string>
+    <string name="number_of_legs">Number of legs</string>
 </resources>
