@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph" app:startDestination="@id/homeFragment"
+            xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment android:id="@+id/homeFragment"
+              android:name="com.xkoranate.ui.HomeFragment"
+              android:label="HomeFragment"
+              tools:layout="@layout/fragment_home"/>
+    <fragment android:id="@+id/setParticipantsFragment" android:name="com.xkoranate.ui.SetParticipantsFragment"
+              android:label="fragment_set_participants" tools:layout="@layout/fragment_set_participants"/>
+    <fragment android:id="@+id/matchDayFragment" android:name="com.xkoranate.ui.MatchDayFragment"
+              android:label="MatchDayFragment"
+              tools:layout="@layout/fragment_match_day"/>
+</navigation>

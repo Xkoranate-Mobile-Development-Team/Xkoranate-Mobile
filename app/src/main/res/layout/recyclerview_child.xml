@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/dateTextView"
@@ -30,7 +31,7 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/leagueTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
         android:id="@+id/versusLinearLayout"
@@ -46,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="2"
-            android:src="@drawable/gorilla" />
+            android:src="@drawable/gorilla"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,14 +60,14 @@
             android:text="@string/v"
             android:textColor="@color/white"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/teamBImageView"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="2"
-            android:src="@drawable/gorilla" />
+            android:src="@drawable/gorilla"/>
 
     </LinearLayout>
 
@@ -85,7 +86,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@color/white" />
+            android:src="@color/white"/>
 
         <TextView
             android:id="@+id/timeTextView"
@@ -96,14 +97,14 @@
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:gravity="center"
             android:text="@string/_9_00_pm"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@color/white" />
+            android:src="@color/white"/>
 
     </LinearLayout>
 
