@@ -20,4 +20,13 @@
     <string name="_9_00_pm">9:00 pm</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_an_event">Choose an event</string>
+    <string name="continue_button">continue</string>
+    <string name="number_of_legs">Number of legs</string>
+    <string name="choose_table_type">Choose table type</string>
+    <string name="points_for_wins">Points for wins</string>
+    <string name="points_for_loss">Points for loss</string>
+    <string name="points_for_draw">Points for draw</string>
+    <string name="allow_draws">Allow draws</string>
+    <string name="individual_event">Individual events</string>
 </resources>

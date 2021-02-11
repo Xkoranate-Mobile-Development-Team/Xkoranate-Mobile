@@ -4,30 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.xkoranate.ui.viewmodels.AuthViewModel" />
     </data>
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/motionContainerS"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutDescription="@xml/activity_signup_scene"
         android:background="@drawable/gradient_color"
         tools:context=".ui.SignUpActivity">
 
         <ImageView
             android:id="@+id/xkoranateImage"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginTop="200dp"
             android:contentDescription="@string/xkoranate_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/signature_xkoranate_20p8" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/desiredUsernameEditText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_corners"
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:gravity="center"
@@ -36,12 +43,18 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/xkoranateImage" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_corners"
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:gravity="center"
@@ -51,12 +64,18 @@
             android:paddingRight="8dp"
             android:text="@={viewModel.email}"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desiredUsernameEditText" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordSignEditText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_corners"
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:gravity="center"
@@ -66,12 +85,18 @@
             android:paddingRight="8dp"
             android:text="@={viewModel.password}"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirmPasswordEditTExt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_corners"
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:gravity="center"
@@ -80,11 +105,20 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordSignEditText" />
 
         <LinearLayout
             android:id="@+id/lineatLayoutForButtons"
             android:layout_width="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmPasswordEditTExt"
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
@@ -113,7 +147,7 @@
 
         </LinearLayout>
 
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
 

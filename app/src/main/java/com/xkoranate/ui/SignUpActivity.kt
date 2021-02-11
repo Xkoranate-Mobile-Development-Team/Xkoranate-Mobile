@@ -6,9 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.xkoranate.R
 import com.xkoranate.databinding.ActivitySignupBinding
 import com.xkoranate.other.AuthListener
@@ -29,16 +26,9 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
         viewModel = ViewModelProvider(this, factory).get(AuthViewModel::class.java)
         signUpBinding.viewModel = viewModel
         viewModel.authListener = this
-
-//        overridePendingTransition(R.anim.right_to_left, R.anim.stay_put)
-
-        window.decorView.post {
-            signUpBinding.motionContainerS.apply {
-                setTransition(R.id.animEnd, R.id.animStart)
-                setTransitionDuration(1000)
-                transitionToEnd()
-            }
-        }
+        
+        // Enter transition
+        overridePendingTransition(R.anim.right_to_left, R.anim.stay_put)
 
         signUpBinding.cancelButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

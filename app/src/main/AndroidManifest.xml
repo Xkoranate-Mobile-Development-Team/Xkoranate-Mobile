@@ -11,29 +11,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.SignUpActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-
-        <activity android:name=".ui.MainScreenActivity">
+        <activity
+            android:name=".EventSetupActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.LoginActivity"
-            android:windowSoftInputMode="stateHidden"
+        <activity
+            android:name=".ui.SignUpActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
             tools:ignore="LockedOrientationActivity" />
-
+        <activity android:name=".ui.MainScreenActivity"></activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity" />
         <activity android:name=".ui.MainActivity">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
-
     </application>
 
 </manifest>
