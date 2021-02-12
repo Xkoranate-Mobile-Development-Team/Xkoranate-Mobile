@@ -21,17 +21,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.SignUpActivity"
+            android:name=".ui.activities.SignUpActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ui.MainScreenActivity"></activity>
+        <activity android:name=".ui.activities.SetupGameActivity"></activity>
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activities.MainActivity">
             <!--            <intent-filter>-->
             <!--                <action android:name="android.intent.action.MAIN" />-->
 

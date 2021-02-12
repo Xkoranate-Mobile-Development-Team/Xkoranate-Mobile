@@ -1,19 +1,16 @@
-package com.xkoranate.ui
+package com.xkoranate.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.xkoranate.R
-import com.xkoranate.databinding.FragmentHomeBinding
-import com.xkoranate.databinding.FragmentMatchDayBinding
+import androidx.fragment.app.Fragment
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
 
 
-class MatchDayFragment : Fragment() {
+class SetParticipantsFragment : Fragment() {
 
-    private var binding: FragmentMatchDayBinding? = null
+    private var binding: FragmentSetParticipantsBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +21,7 @@ class MatchDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMatchDayBinding.inflate(inflater)
+        binding = FragmentSetParticipantsBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -32,7 +29,7 @@ class MatchDayFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() =
-            MatchDayFragment()
+            SetParticipantsFragment()
     }
 
     override fun onDestroy() {

@@ -1,7 +1,6 @@
-package com.xkoranate.ui
+package com.xkoranate.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.ViewModelProvider
 import com.xkoranate.R
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess() {
 
-        Intent(this, MainScreenActivity::class.java).also {
+        Intent(this, SetupGameActivity::class.java).also {
             it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(it)
         }

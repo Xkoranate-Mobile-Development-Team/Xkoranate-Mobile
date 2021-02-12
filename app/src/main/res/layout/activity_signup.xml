@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_color"
-        tools:context=".ui.SignUpActivity">
+        tools:context=".ui.activities.SignUpActivity">
 
         <ImageView
             android:id="@+id/xkoranateImage"

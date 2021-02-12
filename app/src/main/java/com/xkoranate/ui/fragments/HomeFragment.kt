@@ -1,17 +1,16 @@
-package com.xkoranate.ui
+package com.xkoranate.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.xkoranate.R
-import com.xkoranate.databinding.FragmentSetParticipantsBinding
+import androidx.fragment.app.Fragment
+import com.xkoranate.databinding.FragmentHomeBinding
 
 
-class SetParticipantsFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private var binding: FragmentSetParticipantsBinding? = null
+    private var binding: FragmentHomeBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +21,7 @@ class SetParticipantsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSetParticipantsBinding.inflate(inflater)
+        binding = FragmentHomeBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -30,7 +29,7 @@ class SetParticipantsFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() =
-            SetParticipantsFragment()
+            HomeFragment()
     }
 
     override fun onDestroy() {

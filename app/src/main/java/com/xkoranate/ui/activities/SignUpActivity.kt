@@ -1,4 +1,4 @@
-package com.xkoranate.ui
+package com.xkoranate.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -44,7 +44,7 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
     }
 
     override fun onSuccess() {
-        val intent = Intent(this, MainScreenActivity::class.java)
+        val intent = Intent(this, SetupGameActivity::class.java)
         startActivity(intent)
     }
 

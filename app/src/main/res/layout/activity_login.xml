@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_color"
     app:layoutDescription="@xml/activity_login_scene"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.activities.LoginActivity">
 
     <ImageView
         android:id="@+id/xkonarate_image"
