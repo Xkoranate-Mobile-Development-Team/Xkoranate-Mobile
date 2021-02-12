@@ -12,16 +12,13 @@ class HomeFragment : Fragment() {
 
     private var binding: FragmentHomeBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
+
+
         return binding?.root
     }
 

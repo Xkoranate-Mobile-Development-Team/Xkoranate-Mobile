@@ -5,15 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.xkoranate.R
 import com.xkoranate.databinding.FragmentIndividualEventBinding
 
 class IndividualEventFragment : Fragment() {
 
     private var binding: FragmentIndividualEventBinding? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +19,11 @@ class IndividualEventFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentIndividualEventBinding.inflate(inflater)
+
+        binding?.continueButtonIndividualEvent?.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_individualEventFragment_to_setParticipantsFragment)
+        }
         return binding?.root
     }
 

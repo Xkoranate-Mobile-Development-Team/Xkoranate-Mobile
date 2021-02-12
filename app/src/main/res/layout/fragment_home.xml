@@ -2,13 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_color">
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/xkoranateImage"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:src="@drawable/signature_xkoranate_20p8"
+            app:layout_constraintStart_toEndOf="@+id/menuIcon"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_welcome"
@@ -17,9 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/welcome"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/xkoranateImage" />
 
         <TextView
             android:id="@+id/tv_full_name"
@@ -34,9 +51,10 @@
             android:paddingTop="30dp"
             android:paddingEnd="60dp"
             android:paddingBottom="30dp"
-            android:text="Jack\nPiper"
+            android:text="Jack Piper"
             android:textAlignment="center"
             android:textSize="30sp"
+            android:textStyle="italic|normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
@@ -48,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Results"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
