@@ -1,0 +1,45 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Xkoranate</string>
+    <string name="username_email">username or email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="desired_username">desired username</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email_optional">Email (Optional)</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="sign_up">sign up</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="xkoranate_image">Xkoranate Image</string>
+    <string name="no_account">Are you a new?</string>
+    <string name="email">email address</string>
+    <string name="events">Events</string>
+    <string name="premier_league">Premier League</string>
+    <string name="sun_12_dec">Sun, 12 Dec</string>
+    <string name="v">V</string>
+    <string name="_9_00_pm">9:00 pm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_an_event">Choose an event</string>
+    <string name="continue_button">continue</string>
+    <string name="number_of_legs">Number of legs</string>
+    <string name="choose_table_type">Choose table type</string>
+    <string name="points_for_wins">Points for wins</string>
+    <string name="points_for_loss">Points for loss</string>
+    <string name="points_for_draw">Points for draw</string>
+    <string name="allow_draws">Allow draws</string>
+    <string name="individual_event">Individual events</string>
+    <string name="set_participants">Set Participants</string>
+    <string name="welcome">Welcome</string>
+    <string name="start">Start</string>
+    <string name="check_results">Check Results</string>
+    <string name="fab">Fab</string>
+    <string name="max_skill">Max Skill</string>
+    <string name="min_skill">Min Skill</string>
+    <string name="username">Username</string>
+    <string name="match_day">Match Day</string>
+    <string name="result">Results</string>
+    <string name="setting">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="jack_piper">Jack Piper</string>
+</resources>

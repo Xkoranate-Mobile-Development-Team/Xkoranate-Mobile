@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.RoundRobinFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_color">
+
+        <ImageView
+            android:id="@+id/xkoranateImage"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:src="@drawable/signature_xkoranate_20p8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/numberOfLegsTextView"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"
+            android:text="@string/number_of_legs"
+            app:layout_constraintEnd_toStartOf="@+id/numberOfLegsSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/xkoranateImage" />
+
+        <Spinner
+            android:id="@+id/numberOfLegsSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/numberOfLegsTextView"
+            app:layout_constraintBottom_toBottomOf="@+id/numberOfLegsTextView"
+            app:layout_constraintTop_toTopOf="@+id/numberOfLegsTextView" />
+
+        <TextView
+            android:id="@+id/chooseTableTextView"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/choose_table_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numberOfLegsTextView" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseTableTextView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/pointsForWinTV"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:textSize="20sp"
+            android:text="@string/points_for_wins"
+            app:layout_constraintEnd_toStartOf="@+id/pointsForWinSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nestedScrollView" />
+
+        <Spinner
+            android:id="@+id/pointsForWinSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pointsForWinTV"
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForWinTV"
+            app:layout_constraintTop_toTopOf="@+id/pointsForWinTV" />
+
+        <TextView
+            android:id="@+id/pointsForDraw"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:text="@string/points_for_draw"
+            app:layout_constraintEnd_toStartOf="@+id/pointsForDrawSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pointsForWinTV" />
+
+        <Spinner
+            android:id="@+id/pointsForDrawSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pointsForDraw"
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForDraw"
+            app:layout_constraintTop_toTopOf="@+id/pointsForDraw" />
+
+        <TextView
+            android:id="@+id/pointsForLoseTV"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/points_for_loss"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/pointsForLoseSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pointsForDraw" />
+
+        <Spinner
+            android:id="@+id/pointsForLoseSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pointsForLoseTV"
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForLoseTV"
+            app:layout_constraintTop_toTopOf="@+id/pointsForLoseTV" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueButtonRoundRobinEvent"
+            style="@style/ButtonElevatedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/continue_button"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

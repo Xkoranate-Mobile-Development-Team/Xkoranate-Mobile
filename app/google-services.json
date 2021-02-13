@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1040990209604",
+    "project_id": "xkoranate",
+    "storage_bucket": "xkoranate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040990209604:android:37f9c73fcef0a85aa85e11",
+        "android_client_info": {
+          "package_name": "com.xkoranate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040990209604-p107e22o5osis9efvmcrjgqcqr7dgenj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xkoranate",
+            "certificate_hash": "a5d66ee4138ffd8c225cbaebaf887f6abc948c54"
+          }
+        },
+        {
+          "client_id": "1040990209604-9aeia02b8vvfta8ouan9smtpsodrlosm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1xOUf5bFlFCVjl9beKHyS_ZATExjhzww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040990209604-9aeia02b8vvfta8ouan9smtpsodrlosm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
