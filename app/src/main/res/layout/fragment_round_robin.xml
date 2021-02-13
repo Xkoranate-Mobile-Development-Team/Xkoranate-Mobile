@@ -23,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textSize="20sp"
             android:layout_marginTop="16dp"
             android:text="@string/number_of_legs"
             app:layout_constraintEnd_toStartOf="@+id/numberOfLegsSpinner"
@@ -32,11 +33,12 @@
         <Spinner
             android:id="@+id/numberOfLegsSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/numberOfLegsTextView"
-            app:layout_constraintTop_toBottomOf="@+id/xkoranateImage" />
+            app:layout_constraintBottom_toBottomOf="@+id/numberOfLegsTextView"
+            app:layout_constraintTop_toTopOf="@+id/numberOfLegsTextView" />
 
         <TextView
             android:id="@+id/chooseTableTextView"
@@ -74,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:textSize="20sp"
             android:text="@string/points_for_wins"
             app:layout_constraintEnd_toStartOf="@+id/pointsForWinSpinner"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,12 +85,12 @@
         <Spinner
             android:id="@+id/pointsForWinSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pointsForWinTV"
-            app:layout_constraintTop_toBottomOf="@id/nestedScrollView" />
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForWinTV"
+            app:layout_constraintTop_toTopOf="@+id/pointsForWinTV" />
 
         <TextView
             android:id="@+id/pointsForDraw"
@@ -95,6 +98,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textSize="20sp"
             android:text="@string/points_for_draw"
             app:layout_constraintEnd_toStartOf="@+id/pointsForDrawSpinner"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,11 +107,12 @@
         <Spinner
             android:id="@+id/pointsForDrawSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pointsForDraw"
-            app:layout_constraintTop_toBottomOf="@id/pointsForWinTV" />
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForDraw"
+            app:layout_constraintTop_toTopOf="@+id/pointsForDraw" />
 
         <TextView
             android:id="@+id/pointsForLoseTV"
@@ -116,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/points_for_loss"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/pointsForLoseSpinner"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pointsForDraw" />
@@ -123,11 +129,12 @@
         <Spinner
             android:id="@+id/pointsForLoseSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pointsForLoseTV"
-            app:layout_constraintTop_toBottomOf="@id/pointsForDraw" />
+            app:layout_constraintBottom_toBottomOf="@+id/pointsForLoseTV"
+            app:layout_constraintTop_toTopOf="@+id/pointsForLoseTV" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continueButtonRoundRobinEvent"
