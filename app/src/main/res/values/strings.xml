@@ -30,10 +30,16 @@
     <string name="allow_draws">Allow draws</string>
     <string name="individual_event">Individual events</string>
     <string name="set_participants">Set Participants</string>
-    <string name="welcome">Welcome!</string>
+    <string name="welcome">Welcome</string>
     <string name="start">Start</string>
     <string name="check_results">Check Results</string>
     <string name="fab">Fab</string>
     <string name="max_skill">Max Skill</string>
     <string name="min_skill">Min Skill</string>
+    <string name="username">Username</string>
+    <string name="match_day">Match Day</string>
+    <string name="result">Results</string>
+    <string name="setting">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="jack_piper">Jack Piper</string>
 </resources>

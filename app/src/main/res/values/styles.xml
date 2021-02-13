@@ -9,6 +9,10 @@
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
     </style>
 
+    <style name="NavigationViewTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+    </style>
+
     <style name="ButtonElevatedStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/green</item>
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
@@ -29,6 +33,7 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="PromptTextStyle" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">24sp</item>
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>

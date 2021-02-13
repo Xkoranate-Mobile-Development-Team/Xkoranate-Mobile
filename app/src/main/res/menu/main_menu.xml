@@ -2,25 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_user"
-            android:title="User"/>
 
         <item
             android:id="@+id/nav_match_day"
-            android:title="Match Day"/>
+            android:icon="@drawable/ic_today"
+            android:title="@string/match_day" />
 
         <item
             android:id="@+id/nav_result"
-            android:title="Result"/>
+            android:icon="@drawable/ic_events"
+            android:title="@string/result" />
 
         <item
             android:id="@+id/nav_settings"
-            android:title="Setting"/>
+            android:icon="@drawable/ic_settings"
+            android:title="@string/setting" />
 
         <item
             android:id="@+id/nav_log_out"
-            android:title="Log out"/>
+            android:icon="@drawable/ic_remove_circle"
+            android:title="@string/log_out" />
+
     </group>
 
 </menu>

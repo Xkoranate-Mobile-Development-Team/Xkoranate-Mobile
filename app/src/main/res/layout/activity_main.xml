@@ -57,6 +57,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header"
+            app:itemTextAppearance="@style/NavigationViewTextAppearance"
             app:menu="@menu/main_menu" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
