@@ -42,4 +42,5 @@
     <string name="setting">Settings</string>
     <string name="log_out">Log out</string>
     <string name="jack_piper">Jack Piper</string>
+    <string name="results">Results</string>
 </resources>

@@ -18,6 +18,9 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
 
+        // The visibility for the result text view and the recycler view is set to gone
+        // When there is something to display, the visibilities are changed and that of the welcome
+        // image view is changed to gone
 
         return binding?.root
     }
