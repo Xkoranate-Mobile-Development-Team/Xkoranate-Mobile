@@ -43,7 +43,7 @@
             android:layout_marginEnd="30dp"
             android:text="@string/min_skill"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/edit_text_min_skill"
+            app:layout_constraintBottom_toBottomOf="@id/btn_increase_min"
             app:layout_constraintEnd_toStartOf="@id/guide" />
 
         <EditText
@@ -51,27 +51,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:maxLength="1"
             app:layout_constraintStart_toEndOf="@id/guide"
             app:layout_constraintTop_toBottomOf="@id/tv_set_participants" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_increase_min"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="4dp"
-            android:padding="16dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_baseline_chevron_right_24"
             app:layout_constraintBottom_toBottomOf="@id/edit_text_min_skill"
-            app:layout_constraintStart_toEndOf="@id/edit_text_min_skill" />
+            app:layout_constraintStart_toEndOf="@id/edit_text_min_skill"
+            app:layout_constraintTop_toTopOf="@+id/edit_text_min_skill" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_decrease_min"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_baseline_chevron_left_24"
             app:layout_constraintBottom_toBottomOf="@id/edit_text_min_skill"
-            app:layout_constraintEnd_toStartOf="@id/edit_text_min_skill" />
+            app:layout_constraintEnd_toStartOf="@id/edit_text_min_skill"
+            app:layout_constraintTop_toTopOf="@+id/edit_text_min_skill" />
 
         <TextView
             android:id="@+id/tv_max_skill"
@@ -81,7 +85,7 @@
             android:layout_marginEnd="30dp"
             android:text="@string/max_skill"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/edit_text_max_skill"
+            app:layout_constraintBottom_toBottomOf="@id/btn_increase_max"
             app:layout_constraintEnd_toStartOf="@id/guide" />
 
         <EditText
@@ -89,26 +93,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:maxLength="1"
             app:layout_constraintStart_toEndOf="@id/guide"
             app:layout_constraintTop_toBottomOf="@id/tv_min_skill" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_increase_max"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_baseline_chevron_right_24"
             app:layout_constraintBottom_toBottomOf="@id/edit_text_max_skill"
-            app:layout_constraintStart_toEndOf="@id/edit_text_max_skill" />
+            app:layout_constraintStart_toEndOf="@id/edit_text_max_skill"
+            app:layout_constraintTop_toTopOf="@id/edit_text_max_skill" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_decrease_max"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_baseline_chevron_left_24"
             app:layout_constraintBottom_toBottomOf="@id/edit_text_max_skill"
-            app:layout_constraintEnd_toStartOf="@id/edit_text_max_skill" />
+            app:layout_constraintEnd_toStartOf="@id/edit_text_max_skill"
+            app:layout_constraintTop_toTopOf="@+id/edit_text_max_skill" />
 
         <RelativeLayout
             android:id="@+id/recyclerView_container"
@@ -147,8 +156,8 @@
             style="@style/ButtonElevatedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="16dp"
             android:text="@string/continue_button"
             app:cornerRadius="30dp"
