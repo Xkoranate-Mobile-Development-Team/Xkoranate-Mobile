@@ -43,4 +43,8 @@
     <string name="log_out">Log out</string>
     <string name="jack_piper">Jack Piper</string>
     <string name="results">Results</string>
+    <string name="_0">0</string>
+    <string name="team_a">Team A</string>
+    <string name="participant">Participant</string>
+    <string name="skill">Skill</string>
 </resources>

@@ -24,15 +24,11 @@ class SetParticipantsFragment : Fragment() {
             startActivity(Intent(activity, MainActivity::class.java))
         }
 
+
+
         return binding?.root
     }
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance() =
-            SetParticipantsFragment()
-    }
 
     override fun onDestroy() {
         super.onDestroy()
