@@ -47,4 +47,6 @@
     <string name="team_a">Team A</string>
     <string name="participant">Participant</string>
     <string name="skill">Skill</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="reset_all_games">Reset all games</string>
 </resources>

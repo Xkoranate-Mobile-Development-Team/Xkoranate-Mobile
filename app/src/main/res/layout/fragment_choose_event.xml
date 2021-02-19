@@ -35,28 +35,38 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/chooseAnEventTextView"
-            style="@style/PromptTextStyle"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:text="@string/choose_an_event"
-            app:layout_constraintEnd_toStartOf="@id/chooseEventSpinner"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewChooseEvent" />
-
-        <Spinner
-            android:id="@+id/chooseEventSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            app:layout_constraintBottom_toBottomOf="@id/chooseAnEventTextView"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toEndOf="@+id/chooseAnEventTextView"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/recycler_view_bg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/chooseAnEventTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewChooseEvent">
+
+            <TextView
+                android:id="@+id/chooseAnEventTextView"
+                style="@style/PromptTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/choose_an_event" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:src="@color/black" />
+
+            <Spinner
+                android:id="@+id/chooseEventSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp" />
+
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continueButtonChooseEvent"
