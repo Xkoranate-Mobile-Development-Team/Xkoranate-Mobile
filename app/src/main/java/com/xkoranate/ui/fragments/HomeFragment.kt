@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.xkoranate.databinding.FragmentHomeBinding
+import kotlin.system.exitProcess
 
 
 class HomeFragment : Fragment() {
@@ -35,5 +36,6 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+        exitProcess(0)
     }
 }

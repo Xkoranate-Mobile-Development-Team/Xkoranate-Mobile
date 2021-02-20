@@ -21,12 +21,15 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_weight="1"
                     android:fontFamily="@font/meiryo_ui_w53_regular"
                     android:text="@string/dark_mode"
                     android:textSize="18sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/darkModeSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -39,11 +42,14 @@
                 android:src="@color/black" />
 
             <TextView
+                android:id="@+id/resetAllGames"
                 android:layout_width="match_parent"
+                android:clickable="true"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/reset_all_games"
+                android:focusable="true"
                 android:textSize="18sp" />
 
             <ImageView
@@ -51,7 +57,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:src="@color/black" />
-
 
         </LinearLayout>
 
