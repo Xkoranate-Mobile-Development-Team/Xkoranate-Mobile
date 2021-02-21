@@ -20,10 +20,18 @@
         android:id="@+id/matchDayFragment2"
         android:name="com.xkoranate.ui.fragments.MatchDayFragment"
         android:label="fragment_match_day"
-        tools:layout="@layout/fragment_match_day" />
+        tools:layout="@layout/fragment_match_day">
+        <action
+            android:id="@+id/action_matchDayFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.xkoranate.ui.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_matchDayFragment2"
+            app:destination="@id/matchDayFragment2" />
+    </fragment>
 </navigation>

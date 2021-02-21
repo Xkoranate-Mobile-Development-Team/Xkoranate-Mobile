@@ -50,8 +50,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     override fun onBackPressed() {
-        super.onBackPressed()
-//        finishAffinity()
+        val count = supportFragmentManager.backStackEntryCount
+
+        if (count == 1) {
+            finishAffinity()
+        } else {
+            supportFragmentManager.popBackStack()
+        }
     }
 }
