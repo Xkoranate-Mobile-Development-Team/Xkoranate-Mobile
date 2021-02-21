@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
@@ -59,7 +59,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
@@ -95,8 +95,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
@@ -131,58 +132,76 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/chooseTableTextView"-->
-        <!--            style="@style/PromptTextStyle"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="16dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="@string/choose_table_type"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+            <TextView
+                android:id="@+id/pointsForLoseTV"
+                style="@style/PromptTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/points_for_loss"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/pointsForLoseSpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pointsForDraw" />
 
-        <!--        <androidx.core.widget.NestedScrollView-->
-        <!--            android:id="@+id/nestedScrollView"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/chooseTableTextView">-->
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:src="@color/white" />
 
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content">-->
+            <Spinner
+                android:id="@+id/pointsForLoseSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white" />
 
-
-        <!--            </LinearLayout>-->
-
-        <!--        </androidx.core.widget.NestedScrollView>-->
+        </LinearLayout>
 
 
-        <!---->
-        <!--        <TextView-->
-        <!--            android:id="@+id/pointsForLoseTV"-->
-        <!--            style="@style/PromptTextStyle"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:text="@string/points_for_loss"-->
-        <!--            android:textSize="20sp"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/pointsForLoseSpinner"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/pointsForDraw" />-->
+        <TextView
+            android:id="@+id/chooseTableTextView"
+            style="@style/PromptTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/choose_table_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-        <!--        <Spinner-->
-        <!--            android:id="@+id/pointsForLoseSpinner"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginEnd="16dp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/pointsForLoseTV"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/pointsForLoseTV"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/pointsForLoseTV" />-->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseTableTextView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continueButtonRoundRobinEvent"

@@ -9,10 +9,18 @@
         android:layout_height="match_parent"
         android:background="@drawable/gradient_color">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
         <ImageView
             android:id="@+id/xkoranateImage"
             android:layout_width="150dp"
             android:layout_height="50dp"
+            android:contentDescription="@string/xkoranate_image"
             android:src="@drawable/signature_xkoranate_20p8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,54 +32,100 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/set_participants"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/xkoranateImage" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/maxSkillTV"
+            style="@style/PromptTextStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toTopOf="@id/recyclerView_container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_marginStart="16dp"
+            android:text="@string/max_skill"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_set_participants" />
 
-            <TextView
-                android:id="@+id/participantTV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@string/participant"
-                android:textSize="17sp" />
+        <ImageButton
+            android:id="@+id/decreaseSkill2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_baseline_chevron_left_24"
+            app:layout_constraintBottom_toBottomOf="@id/maxSkillTV"
+            app:layout_constraintStart_toEndOf="@id/maxSkillTV"
+            app:layout_constraintTop_toTopOf="@id/maxSkillTV" />
 
-            <TextView
-                android:id="@+id/teamTV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@string/team_a"
-                android:textSize="17sp" />
+        <EditText
+            android:id="@+id/maxSkillET"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintBottom_toBottomOf="@id/decreaseSkill2"
+            app:layout_constraintStart_toEndOf="@id/decreaseSkill2"
+            app:layout_constraintTop_toTopOf="@id/decreaseSkill2" />
 
-            <TextView
-                android:id="@+id/skillTV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@string/skill"
-                android:textSize="17sp" />
+        <ImageButton
+            android:id="@+id/increaseSkill2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_baseline_chevron_right_24"
+            app:layout_constraintBottom_toBottomOf="@id/maxSkillET"
+            app:layout_constraintStart_toEndOf="@id/maxSkillET"
+            app:layout_constraintTop_toTopOf="@id/maxSkillET" />
 
-        </LinearLayout>
+
+        <TextView
+            android:id="@+id/minSkillTV"
+            style="@style/PromptTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/min_skill"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_set_participants" />
+
+        <ImageButton
+            android:id="@+id/decreaseSkill"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_baseline_chevron_left_24"
+            app:layout_constraintBottom_toBottomOf="@id/minSkillTV"
+            app:layout_constraintStart_toEndOf="@id/minSkillTV"
+            app:layout_constraintTop_toTopOf="@id/minSkillTV" />
+
+        <EditText
+            android:id="@+id/minSkillET"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintBottom_toBottomOf="@id/decreaseSkill"
+            app:layout_constraintStart_toEndOf="@id/decreaseSkill"
+            app:layout_constraintTop_toTopOf="@id/decreaseSkill" />
+
+        <ImageButton
+            android:id="@+id/increaseSkill"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_baseline_chevron_right_24"
+            app:layout_constraintBottom_toBottomOf="@id/minSkillET"
+            app:layout_constraintStart_toEndOf="@id/minSkillET"
+            app:layout_constraintTop_toTopOf="@id/minSkillET" />
 
         <RelativeLayout
             android:id="@+id/recyclerView_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/white_rounded_bg"
@@ -79,12 +133,48 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_continue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_set_participants">
+            app:layout_constraintTop_toBottomOf="@+id/minSkillTV">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/participantTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/meiryo_ui_w53_regular"
+                    android:text="@string/participant"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/teamTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/meiryo_ui_w53_regular"
+                    android:text="@string/team_a"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/skillTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/meiryo_ui_w53_regular"
+                    android:text="@string/skill"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/linearLayout"
                 android:layout_centerInParent="true"
                 tools:listitem="@layout/rv_child_set_participants" />
 
@@ -113,7 +203,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
