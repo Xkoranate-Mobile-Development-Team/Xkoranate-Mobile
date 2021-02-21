@@ -24,7 +24,41 @@ class SetParticipantsFragment : Fragment() {
             startActivity(Intent(activity, MainActivity::class.java))
         }
 
+        binding?.increaseSkill?.setOnClickListener {
+            if (binding?.minSkillET?.text.toString() != "") {
+                val newValue = binding?.minSkillET?.text.toString().toInt() + 1
+                binding?.minSkillET?.setText(newValue.toString())
+            } else {
+                binding?.minSkillET?.setText("0")
+            }
+        }
 
+        binding?.decreaseSkill?.setOnClickListener {
+            if (binding?.minSkillET?.text.toString() != "") {
+                val newValue = binding?.minSkillET?.text.toString().toInt() - 1
+                binding?.minSkillET?.setText(newValue.toString())
+            } else {
+                binding?.minSkillET?.setText("0")
+            }
+        }
+
+        binding?.increaseSkill2?.setOnClickListener {
+            if (binding?.maxSkillET?.text.toString() != "") {
+                val newValue = binding?.maxSkillET?.text.toString().toInt() + 1
+                binding?.maxSkillET?.setText(newValue.toString())
+            } else {
+                binding?.maxSkillET?.setText("0")
+            }
+        }
+
+        binding?.decreaseSkill2?.setOnClickListener {
+            if (binding?.maxSkillET?.text.toString() != "") {
+                val newValue = binding?.maxSkillET?.text.toString().toInt() - 1
+                binding?.maxSkillET?.setText(newValue.toString())
+            } else {
+                binding?.maxSkillET?.setText("0")
+            }
+        }
 
         return binding?.root
     }

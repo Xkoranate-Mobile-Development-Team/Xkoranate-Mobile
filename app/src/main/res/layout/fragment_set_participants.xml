@@ -42,7 +42,6 @@
             style="@style/PromptTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/max_skill"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/guideline2"
@@ -64,6 +63,11 @@
             android:layout_width="30dp"
             android:layout_height="24dp"
             android:background="@drawable/edit_text_bg"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="#504F4F"
             app:layout_constraintBottom_toBottomOf="@id/decreaseSkill2"
             app:layout_constraintStart_toEndOf="@id/decreaseSkill2"
             app:layout_constraintTop_toTopOf="@id/decreaseSkill2" />
@@ -106,6 +110,11 @@
             android:layout_width="30dp"
             android:layout_height="24dp"
             android:background="@drawable/edit_text_bg"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="#504F4F"
             app:layout_constraintBottom_toBottomOf="@id/decreaseSkill"
             app:layout_constraintStart_toEndOf="@id/decreaseSkill"
             app:layout_constraintTop_toTopOf="@id/decreaseSkill" />
@@ -186,7 +195,6 @@
                 android:layout_margin="8dp"
                 android:contentDescription="@string/fab"
                 android:src="@drawable/ic_add" />
-
 
         </RelativeLayout>
 
