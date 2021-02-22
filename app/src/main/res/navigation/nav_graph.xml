@@ -22,8 +22,8 @@
         android:label="fragment_match_day"
         tools:layout="@layout/fragment_match_day">
         <action
-            android:id="@+id/action_matchDayFragment2_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_matchDayFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -31,7 +31,7 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings">
         <action
-            android:id="@+id/action_settingsFragment_to_matchDayFragment2"
-            app:destination="@id/matchDayFragment2" />
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

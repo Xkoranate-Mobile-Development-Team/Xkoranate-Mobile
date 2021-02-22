@@ -50,4 +50,6 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="reset_all_games">Reset all games</string>
     <string name="do_you_want_to_allow_draws">Do you want to allow draws?</string>
+    <string name="team_name">Team Name</string>
+    <string name="skill_level">Skill Level</string>
 </resources>

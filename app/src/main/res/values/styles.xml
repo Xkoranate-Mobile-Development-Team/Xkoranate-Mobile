@@ -6,19 +6,52 @@
         <item name="colorPrimary">@color/gradient_red_like</item>
         <item name="colorPrimaryDark">@color/gradient_red_like</item>
         <item name="colorAccent">@color/green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="materialAlertDialogTheme">@style/MaterialAlertDialog.Rounded</item>
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
     </style>
 
+    <!-- MaterialAlertDialog Theme-->
+    <style name="MaterialAlertDialog.Rounded" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded
+        </item>
+        <item name="materialAlertDialogTitleTextStyle">@style/DialogTitleStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerSize">18dp</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+        <item name="android:text">@string/set_participants</item>
+    </style>
+
+
+    <!-- DrawerLayout NavigationView Theme-->
     <style name="NavigationViewTextAppearance" parent="TextAppearance.AppCompat.Medium">
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
     </style>
 
+    <!-- Button styles-->
     <style name="ButtonElevatedStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/green</item>
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
-
     <style name="ButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
