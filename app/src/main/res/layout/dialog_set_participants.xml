@@ -55,6 +55,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/skillLevelTV"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:fontFamily="@font/meiryo_ui_w53_regular"
             android:hint="@string/skill_level"
