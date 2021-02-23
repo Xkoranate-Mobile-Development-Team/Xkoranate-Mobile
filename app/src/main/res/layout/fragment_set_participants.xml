@@ -183,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_add_notes_pana" />
+                app:srcCompat="@drawable/ic_add_notes_pana" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
