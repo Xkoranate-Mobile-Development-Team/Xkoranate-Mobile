@@ -20,10 +20,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/prompt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/xkoranateImage">
@@ -31,6 +32,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/ic_fitness_tracker_rafiki" />
 
         </androidx.cardview.widget.CardView>
@@ -43,17 +46,20 @@
             android:layout_marginTop="8dp"
             android:text="@string/do_you_want_to_allow_draws"
             android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/allowDraws"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView" />
 
         <CheckBox
+            android:id="@+id/allowDraws"
             style="@style/PromptTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/allow_draws"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/continueButtonIndividualEvent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/prompt" />
