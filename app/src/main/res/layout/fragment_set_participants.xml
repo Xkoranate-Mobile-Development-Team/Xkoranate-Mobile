@@ -67,7 +67,7 @@
             android:gravity="center"
             android:inputType="number"
             android:maxLength="2"
-            android:textColor="#504F4F"
+            android:textColor="@color/dark"
             app:layout_constraintBottom_toBottomOf="@id/decreaseSkill2"
             app:layout_constraintStart_toEndOf="@id/decreaseSkill2"
             app:layout_constraintTop_toTopOf="@id/decreaseSkill2" />
@@ -114,7 +114,7 @@
             android:gravity="center"
             android:inputType="number"
             android:maxLength="2"
-            android:textColor="#504F4F"
+            android:textColor="@color/dark"
             app:layout_constraintBottom_toBottomOf="@id/decreaseSkill"
             app:layout_constraintStart_toEndOf="@id/decreaseSkill"
             app:layout_constraintTop_toTopOf="@id/decreaseSkill" />
@@ -190,8 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/linearLayout"
-                android:layout_centerInParent="true"
-                tools:listitem="@layout/rv_child_set_participants" />
+                android:layout_centerInParent="true" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"

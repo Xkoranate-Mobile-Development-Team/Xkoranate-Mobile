@@ -34,7 +34,7 @@
                 android:layout_height="350dp"
                 android:layout_gravity="center"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/ic_fitness_tracker_rafiki" />
+                app:srcCompat="@drawable/ic_journey_amico" />
 
         </androidx.cardview.widget.CardView>
 
@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/allow_draws"
+            android:drawableTint="@color/dark"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/continueButtonIndividualEvent"
             app:layout_constraintEnd_toEndOf="parent"
