@@ -50,14 +50,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     override fun onBackPressed() {
-        val count = supportFragmentManager.backStackEntryCount
+        super.onBackPressed()
+        // If there is no backstack, the actvity should be finised
 
-        if (count == 0) {
-            finishAffinity()
-        } else {
-            supportFragmentManager.popBackStack()
-        }
     }
+
 }
