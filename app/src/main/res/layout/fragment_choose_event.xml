@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:src="@drawable/ic_fitness_tracker_bro" />
+                android:src="@drawable/ic_questions_pana" />
 
         </androidx.cardview.widget.CardView>
 
