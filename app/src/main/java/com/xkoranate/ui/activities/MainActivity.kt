@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         // If there is no backstack, the actvity should be finised
-        Navigation.findNavController(this, R.id.nav_host_fragment).popBackStack()
+
     }
 
 }
