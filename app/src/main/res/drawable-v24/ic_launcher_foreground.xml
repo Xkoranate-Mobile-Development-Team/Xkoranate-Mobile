@@ -10,24 +10,23 @@
         android:translateX="17.28"
         android:translateY="17.28">
         <path
-            android:pathData="M499.74 249.87A249.87 249.87 0 0 1 0 249.87A249.87 249.87 0 0 1 499.74 249.87Z"
+            android:fillType="evenOdd"
+            android:pathData="M499.74 249.87A249.87 249.87 0 0 1 0 249.87A249.87 249.87 0 0 1 499.74 249.87Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:endX="218.88"
+                    android:endY="1.93"
+                    android:startX="280.86"
+                    android:startY="497.81"
+                    android:tileMode="clamp" />
+            </aapt:attr>
+        </path>
+        <path
+            android:pathData="M484.93 249.87A235.06 235.06 0 0 1 14.81 249.87A235.06 235.06 0 0 1 484.93 249.87Z"
             android:fillType="evenOdd">
             <aapt:attr name="android:fillColor">
                 <gradient
-                    android:startX="280.86"
-                    android:startY="497.81"
-                    android:endX="218.88"
-                    android:endY="1.93"
-                  android:tileMode="clamp" />
-          </aapt:attr>
-      </path>
-      <path
-          android:pathData="M484.93 249.87A235.06 235.06 0 0 1 14.81 249.87A235.06 235.06 0 0 1 484.93 249.87Z"
-          android:fillType="evenOdd">
-          <aapt:attr
-              name="android:fillColor">
-              <gradient
-                  android:startX="241.17"
+                    android:startX="241.17"
                   android:startY="14.97"
                   android:endX="258.57"
                   android:endY="484.78"
