@@ -2,20 +2,22 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
-    android:viewportWidth="806.0323"
-    android:viewportHeight="806.0323">
-  <group android:translateX="153.14613"
-      android:translateY="153.14613">
-      <path
-          android:pathData="M499.74 249.87A249.87 249.87 0 0 1 0 249.87A249.87 249.87 0 0 1 499.74 249.87Z"
-          android:fillType="evenOdd">
-          <aapt:attr
-              name="android:fillColor">
-              <gradient
-                  android:startX="280.86"
-                  android:startY="497.81"
-                  android:endX="218.88"
-                  android:endY="1.93"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.14695641"
+        android:scaleY="0.14695641"
+        android:translateX="17.28"
+        android:translateY="17.28">
+        <path
+            android:pathData="M499.74 249.87A249.87 249.87 0 0 1 0 249.87A249.87 249.87 0 0 1 499.74 249.87Z"
+            android:fillType="evenOdd">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="280.86"
+                    android:startY="497.81"
+                    android:endX="218.88"
+                    android:endY="1.93"
                   android:tileMode="clamp" />
           </aapt:attr>
       </path>
