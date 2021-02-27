@@ -32,10 +32,11 @@ class SetParticipantsFragment : Fragment() {
         binding?.btnContinue?.setOnClickListener {
 
             // Todo: Add the condition for the presence of data in participants db
-            if (binding?.minSkillET.toString().isEmpty()) {
+            if (false) {
 
                 Toast.makeText(
-                    activity, "Pls add participants and skills constraints",
+                    activity,
+                    "Pls add participants and skills constraints",
                     Toast.LENGTH_LONG
                 ).show()
 
