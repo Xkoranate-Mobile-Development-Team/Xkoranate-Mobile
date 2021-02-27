@@ -1,5 +1,6 @@
 package com.xkoranate.ui.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        checkUser()
+        checkCurrentGame()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
+                R.id.nav_exit -> {
+                    // Closes the app
+                    finishAffinity()
+                }
 
             }
 
@@ -50,10 +57,30 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        // If there is no backstack, the actvity should be finised
+    // Todo: This should be transferred to the viewModel later
+    private fun checkCurrentGame() {
 
+        // Shared preferences to check if there is a current game. If there isn't, it starts
+        // SetupGameActivity
+
+        val isThereGame: Boolean =
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+                .getBoolean("isThereGame", false)
+
+        if (isThereGame) {
+            // Stays in this activity
+        } else {
+//            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+//                .putBoolean("isThereGame", true).apply()
+            startActivity(Intent(this, SetupGameActivity::class.java))
+        }
+
+
+    }
+
+
+    private fun checkUser() {
+        // Todo: Checks if there is a current user, if there isn't, it opens login activity
     }
 
 }

@@ -19,14 +19,9 @@
             tools:ignore="LockedOrientationActivity" />
 
 
-        <activity android:name=".ui.activities.SetupGameActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity
+            android:name=".ui.activities.SetupGameActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.activities.LoginActivity"
@@ -35,12 +30,14 @@
             tools:ignore="LockedOrientationActivity" />
 
 
-        <activity android:name=".ui.activities.MainActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

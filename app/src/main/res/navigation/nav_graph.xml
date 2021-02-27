@@ -11,12 +11,10 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_matchDayFragment2"
-            app:destination="@id/matchDayFragment2"
-            app:popUpTo="@id/homeFragment" />
+            app:destination="@id/matchDayFragment2" />
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment"
-            app:popUpTo="@id/homeFragment" />
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchDayFragment2"

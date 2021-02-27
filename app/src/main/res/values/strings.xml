@@ -52,4 +52,5 @@
     <string name="do_you_want_to_allow_draws">Do you want to allow draws?</string>
     <string name="team_name">Team Name</string>
     <string name="skill_level">Skill Level</string>
+    <string name="exit">Exit</string>
 </resources>

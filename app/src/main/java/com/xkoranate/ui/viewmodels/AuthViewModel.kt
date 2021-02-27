@@ -1,6 +1,5 @@
 package com.xkoranate.ui.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.xkoranate.data.repositories.AuthRepository
 import com.xkoranate.other.AuthListener
@@ -8,7 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class AuthViewModel: ViewModel() {
+class AuthViewModel : ViewModel() {
 
     private val authRepository by lazy {
         AuthRepository()

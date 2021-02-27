@@ -11,4 +11,9 @@ class SetupGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setup_game)
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }
