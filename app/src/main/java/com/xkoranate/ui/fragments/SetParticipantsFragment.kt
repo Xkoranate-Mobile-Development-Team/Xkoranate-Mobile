@@ -1,6 +1,5 @@
 package com.xkoranate.ui.fragments
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -41,11 +40,7 @@ class SetParticipantsFragment : Fragment() {
                 ).show()
 
             } else {
-
-                mainActivity.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
-                    .putBoolean("isThereGame", true).apply()
                 startActivity(Intent(activity, MainActivity::class.java))
-
             }
 
         }

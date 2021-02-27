@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
         if (isThereGame) {
             // Stays in this activity
         } else {
-//            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
-//                .putBoolean("isThereGame", true).apply()
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+                .putBoolean("isThereGame", true).apply()
             startActivity(Intent(this, SetupGameActivity::class.java))
         }
 
