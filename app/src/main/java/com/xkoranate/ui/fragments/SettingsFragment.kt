@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.activities.SetupGameActivity
@@ -24,7 +23,7 @@ class SettingsFragment : Fragment() {
     ): View? {
 
         binding = FragmentSettingsBinding.inflate(inflater)
-        viewModel = ViewModelProvider(this).get(SettingsFragmentViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(SettingsFragmentViewModel::class.java)
 
         binding?.newGame?.setOnClickListener {
 

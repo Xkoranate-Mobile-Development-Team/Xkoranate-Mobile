@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.SettingsFragment">
 
     <ScrollView
@@ -25,23 +25,6 @@
                 android:focusable="true"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/new_game"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:srcCompat="@color/black" />
-
-            <TextView
-                android:id="@+id/resetAllGames"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@string/reset_all_games"
                 android:textSize="18sp" />
 
             <ImageView
