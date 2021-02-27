@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // Todo: This should be transferred to the viewModel later
+    // Todo: After persistence, update the isThereGame such that it checks from the viewModel if
+    //  there is a currentGame
+
     private fun checkCurrentGame() {
 
         // Shared preferences to check if there is a current game. If there isn't, it starts

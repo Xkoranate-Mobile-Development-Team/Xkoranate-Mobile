@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/green</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorSecondary">@color/yellow</item>
+        <item name="android:textColor">@color/dark</item>
         <item name="materialAlertDialogTheme">@style/MaterialAlertDialog.Rounded</item>
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
     </style>

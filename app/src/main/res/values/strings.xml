@@ -53,4 +53,5 @@
     <string name="team_name">Team Name</string>
     <string name="skill_level">Skill Level</string>
     <string name="exit">Exit</string>
+    <string name="new_game">New game</string>
 </resources>
