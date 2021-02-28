@@ -14,16 +14,19 @@
     </style>
 
     <!-- MaterialAlertDialog Theme-->
-    <style name="MaterialAlertDialog.Rounded" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+    <style name="MaterialAlertDialog.Rounded" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="shapeAppearanceOverlay">
             @style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded
         </item>
-        <item name="materialAlertDialogTitleTextStyle">@style/DialogTitleStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerSize">18dp</item>
     </style>
 
@@ -37,9 +40,8 @@
         <item name="android:textColor">@color/green</item>
     </style>
 
-    <style name="DialogTitleStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
-        <item name="android:text">@string/set_participants</item>
     </style>
 
 
@@ -54,6 +56,7 @@
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="ButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
         <item name="android:textColor">@color/black</item>
