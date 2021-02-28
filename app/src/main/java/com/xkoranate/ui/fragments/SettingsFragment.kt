@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.activities.SetupGameActivity
 import com.xkoranate.ui.viewmodels.SettingsFragmentViewModel
@@ -29,7 +30,7 @@ class SettingsFragment : Fragment() {
 
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle("New Game")
-                .setMessage("Do you want to start a new game? This will clear current game")
+                .setView(R.layout.dialog_new_game)
                 .setNegativeButton("Cancel") { dialog, which ->
                     // Responds to cancel button
                 }
