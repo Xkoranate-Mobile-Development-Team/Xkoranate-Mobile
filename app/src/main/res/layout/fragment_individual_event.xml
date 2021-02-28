@@ -45,25 +45,39 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/do_you_want_to_allow_draws"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/allowDraws"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView" />
 
-        <CheckBox
-            android:id="@+id/allowDraws"
-            style="@style/PromptTextStyle"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/allow_draws"
-            android:drawableTint="@color/dark"
-            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/continueButtonIndividualEvent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prompt" />
+            app:layout_constraintTop_toBottomOf="@+id/prompt">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/allowDraws"
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:buttonTint="@color/dark" />
+
+            <TextView
+                android:id="@+id/allowDrawsTV"
+                style="@style/PromptTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:text="@string/allow_draws"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continueButtonIndividualEvent"

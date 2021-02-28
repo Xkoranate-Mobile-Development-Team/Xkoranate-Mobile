@@ -9,6 +9,7 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorSecondary">@color/yellow</item>
         <item name="android:textColor">@color/dark</item>
+        <item name="checkedIconTint">@color/black</item>
         <item name="materialAlertDialogTheme">@style/MaterialAlertDialog.Rounded</item>
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
     </style>
@@ -42,6 +43,7 @@
 
     <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+        <item name="android:textColor">@color/gradient_red_like</item>
     </style>
 
 
