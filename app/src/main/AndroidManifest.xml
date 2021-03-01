@@ -33,6 +33,10 @@
         <activity
             android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".ui.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
