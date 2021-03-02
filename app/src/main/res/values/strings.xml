@@ -43,6 +43,7 @@
     <string name="log_out">Log out</string>
     <string name="jack_piper">Jack Piper</string>
     <string name="results">Results</string>
+<<<<<<< Updated upstream
     <string name="_0">0</string>
     <string name="team_a">Team A</string>
     <string name="participant">Participant</string>
@@ -55,4 +56,10 @@
     <string name="exit">Exit</string>
     <string name="new_game">New game</string>
     <string name="do_you_want_to_start_a_new_game_this_will_clear_current_game">Do you want to start a new game? This will clear current game</string>
+=======
+
+    <string-array name="events_array">
+        <item></item>
+    </string-array>
+>>>>>>> Stashed changes
 </resources>
