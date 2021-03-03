@@ -10,7 +10,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.activities.SetupGameActivity
-import com.xkoranate.ui.viewmodels.SettingsFragmentViewModel
 
 private lateinit var viewModel: SettingsFragmentViewModel
 
