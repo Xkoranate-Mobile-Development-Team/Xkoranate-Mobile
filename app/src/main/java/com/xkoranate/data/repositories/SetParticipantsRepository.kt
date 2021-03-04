@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.xkoranate.db.participants.Participants
 import com.xkoranate.db.participants.ParticipantsDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SetParticipantsRepository(application: Application) {
 
@@ -17,8 +17,8 @@ class SetParticipantsRepository(application: Application) {
         return participants
     }
 
-    suspend fun insert(participants: Participants) {
-        withContext(Dispatchers.IO) {
+    fun insert(participants: Participants) {
+        GlobalScope.launch {
             dao.insert(participants)
         }
     }

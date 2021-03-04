@@ -17,7 +17,7 @@ class SetParticipantsViewModel(application: Application) : AndroidViewModel(appl
         return participants
     }
 
-    suspend fun insert(participants: Participants) {
+    fun insert(participants: Participants) {
         repository.insert(participants)
     }
 

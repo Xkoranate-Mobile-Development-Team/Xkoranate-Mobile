@@ -17,8 +17,6 @@ import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
 import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 class SetParticipantsFragment : Fragment() {
@@ -41,10 +39,11 @@ class SetParticipantsFragment : Fragment() {
         binding?.lifecycleOwner?.let {
             viewModel.getAllParticipants().observe(it, Observer<List<Participants>> {
                 setParticipantsAdapter = SetParticipantsAdapter(it)
+                binding?.recyclerView?.adapter = setParticipantsAdapter
             })
         }
 
-        binding?.recyclerView?.adapter = setParticipantsAdapter
+
 
 
 
@@ -116,21 +115,29 @@ class SetParticipantsFragment : Fragment() {
                 }
                 .setPositiveButton("Set") { dialog, which ->
                     // Respond to set button
-                    val participants = Participants(
-                        participants = setParticipant?.text.toString(),
-                        team = teamName?.text.toString(),
-                        skill = skillLevel?.text?.toString()?.toInt()
-                    )
 
-                    GlobalScope.launch {
+                    if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
+                        val participants = Participants(
+                            participants = setParticipant.text.toString(),
+                            team = teamName.text.toString(),
+                            skill = skillLevel?.text?.toString()?.toInt()
+                        )
+
                         viewModel.insert(participants)
+
+
+                        binding?.deleteAllFab?.visibility = View.VISIBLE
+
+                    } else {
+                        Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
+                            .show()
                     }
+
                 }
 
             dialog.show()
 
         }
-
 
 
         return binding?.root
