@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
-import com.xkoranate.db.participants.ParticipantsDao
-import com.xkoranate.db.participants.ParticipantsDatabase
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
 
@@ -21,9 +19,6 @@ import com.xkoranate.ui.adapters.SetParticipantsAdapter
 class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
-    lateinit var participantsDatabase: ParticipantsDatabase
-    lateinit var participantsDao: ParticipantsDao
-    lateinit var mainActivity: MainActivity
     lateinit var setParticipantsAdapter: SetParticipantsAdapter
 
     override fun onCreateView(
@@ -34,10 +29,10 @@ class SetParticipantsFragment : Fragment() {
 
 
 
-        binding?.lifecycleOwner = this
+//        binding?.lifecycleOwner = this
 
-        binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
         binding?.recyclerView?.adapter = setParticipantsAdapter
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
 
         binding?.btnContinue?.setOnClickListener {

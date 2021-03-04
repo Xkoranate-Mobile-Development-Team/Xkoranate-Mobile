@@ -11,7 +11,6 @@ import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.activities.SetupGameActivity
 
-private lateinit var viewModel: SettingsFragmentViewModel
 
 class SettingsFragment : Fragment() {
 
