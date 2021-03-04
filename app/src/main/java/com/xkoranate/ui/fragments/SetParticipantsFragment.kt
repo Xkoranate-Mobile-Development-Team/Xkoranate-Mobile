@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
@@ -34,9 +33,10 @@ class SetParticipantsFragment : Fragment() {
     ): View? {
 
         binding = FragmentSetParticipantsBinding.inflate(inflater)
+
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
-        viewModel = ViewModelProviders.of(this).get(SetParticipantsViewModel::class.java)
+//        viewModel = ViewModelProviders.of(this).get(SetParticipantsViewModel::class.java)
 
         binding?.lifecycleOwner?.let {
             viewModel.getAllParticipants().observe(it, Observer<List<Participants>> {
