@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
@@ -35,6 +36,7 @@ class SetParticipantsFragment : Fragment() {
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
 //        viewModel = ViewModelProviders.of(this).get(SetParticipantsViewModel::class.java)
+        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application).create(SetParticipantsViewModel::class.java)
 
         binding?.lifecycleOwner?.let {
             viewModel.getAllParticipants().observe(it, Observer<List<Participants>> {
@@ -102,40 +104,75 @@ class SetParticipantsFragment : Fragment() {
 
         binding?.fab?.setOnClickListener {
 
-            val setParticipant = view?.findViewById<EditText>(R.id.setParticipantsET)
-            val teamName = view?.findViewById<EditText>(R.id.teamNameET)
-            val skillLevel = view?.findViewById<EditText>(R.id.skillLevelET)
+//            val setParticipant = view?.findViewById<EditText>(R.id.setParticipantsET)
+//            val teamName = view?.findViewById<EditText>(R.id.teamNameET)
+//            val skillLevel = view?.findViewById<EditText>(R.id.skillLevelET)
 
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
-                .setTitle("Set participants")
-                .setView(R.layout.dialog_set_participants)
-                .setNegativeButton("Cancel") { dialog, which ->
-                    // Respond to cancel button
+            val dialogView = layoutInflater.inflate(R.layout.dialog_set_participants, null)
+            dialog.setView(dialogView)
 
+            val setParticipant = dialogView?.findViewById<EditText>(R.id.setParticipantsET)
+            val teamName = dialogView?.findViewById<EditText>(R.id.teamNameET)
+            val skillLevel = dialogView?.findViewById<EditText>(R.id.skillLevelET)
+            dialog.setTitle("Set participants")
+            dialog.setNegativeButton("Cancel") { dialog, which ->
+
+            }
+            dialog.setPositiveButton("Set") { dialog, which ->
+
+
+                if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
+                    val participants = Participants(
+                        participants = setParticipant.text.toString(),
+                        team = teamName.text.toString(),
+                        skill = skillLevel?.text?.toString()?.toInt()
+                    )
+
+                    viewModel.insert(participants)
+
+
+                    binding?.deleteAllFab?.visibility = View.VISIBLE
+
+                } else {
+                    Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
+                        .show()
                 }
-                .setPositiveButton("Set") { dialog, which ->
-                    // Respond to set button
-
-                    if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
-                        val participants = Participants(
-                            participants = setParticipant.text.toString(),
-                            team = teamName.text.toString(),
-                            skill = skillLevel?.text?.toString()?.toInt()
-                        )
-
-                        viewModel.insert(participants)
-
-
-                        binding?.deleteAllFab?.visibility = View.VISIBLE
-
-                    } else {
-                        Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-
-                }
+            }
 
             dialog.show()
+
+
+//                .setTitle("Set participants")
+//                .setView(R.layout.dialog_set_participants)
+//                .setNegativeButton("Cancel") { dialog, which ->
+//                    // Respond to cancel button
+//
+//                }
+//                .setPositiveButton("Set") { dialog, which ->
+//                    // Respond to set button
+//
+//
+//
+//                    if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
+//                        val participants = Participants(
+//                            participants = setParticipant.text.toString(),
+//                            team = teamName.text.toString(),
+//                            skill = skillLevel?.text?.toString()?.toInt()
+//                        )
+//
+//                        viewModel.insert(participants)
+//
+//
+//                        binding?.deleteAllFab?.visibility = View.VISIBLE
+//
+//                    } else {
+//                        Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
+//                            .show()
+//                    }
+//
+//                }
+//            dialog.show()
 
         }
 
