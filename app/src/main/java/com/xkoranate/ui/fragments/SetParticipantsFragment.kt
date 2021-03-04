@@ -8,31 +8,44 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
+import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
+import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
+    lateinit var viewModel: SetParticipantsViewModel
     lateinit var setParticipantsAdapter: SetParticipantsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentSetParticipantsBinding.inflate(inflater)
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
+        viewModel = ViewModelProviders.of(this).get(SetParticipantsViewModel::class.java)
 
-
-//        binding?.lifecycleOwner = this
+        binding?.lifecycleOwner?.let {
+            viewModel.getAllParticipants().observe(it, Observer<List<Participants>> {
+                setParticipantsAdapter = SetParticipantsAdapter(it)
+            })
+        }
 
         binding?.recyclerView?.adapter = setParticipantsAdapter
-        binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
+
 
 
         binding?.btnContinue?.setOnClickListener {
@@ -99,11 +112,19 @@ class SetParticipantsFragment : Fragment() {
                 .setView(R.layout.dialog_set_participants)
                 .setNegativeButton("Cancel") { dialog, which ->
                     // Respond to cancel button
+
                 }
                 .setPositiveButton("Set") { dialog, which ->
                     // Respond to set button
+                    val participants = Participants(
+                        participants = setParticipant?.text.toString(),
+                        team = teamName?.text.toString(),
+                        skill = skillLevel?.text?.toString()?.toInt()
+                    )
 
-
+                    GlobalScope.launch {
+                        viewModel.insert(participants)
+                    }
                 }
 
             dialog.show()
