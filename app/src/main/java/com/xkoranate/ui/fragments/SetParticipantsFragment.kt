@@ -8,18 +8,14 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
-import com.xkoranate.db.participants.Participants
 import com.xkoranate.db.participants.ParticipantsDao
 import com.xkoranate.db.participants.ParticipantsDatabase
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
-import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
-import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModelFactory
 
 
 class SetParticipantsFragment : Fragment() {
@@ -36,20 +32,13 @@ class SetParticipantsFragment : Fragment() {
     ): View? {
         binding = FragmentSetParticipantsBinding.inflate(inflater)
 
-        val application = requireNotNull(this.activity).application
-        val dataSource = ParticipantsDatabase.getInstance(application).participantsDao
-        val viewModelFactory = SetParticipantsViewModelFactory(dataSource, application)
-        val setParticipantsViewModel = ViewModelProviders.of(this, viewModelFactory).get(
-            SetParticipantsViewModel::class.java
-        )
 
-        binding?.setParticipantsViewModel = setParticipantsViewModel
 
         binding?.lifecycleOwner = this
 
-        setParticipantsAdapter = SetParticipantsAdapter(setParticipantsViewModel.getParticipants())
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
         binding?.recyclerView?.adapter = setParticipantsAdapter
+
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -118,9 +107,8 @@ class SetParticipantsFragment : Fragment() {
                 }
                 .setPositiveButton("Set") { dialog, which ->
                     // Respond to set button
-                    val participant: Participants
-                    participant.participants = setParticipant?.text.toString()
-                    setParticipantsViewModel.insert(
+
+
                 }
 
             dialog.show()
