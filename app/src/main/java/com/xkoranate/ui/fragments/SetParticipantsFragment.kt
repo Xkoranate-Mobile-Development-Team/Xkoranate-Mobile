@@ -152,6 +152,7 @@ class SetParticipantsFragment : Fragment() {
                 if (list.isEmpty()) {
                     binding?.addImage?.visibility = View.VISIBLE
                 } else {
+                    binding?.addImage?.visibility = View.GONE
                     binding?.deleteAllFab?.visibility = View.VISIBLE
                 }
             })
