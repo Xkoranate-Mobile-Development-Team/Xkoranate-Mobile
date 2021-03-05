@@ -209,6 +209,7 @@
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/deleteAllFab"
                     android:layout_width="wrap_content"
+                    app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|start"
                     android:layout_margin="8dp"
@@ -221,6 +222,7 @@
                     android:id="@+id/fab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="8dp"
                     android:contentDescription="@string/fab"
