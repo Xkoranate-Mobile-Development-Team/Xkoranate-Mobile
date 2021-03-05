@@ -24,7 +24,9 @@ class SetParticipantsRepository(application: Application) {
     }
 
     fun deleteAll() {
-        dao.clear()
+        GlobalScope.launch {
+            dao.clear()
+        }
     }
 
 }

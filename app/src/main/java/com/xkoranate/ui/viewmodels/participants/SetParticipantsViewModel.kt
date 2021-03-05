@@ -21,6 +21,10 @@ class SetParticipantsViewModel(application: Application) : AndroidViewModel(appl
         repository.insert(participants)
     }
 
+    fun delete() {
+        repository.deleteAll()
+    }
+
 
     private var viewModelJob = Job()
 

@@ -93,11 +93,12 @@ class SetParticipantsFragment : Fragment() {
             }
         }
 
-        binding?.fab?.setOnClickListener {
+        binding?.deleteAllFab?.setOnClickListener {
+            viewModel.delete()
+            refreshList()
+        }
 
-//            val setParticipant = view?.findViewById<EditText>(R.id.setParticipantsET)
-//            val teamName = view?.findViewById<EditText>(R.id.teamNameET)
-//            val skillLevel = view?.findViewById<EditText>(R.id.skillLevelET)
+        binding?.fab?.setOnClickListener {
 
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
             val dialogView = layoutInflater.inflate(R.layout.dialog_set_participants, null)
