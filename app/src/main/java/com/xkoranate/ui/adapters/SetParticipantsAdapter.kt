@@ -12,8 +12,7 @@ class SetParticipantsAdapter(private val participants: List<Participants>) :
     RecyclerView.Adapter<SetParticipantsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val binding = LayoutInflater.from(parent.context)
-//                .inflate(R.layout.rv_child_set_participants, parent, false)
+
         return ViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.rv_child_set_participants, parent, false)
@@ -33,9 +32,9 @@ class SetParticipantsAdapter(private val participants: List<Participants>) :
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val participant: TextView = itemView.findViewById(R.id.participantTV)
-        val team: TextView = itemView.findViewById(R.id.teamTV)
-        val skill: TextView = itemView.findViewById(R.id.skillTV)
+        val participant: TextView = itemView.findViewById(R.id.rvParticipantTV)
+        val team: TextView = itemView.findViewById(R.id.rvTeamTV)
+        val skill: TextView = itemView.findViewById(R.id.rvSkillTV)
     }
 
 }

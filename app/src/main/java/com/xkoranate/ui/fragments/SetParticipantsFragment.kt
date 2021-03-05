@@ -24,7 +24,6 @@ class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
     lateinit var viewModel: SetParticipantsViewModel
-    lateinit var setParticipantsAdapter: SetParticipantsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,22 +31,14 @@ class SetParticipantsFragment : Fragment() {
     ): View? {
 
         binding = FragmentSetParticipantsBinding.inflate(inflater)
-
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
-//        viewModel = ViewModelProviders.of(this).get(SetParticipantsViewModel::class.java)
-        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application).create(SetParticipantsViewModel::class.java)
+        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
+            .create(SetParticipantsViewModel::class.java)
 
-        binding?.lifecycleOwner?.let {
-            viewModel.getAllParticipants().observe(it, Observer<List<Participants>> {
-                setParticipantsAdapter = SetParticipantsAdapter(it)
-                binding?.recyclerView?.adapter = setParticipantsAdapter
-            })
-        }
+        binding?.lifecycleOwner = this.viewLifecycleOwner
 
-
-
-
+        refreshList()
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -116,10 +107,10 @@ class SetParticipantsFragment : Fragment() {
             val teamName = dialogView?.findViewById<EditText>(R.id.teamNameET)
             val skillLevel = dialogView?.findViewById<EditText>(R.id.skillLevelET)
             dialog.setTitle("Set participants")
-            dialog.setNegativeButton("Cancel") { dialog, which ->
+            dialog.setNegativeButton("Cancel") { _, _ ->
 
             }
-            dialog.setPositiveButton("Set") { dialog, which ->
+            dialog.setPositiveButton("Set") { _, _ ->
 
 
                 if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
@@ -131,53 +122,40 @@ class SetParticipantsFragment : Fragment() {
 
                     viewModel.insert(participants)
 
-
+                    refreshList()
                     binding?.deleteAllFab?.visibility = View.VISIBLE
 
                 } else {
                     Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
                         .show()
+
+                    refreshList()
                 }
             }
 
             dialog.show()
 
-
-//                .setTitle("Set participants")
-//                .setView(R.layout.dialog_set_participants)
-//                .setNegativeButton("Cancel") { dialog, which ->
-//                    // Respond to cancel button
-//
-//                }
-//                .setPositiveButton("Set") { dialog, which ->
-//                    // Respond to set button
-//
-//
-//
-//                    if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
-//                        val participants = Participants(
-//                            participants = setParticipant.text.toString(),
-//                            team = teamName.text.toString(),
-//                            skill = skillLevel?.text?.toString()?.toInt()
-//                        )
-//
-//                        viewModel.insert(participants)
-//
-//
-//                        binding?.deleteAllFab?.visibility = View.VISIBLE
-//
-//                    } else {
-//                        Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
-//                            .show()
-//                    }
-//
-//                }
-//            dialog.show()
-
         }
 
 
         return binding?.root
+    }
+
+    private fun refreshList() {
+
+        binding?.lifecycleOwner?.let {
+            viewModel.getAllParticipants().observe(it, Observer { list ->
+
+                binding?.recyclerView?.adapter = SetParticipantsAdapter(list)
+
+                if (list.isEmpty()) {
+                    binding?.addImage?.visibility = View.VISIBLE
+                } else {
+                    binding?.deleteAllFab?.visibility = View.VISIBLE
+                }
+            })
+        }
+
     }
 
 

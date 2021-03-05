@@ -21,7 +21,6 @@
                 android:id="@+id/newGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
@@ -31,13 +30,12 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 app:srcCompat="@color/black" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/darkModeSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="12dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/dark_mode"
                 android:textColor="@color/dark"
@@ -46,6 +44,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:srcCompat="@color/black" />
 
         </LinearLayout>

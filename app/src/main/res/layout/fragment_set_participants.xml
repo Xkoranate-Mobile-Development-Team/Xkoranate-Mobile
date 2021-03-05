@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.SetParticipantsFragment">
 
-    <!--    <data>-->
+    <data>
 
-    <!--        <variable-->
-    <!--            name="setParticipantsViewModel"-->
-    <!--            type="com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel" />-->
-    <!--    </data>-->
+        <variable
+            name="setParticipantsViewModel"
+            type="com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -187,39 +187,46 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/addImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/ic_add_notes_pana" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/linearLayout"
-                android:layout_centerInParent="true" />
+                android:layout_centerVertical="true"
+                android:layout_marginTop="4dp">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/deleteAllFab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="8dp"
-                android:contentDescription="@string/fab"
-                android:src="@drawable/ic_delete_sweep"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="8dp"
-                android:contentDescription="@string/fab"
-                android:src="@drawable/ic_add" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/deleteAllFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/fab"
+                    android:src="@drawable/ic_delete_sweep"
+                    android:visibility="invisible"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/fab"
+                    android:src="@drawable/ic_add" />
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         </RelativeLayout>
 
