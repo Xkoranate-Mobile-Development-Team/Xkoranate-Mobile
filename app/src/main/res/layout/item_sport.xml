@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<layout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/background"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/choose_event_selector">
+
+        <TextView android:id="@+id/tv_sport"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Sport"
+                  android:textSize="36sp">
+        </TextView>
+
+    </LinearLayout>
+
+
+</layout>
