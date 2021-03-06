@@ -2,17 +2,19 @@
 <layout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/background"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/choose_event_selector">
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/choose_event_selector"
+        android:orientation="vertical">
 
-        <TextView android:id="@+id/tv_sport"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:text="Sport"
-                  android:textSize="36sp">
-        </TextView>
+        <TextView
+            android:id="@+id/tv_sport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/meiryo_ui_w53_regular"
+            android:text="@string/sport"
+            android:textSize="18sp" />
 
     </LinearLayout>
 

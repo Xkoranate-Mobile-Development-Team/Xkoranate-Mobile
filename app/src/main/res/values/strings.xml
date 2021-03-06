@@ -57,6 +57,7 @@
     <string name="do_you_want_to_start_a_new_game_this_will_clear_current_game">Do you want to start a new game? This will clear current game</string>
     <string name="stop">stop</string>
     <string name="game_in_progress">Game in progress</string>
+    <string name="sport">Sport</string>
     <string-array name="events_array">
         <item />
     </string-array>
