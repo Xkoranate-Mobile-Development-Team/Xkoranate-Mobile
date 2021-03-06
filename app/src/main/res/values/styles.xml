@@ -80,4 +80,9 @@
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.CornerSize10Percent" parent="">
+        <item name="cornerSize">12dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
 </resources>
