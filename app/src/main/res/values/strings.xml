@@ -58,6 +58,10 @@
     <string name="stop">stop</string>
     <string name="game_in_progress">Game in progress</string>
     <string name="sport">Sport</string>
+    <string name="match_in_progress">Match in progress</string>
+    <string name="match_canceled">Match canceled</string>
+    <string name="are_you_sure_you_want_to_cancel_ongoing_match">Are you sure you want to cancel ongoing match?</string>
+    <string name="stop_match">Stop match</string>
     <string-array name="events_array">
         <item />
     </string-array>

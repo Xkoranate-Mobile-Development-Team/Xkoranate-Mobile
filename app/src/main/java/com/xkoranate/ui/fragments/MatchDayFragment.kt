@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentMatchDayBinding
 
@@ -34,6 +35,8 @@ class MatchDayFragment : Fragment() {
 
         binding?.btnStart?.setOnClickListener {
             // Game starts
+            Toast.makeText(activity, getString(R.string.match_in_progress), Toast.LENGTH_SHORT)
+                .show()
             binding?.progressBarMD?.visibility = View.VISIBLE
             binding?.btnStart?.visibility = View.INVISIBLE
             binding?.btnStop?.visibility = View.VISIBLE
@@ -41,13 +44,23 @@ class MatchDayFragment : Fragment() {
 
         binding?.btnStop?.setOnClickListener {
             // Game stops
-            binding?.progressBarMD?.visibility = View.GONE
-            binding?.btnStop?.visibility = View.INVISIBLE
-            binding?.btnStart?.visibility = View.VISIBLE
+
+            val dialog = MaterialAlertDialogBuilder(this.requireContext())
+                .setTitle(getString(R.string.stop_match))
+                .setView(R.layout.dialog_cancel_game)
+                .setNegativeButton("No") { _, _ ->
+                    // Closes the dialog itself
+                }
+                .setPositiveButton("Yes") { _, _ ->
+                    Toast.makeText(activity, getString(R.string.match_canceled), Toast.LENGTH_SHORT)
+                        .show()
+                    binding?.progressBarMD?.visibility = View.GONE
+                    binding?.btnStop?.visibility = View.INVISIBLE
+                    binding?.btnStart?.visibility = View.VISIBLE
+                }
+            dialog.show()
+
         }
-
-
-
 
 
 
