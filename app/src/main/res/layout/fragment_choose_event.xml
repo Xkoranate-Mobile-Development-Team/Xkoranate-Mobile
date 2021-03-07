@@ -17,51 +17,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <ScrollView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            app:layout_constraintBottom_toTopOf="@id/continueButtonChooseEvent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--                 app:layout_constraintTop_toBottomOf="@+id/xkoranateImageChooseEvent">-->
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="vertical">-->
-
-        <!--                <com.google.android.material.imageview.ShapeableImageView-->
-        <!--                    android:id="@+id/image_choose_event"-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="350dp"-->
-        <!--                    android:layout_marginStart="16dp"-->
-        <!--                    android:layout_marginEnd="16dp"-->
-        <!--                    android:background="@color/white"-->
-        <!--                    android:src="@drawable/ic_questions_pana"-->
-        <!--                    app:shapeAppearance="@style/ShapeAppearanceOverlay.CornerSize10Percent" />-->
-
-        <!--                <TextView-->
-        <!--                    android:id="@+id/chooseEventTV"-->
-        <!--                    style="@style/PromptTextStyle"-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_marginTop="4dp"-->
-        <!--                    android:layout_gravity="center"-->
-        <!--                    android:fontFamily="@font/meiryo_ui_w53_regular"-->
-        <!--                    android:text="@string/choose_an_event"/>-->
-
-        <!--                <androidx.recyclerview.widget.RecyclerView-->
-        <!--                    android:id="@+id/recycler_sports"-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="500dp"-->
-        <!--                    android:scrollbars="vertical"-->
-        <!--                    tools:listitem="@layout/item_sport" />-->
-
-
-        <!--            </LinearLayout>-->
-
-        <!--        </ScrollView>-->
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_choose_event"
             android:layout_width="0dp"

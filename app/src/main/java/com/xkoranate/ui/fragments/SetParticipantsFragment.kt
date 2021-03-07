@@ -32,18 +32,17 @@ class SetParticipantsFragment : Fragment() {
 
         binding = FragmentSetParticipantsBinding.inflate(inflater)
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
-
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
             .create(SetParticipantsViewModel::class.java)
-
         binding?.lifecycleOwner = this.viewLifecycleOwner
 
         refreshList()
 
         binding?.btnContinue?.setOnClickListener {
 
-            // Todo: Add the condition for the presence of data in participants db
-            if (false) {
+            if (binding?.minSkillET?.text?.isEmpty()!! || binding?.maxSkillET?.text?.isEmpty()!! ||
+                isParticipantsEmpty()
+            ) {
 
                 Toast.makeText(
                     activity,
@@ -99,7 +98,6 @@ class SetParticipantsFragment : Fragment() {
         }
 
         binding?.fab?.setOnClickListener {
-
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
             val dialogView = layoutInflater.inflate(R.layout.dialog_set_participants, null)
             dialog.setView(dialogView)
@@ -109,10 +107,9 @@ class SetParticipantsFragment : Fragment() {
             val skillLevel = dialogView?.findViewById<EditText>(R.id.skillLevelET)
             dialog.setTitle("Set participants")
             dialog.setNegativeButton("Cancel") { _, _ ->
-
+                // Closes the dialog itself
             }
             dialog.setPositiveButton("Set") { _, _ ->
-
 
                 if (setParticipant?.text?.isNotEmpty()!! && teamName?.text?.isNotEmpty()!!) {
                     val participants = Participants(
@@ -129,7 +126,6 @@ class SetParticipantsFragment : Fragment() {
                 } else {
                     Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
                         .show()
-
                     refreshList()
                 }
             }
@@ -141,6 +137,7 @@ class SetParticipantsFragment : Fragment() {
 
         return binding?.root
     }
+
 
     private fun refreshList() {
 
@@ -157,7 +154,18 @@ class SetParticipantsFragment : Fragment() {
                 }
             })
         }
+    }
 
+    private fun isParticipantsEmpty(): Boolean {
+        var isEmpty = true
+
+        binding?.lifecycleOwner?.let {
+            viewModel.getAllParticipants().observe(it, Observer { list ->
+                isEmpty = list.isEmpty()
+            })
+        }
+
+        return isEmpty
     }
 
 
