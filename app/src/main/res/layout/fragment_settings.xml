@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/new_game"
                 android:textSize="18sp" />
@@ -36,7 +37,6 @@
                 android:id="@+id/darkModeSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/dark_mode"
                 android:textColor="@color/dark"

@@ -77,6 +77,7 @@
 
     <style name="PromptTextStyle" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/dark</item>
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
     </style>
 
