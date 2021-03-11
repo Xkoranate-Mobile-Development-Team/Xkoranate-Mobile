@@ -79,7 +79,4 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
 
-    // GIF drawable
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
-
 }
