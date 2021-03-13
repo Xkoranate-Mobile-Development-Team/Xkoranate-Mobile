@@ -1,4 +1,4 @@
-package com.xkoranate
+package com.xkoranate.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

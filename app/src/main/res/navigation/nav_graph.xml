@@ -35,7 +35,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/leagueTableFragment"
-        android:name="com.xkoranate.LeagueTableFragment"
+        android:name="com.xkoranate.ui.fragments.LeagueTableFragment"
         android:label="fragment_league_table"
         tools:layout="@layout/fragment_league_table" />
 </navigation>
