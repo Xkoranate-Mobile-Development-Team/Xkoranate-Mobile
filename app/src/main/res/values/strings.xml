@@ -62,6 +62,7 @@
     <string name="match_canceled">Match canceled</string>
     <string name="are_you_sure_you_want_to_cancel_ongoing_match">Are you sure you want to cancel ongoing match?</string>
     <string name="stop_match">Stop match</string>
+    <string name="league_table">League Table</string>
     <string-array name="events_array">
         <item />
     </string-array>

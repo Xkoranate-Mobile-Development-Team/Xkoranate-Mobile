@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
                     Navigation.findNavController(this, R.id.nav_host_fragment)
                         .navigate(R.id.homeFragment)
                 }
+                R.id.nav_league_table -> {
+                    Navigation.findNavController(this, R.id.nav_host_fragment)
+                        .navigate(R.id.leagueTableFragment)
+                }
                 R.id.nav_settings -> {
                     Navigation.findNavController(this, R.id.nav_host_fragment)
                         .navigate(R.id.settingsFragment)

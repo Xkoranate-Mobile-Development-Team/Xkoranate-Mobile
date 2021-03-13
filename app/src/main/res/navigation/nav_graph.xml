@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_leagueTableFragment"
+            app:destination="@id/leagueTableFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchDayFragment2"
@@ -30,4 +33,9 @@
         android:name="com.xkoranate.ui.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/leagueTableFragment"
+        android:name="com.xkoranate.LeagueTableFragment"
+        android:label="fragment_league_table"
+        tools:layout="@layout/fragment_league_table" />
 </navigation>
