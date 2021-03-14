@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/gradient_red_like</item>
         <item name="colorPrimaryDark">@color/gradient_red_like</item>
@@ -9,6 +9,7 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorSecondary">@color/yellow</item>
         <item name="android:textColor">@color/dark</item>
+        <item name="android:windowBackground">@drawable/gradient_color</item>
         <item name="checkedIconTint">@color/black</item>
         <item name="materialAlertDialogTheme">@style/MaterialAlertDialog.Rounded</item>
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
@@ -76,6 +77,7 @@
 
     <style name="PromptTextStyle" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/dark</item>
         <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
     </style>
 

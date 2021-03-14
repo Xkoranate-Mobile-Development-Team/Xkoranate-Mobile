@@ -7,14 +7,14 @@ import androidx.room.*
 interface ParticipantsDao {
 
     @Query("SELECT * FROM participants_table")
-    fun getTasks(): LiveData<List<Participants>>
+    fun getParticipants(): LiveData<List<Participants>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(participants: Participants)
+    fun insert(participants: Participants)
 
     @Update
-    suspend fun update(participants: Participants)
+    fun update(participants: Participants)
 
-    @Delete
-    suspend fun delete(participants: Participants)
+    @Query("DELETE FROM participants_table")
+    fun clear()
 }

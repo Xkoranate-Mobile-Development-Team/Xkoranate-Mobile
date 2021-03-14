@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_choose_event">
         <action
             android:id="@+id/action_chooseEventFragment_to_individualEventFragment"
-            app:destination="@id/individualEventFragment" />
+            app:destination="@id/individualEventFragment"
+            app:enterAnim="@anim/slide_to_left_enter"
+            app:exitAnim="@anim/slide_to_left_exit"
+            app:popEnterAnim="@anim/slide_to_right_enter"
+            app:popExitAnim="@anim/slide_to_right_exit" />
         <action
             android:id="@+id/action_chooseEventFragment_to_roundRobinFragment"
             app:destination="@id/roundRobinFragment" />
@@ -29,7 +33,11 @@
         tools:layout="@layout/fragment_individual_event">
         <action
             android:id="@+id/action_individualEventFragment_to_setParticipantsFragment"
-            app:destination="@id/setParticipantsFragment" />
+            app:destination="@id/setParticipantsFragment"
+            app:enterAnim="@anim/slide_to_left_enter"
+            app:exitAnim="@anim/slide_to_left_exit"
+            app:popEnterAnim="@anim/slide_to_right_enter"
+            app:popExitAnim="@anim/slide_to_right_exit" />
     </fragment>
     <fragment
         android:id="@+id/roundRobinFragment"

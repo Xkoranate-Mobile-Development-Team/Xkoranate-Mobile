@@ -5,6 +5,7 @@
     tools:context=".ui.fragments.SettingsFragment">
 
     <ScrollView
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,16 +14,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp">
+            android:paddingEnd="16dp">
 
             <TextView
                 android:id="@+id/newGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/new_game"
                 android:textSize="18sp" />
@@ -30,7 +31,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 app:srcCompat="@color/black" />
 
             <androidx.appcompat.widget.SwitchCompat
