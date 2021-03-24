@@ -5,24 +5,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/xkoranateImage"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/signature_xkoranate_20p8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_xkoranate" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

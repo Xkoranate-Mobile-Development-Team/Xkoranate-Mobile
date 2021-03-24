@@ -63,6 +63,8 @@ class SetParticipantsFragment : Fragment() {
             } else {
                 binding?.minSkillET?.setText("0")
             }
+
+            viewModel.minSkill(binding?.minSkillET?.text.toString().toInt())
         }
 
         binding?.decreaseSkill?.setOnClickListener {
@@ -72,6 +74,8 @@ class SetParticipantsFragment : Fragment() {
             } else {
                 binding?.minSkillET?.setText("0")
             }
+
+            viewModel.minSkill(binding?.minSkillET?.text.toString().toInt())
         }
 
         binding?.increaseSkill2?.setOnClickListener {
@@ -81,6 +85,8 @@ class SetParticipantsFragment : Fragment() {
             } else {
                 binding?.maxSkillET?.setText("0")
             }
+
+            viewModel.maxSkill(binding?.maxSkillET?.text.toString().toInt())
         }
 
         binding?.decreaseSkill2?.setOnClickListener {
@@ -90,6 +96,8 @@ class SetParticipantsFragment : Fragment() {
             } else {
                 binding?.maxSkillET?.setText("0")
             }
+
+            viewModel.maxSkill(binding?.maxSkillET?.text.toString().toInt())
         }
 
         binding?.deleteAllFab?.setOnClickListener {

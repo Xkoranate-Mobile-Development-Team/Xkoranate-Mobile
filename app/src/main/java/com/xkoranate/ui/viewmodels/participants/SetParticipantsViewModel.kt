@@ -5,13 +5,34 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.xkoranate.data.repositories.SetParticipantsRepository
 import com.xkoranate.db.participants.Participants
-import kotlinx.coroutines.Job
 
 class SetParticipantsViewModel(application: Application) : AndroidViewModel(application) {
 
-
     private val repository = SetParticipantsRepository(application)
-    val participants = repository.participants
+    private val participants = repository.getAll()
+
+    private var eventName = ""
+    private var allowDraws = false
+    private var minSkill = 0
+    private var maxSkill = 0
+
+
+    fun eventName(event: String) {
+        eventName = event
+    }
+
+    fun allowDraws(draw: Boolean) {
+        allowDraws = draw
+    }
+
+    fun minSkill(skill: Int) {
+        minSkill = skill
+    }
+
+    fun maxSkill(skill: Int) {
+        maxSkill = skill
+    }
+
 
     fun getAllParticipants(): LiveData<List<Participants>> {
         return participants
@@ -26,29 +47,11 @@ class SetParticipantsViewModel(application: Application) : AndroidViewModel(appl
     }
 
 
-    private var viewModelJob = Job()
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
-
-
-//    fun getParticipants(): LiveData<List<Participants>> {
-//        return getParticipants()
-//    }
-
-//    suspend fun insert(participants: Participants) {
-//        withContext(Dispatchers.IO) {
-//            insert(participants)
-//        }
-//    }
-
-//    suspend fun onClear() {
-//        withContext(Dispatchers.IO) {
+//    private var viewModelJob = Job()
 //
-//        }
+//    override fun onCleared() {
+//        super.onCleared()
+//        viewModelJob.cancel()
 //    }
-
 
 }

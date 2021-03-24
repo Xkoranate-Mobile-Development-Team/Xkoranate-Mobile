@@ -63,6 +63,10 @@
     <string name="are_you_sure_you_want_to_cancel_ongoing_match">Are you sure you want to cancel ongoing match?</string>
     <string name="stop_match">Stop match</string>
     <string name="league_table">League Table</string>
+    <string name="_1">1</string>
+    <string name="scores_goals">Scores</string>
+    <string name="s_n">S/N</string>
+    <string name="_00">00</string>
     <string-array name="events_array">
         <item />
     </string-array>

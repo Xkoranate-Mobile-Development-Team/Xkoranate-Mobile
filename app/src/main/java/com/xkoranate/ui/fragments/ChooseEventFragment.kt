@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentChooseEventBinding
 import com.xkoranate.databinding.ItemSportBinding
+import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
 import java.io.IOException
-import kotlin.collections.ArrayList
 
 private const val SPORTS_FOLDER = "sports"
 
@@ -23,6 +24,7 @@ class ChooseEventFragment : Fragment() {
     private var eventAdapter: ChooseEventAdapter? = null
     private var sports: Array<String>? = null
     private var tempSports: Array<String>? = null
+    lateinit var viewModel: SetParticipantsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,22 +33,15 @@ class ChooseEventFragment : Fragment() {
     ): View? {
         binding = FragmentChooseEventBinding.inflate(inflater)
 
-        // The values of the variables below would be updated from the spinner values
-        var isIndividual = true
-        var isRoundRobin = false
+        viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
+            .create(SetParticipantsViewModel::class.java)
 
         binding?.continueButtonChooseEvent?.setOnClickListener {
-            if (isIndividual) {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_chooseEventFragment_to_individualEventFragment)
-            }
-            if (isRoundRobin) {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_chooseEventFragment_to_roundRobinFragment)
-            }
+            Navigation.findNavController(it)
+                .navigate(R.id.action_chooseEventFragment_to_individualEventFragment)
         }
 
-        sports  = requireActivity().assets.list(SPORTS_FOLDER)
+        sports = requireActivity().assets.list(SPORTS_FOLDER)
 
         loadEvents(SPORTS_FOLDER)
 
@@ -62,7 +57,8 @@ class ChooseEventFragment : Fragment() {
         }
 
         binding?.recyclerSports?.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = eventAdapter
         }
 
@@ -93,14 +89,19 @@ class ChooseEventFragment : Fragment() {
         binding = null
     }
 
-    class ChooseEventAdapter(var sports: ArrayList<String>, private val onSportsClicked: (String) -> Unit) :
+    class ChooseEventAdapter(
+        var sports: ArrayList<String>,
+        private val onSportsClicked: (String) -> Unit
+    ) :
         RecyclerView.Adapter<ChooseEventAdapter.SportViewHolder>() {
 
         private lateinit var sport: String
+        lateinit var viewModel: SetParticipantsViewModel
 
         private var selectedPosition = RecyclerView.NO_POSITION
 
-        inner class SportViewHolder(val binding: ItemSportBinding) : RecyclerView.ViewHolder(binding.root) {
+        inner class SportViewHolder(val binding: ItemSportBinding) :
+            RecyclerView.ViewHolder(binding.root) {
 
             fun bind(sport: String) {
                 binding.tvSport.text = sport
@@ -115,11 +116,13 @@ class ChooseEventFragment : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportViewHolder {
+
             return SportViewHolder(ItemSportBinding.inflate(LayoutInflater.from(parent.context)))
         }
 
         override fun onBindViewHolder(holder: SportViewHolder, position: Int) {
             sport = sports.get(position)
+            viewModel.eventName(sport)
             holder.bind(sport)
             holder.binding.background.isSelected = (selectedPosition == position)
         }
