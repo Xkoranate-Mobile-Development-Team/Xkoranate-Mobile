@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentChooseEventBinding
 import com.xkoranate.databinding.ItemSportBinding
-import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
+import com.xkoranate.ui.viewmodels.participants.SharedViewModel
 import java.io.IOException
 
 private const val SPORTS_FOLDER = "sports"
@@ -24,7 +24,7 @@ class ChooseEventFragment : Fragment() {
     private var eventAdapter: ChooseEventAdapter? = null
     private var sports: Array<String>? = null
     private var tempSports: Array<String>? = null
-    lateinit var viewModel: SetParticipantsViewModel
+    lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +34,7 @@ class ChooseEventFragment : Fragment() {
         binding = FragmentChooseEventBinding.inflate(inflater)
 
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
-            .create(SetParticipantsViewModel::class.java)
+            .create(SharedViewModel::class.java)
 
         binding?.continueButtonChooseEvent?.setOnClickListener {
             Navigation.findNavController(it)
@@ -96,7 +96,7 @@ class ChooseEventFragment : Fragment() {
         RecyclerView.Adapter<ChooseEventAdapter.SportViewHolder>() {
 
         private lateinit var sport: String
-        lateinit var viewModel: SetParticipantsViewModel
+        lateinit var viewModel: SharedViewModel
 
         private var selectedPosition = RecyclerView.NO_POSITION
 

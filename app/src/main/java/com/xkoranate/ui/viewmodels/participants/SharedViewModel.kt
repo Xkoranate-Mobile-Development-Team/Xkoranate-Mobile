@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import com.xkoranate.data.repositories.SetParticipantsRepository
 import com.xkoranate.db.participants.Participants
 
-class SetParticipantsViewModel(application: Application) : AndroidViewModel(application) {
+class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = SetParticipantsRepository(application)
     private val participants = repository.getAll()

@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentIndividualEventBinding
-import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
+import com.xkoranate.ui.viewmodels.participants.SharedViewModel
 
 class IndividualEventFragment : Fragment() {
 
     private var binding: FragmentIndividualEventBinding? = null
-    private lateinit var viewModel: SetParticipantsViewModel
+    private lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,7 @@ class IndividualEventFragment : Fragment() {
         binding = FragmentIndividualEventBinding.inflate(inflater)
 
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
-            .create(SetParticipantsViewModel::class.java)
+            .create(SharedViewModel::class.java)
 
         binding?.allowDraws?.setOnClickListener {
             if (binding?.allowDraws?.isChecked == true) {

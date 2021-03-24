@@ -17,13 +17,13 @@ import com.xkoranate.databinding.FragmentSetParticipantsBinding
 import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
-import com.xkoranate.ui.viewmodels.participants.SetParticipantsViewModel
+import com.xkoranate.ui.viewmodels.participants.SharedViewModel
 
 
 class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
-    lateinit var viewModel: SetParticipantsViewModel
+    lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +33,7 @@ class SetParticipantsFragment : Fragment() {
         binding = FragmentSetParticipantsBinding.inflate(inflater)
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-            .create(SetParticipantsViewModel::class.java)
+            .create(SharedViewModel::class.java)
         binding?.lifecycleOwner = this.viewLifecycleOwner
 
         refreshList()
