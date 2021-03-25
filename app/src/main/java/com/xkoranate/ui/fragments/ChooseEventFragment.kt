@@ -1,5 +1,6 @@
 package com.xkoranate.ui.fragments
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,7 +47,10 @@ class ChooseEventFragment : Fragment() {
         loadEvents(SPORTS_FOLDER)
 
         var path = SPORTS_FOLDER
-        eventAdapter = ChooseEventAdapter(sports?.toCollection(ArrayList()) as ArrayList<String>) {
+        eventAdapter = ChooseEventAdapter(
+            this.requireActivity().application,
+            sports?.toCollection(ArrayList()) as ArrayList<String>
+        ) {
             path += "/$it"
             if (loadEvents(path)) {
                 eventAdapter?.sports = sports?.toCollection(ArrayList()) as ArrayList<String>
@@ -90,6 +94,7 @@ class ChooseEventFragment : Fragment() {
     }
 
     class ChooseEventAdapter(
+        val context: Application,
         var sports: ArrayList<String>,
         private val onSportsClicked: (String) -> Unit
     ) :
@@ -116,7 +121,8 @@ class ChooseEventFragment : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportViewHolder {
-
+            viewModel = ViewModelProvider.AndroidViewModelFactory(context)
+                .create(SharedViewModel::class.java)
             return SportViewHolder(ItemSportBinding.inflate(LayoutInflater.from(parent.context)))
         }
 

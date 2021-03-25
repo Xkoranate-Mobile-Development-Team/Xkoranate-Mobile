@@ -11,7 +11,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val repository = SetParticipantsRepository(application)
     private val participants = repository.getAll()
 
-    private var eventName = ""
+    var eventName = ""
     private var allowDraws = false
     private var minSkill = 0
     private var maxSkill = 0
