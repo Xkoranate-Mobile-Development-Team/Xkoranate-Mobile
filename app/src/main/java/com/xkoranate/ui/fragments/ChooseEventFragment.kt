@@ -111,24 +111,25 @@ class ChooseEventFragment : Fragment() {
             fun bind(sport: String) {
                 binding.tvSport.text = sport
 
+                viewModel = ViewModelProvider.AndroidViewModelFactory(context)
+                    .create(SharedViewModel::class.java)
+
                 itemView.setOnClickListener {
                     onSportsClicked.invoke(sport)
                     notifyItemChanged(selectedPosition)
                     selectedPosition = layoutPosition
                     notifyItemChanged(selectedPosition)
+                    viewModel.eventName = SPORTS_FOLDER[selectedPosition].toString()
                 }
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportViewHolder {
-            viewModel = ViewModelProvider.AndroidViewModelFactory(context)
-                .create(SharedViewModel::class.java)
             return SportViewHolder(ItemSportBinding.inflate(LayoutInflater.from(parent.context)))
         }
 
         override fun onBindViewHolder(holder: SportViewHolder, position: Int) {
             sport = sports.get(position)
-            viewModel.eventName(sport)
             holder.bind(sport)
             holder.binding.background.isSelected = (selectedPosition == position)
         }

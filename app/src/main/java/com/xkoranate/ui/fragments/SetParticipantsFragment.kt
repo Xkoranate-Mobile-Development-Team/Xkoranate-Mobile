@@ -38,6 +38,11 @@ class SetParticipantsFragment : Fragment() {
 
         refreshList()
 
+        Toast.makeText(
+            this.requireContext(), getString(R.string.skills_instructions)
+            , Toast.LENGTH_LONG
+        ).show()
+
         binding?.btnContinue?.setOnClickListener {
 
             if (binding?.minSkillET?.text?.isEmpty()!! || binding?.maxSkillET?.text?.isEmpty()!! ||
