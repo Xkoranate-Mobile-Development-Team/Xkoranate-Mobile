@@ -25,6 +25,7 @@ class SetParticipantsFragment : Fragment() {
     private var binding: FragmentSetParticipantsBinding? = null
     lateinit var viewModel: SharedViewModel
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,11 +38,6 @@ class SetParticipantsFragment : Fragment() {
         binding?.lifecycleOwner = this.viewLifecycleOwner
 
         refreshList()
-
-        Toast.makeText(
-            this.requireContext(), getString(R.string.skills_instructions)
-            , Toast.LENGTH_LONG
-        ).show()
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -149,6 +145,14 @@ class SetParticipantsFragment : Fragment() {
 
 
         return binding?.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(
+            this.requireContext(), getString(R.string.skills_instructions)
+            , Toast.LENGTH_LONG
+        ).show()
     }
 
 
