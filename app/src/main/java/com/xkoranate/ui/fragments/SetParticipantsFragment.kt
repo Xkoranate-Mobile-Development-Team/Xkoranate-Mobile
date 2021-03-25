@@ -57,6 +57,22 @@ class SetParticipantsFragment : Fragment() {
 
         }
 
+        binding?.minSkillET?.setOnClickListener {
+            Toast.makeText(
+                this.requireContext(),
+                getString(R.string.skills_instructions),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        binding?.maxSkillET?.setOnClickListener {
+            Toast.makeText(
+                this.requireContext(),
+                getString(R.string.skills_instructions),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
         binding?.increaseSkill?.setOnClickListener {
             if (binding?.minSkillET?.text.toString() != "") {
                 val newValue = binding?.minSkillET?.text.toString().toInt() + 1
@@ -150,8 +166,9 @@ class SetParticipantsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(
-            this.requireContext(), getString(R.string.skills_instructions)
-            , Toast.LENGTH_LONG
+            this.requireContext(),
+            getString(R.string.skills_instructions),
+            Toast.LENGTH_LONG
         ).show()
     }
 
