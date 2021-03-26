@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.xkoranate.databinding.FragmentHomeBinding
-import com.xkoranate.ui.viewmodels.participants.SharedViewModel
+import com.xkoranate.ui.viewmodels.SharedViewModel
 
 
 class HomeFragment : Fragment() {

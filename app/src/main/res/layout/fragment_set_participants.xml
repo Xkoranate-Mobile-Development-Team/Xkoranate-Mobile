@@ -8,7 +8,7 @@
 
         <variable
             name="setParticipantsViewModel"
-            type="com.xkoranate.ui.viewmodels.participants.SharedViewModel" />
+            type="com.xkoranate.ui.viewmodels.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

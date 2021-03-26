@@ -1,4 +1,4 @@
-package com.xkoranate.ui.viewmodels.participants
+package com.xkoranate.ui.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

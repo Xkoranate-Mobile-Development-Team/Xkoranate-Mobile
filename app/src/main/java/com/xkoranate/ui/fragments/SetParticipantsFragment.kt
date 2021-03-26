@@ -17,7 +17,7 @@ import com.xkoranate.databinding.FragmentSetParticipantsBinding
 import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
-import com.xkoranate.ui.viewmodels.participants.SharedViewModel
+import com.xkoranate.ui.viewmodels.SharedViewModel
 
 
 class SetParticipantsFragment : Fragment() {

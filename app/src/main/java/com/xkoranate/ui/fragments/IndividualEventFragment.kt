@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentIndividualEventBinding
-import com.xkoranate.ui.viewmodels.participants.SharedViewModel
+import com.xkoranate.ui.viewmodels.SharedViewModel
 
 class IndividualEventFragment : Fragment() {
 

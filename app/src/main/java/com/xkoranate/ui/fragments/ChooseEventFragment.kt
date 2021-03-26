@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentChooseEventBinding
 import com.xkoranate.databinding.ItemSportBinding
-import com.xkoranate.ui.viewmodels.participants.SharedViewModel
+import com.xkoranate.ui.viewmodels.SharedViewModel
 import java.io.IOException
 
 private const val SPORTS_FOLDER = "sports"
