@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
+import com.xkoranate.db.game.GameParameters
 import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
@@ -24,6 +25,8 @@ class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
     lateinit var viewModel: SharedViewModel
+    private var minSkill: String? = null
+    private var maxSkill: String? = null
 
 
     override fun onCreateView(
@@ -38,6 +41,10 @@ class SetParticipantsFragment : Fragment() {
         binding?.lifecycleOwner = this.viewLifecycleOwner
 
         refreshList()
+
+        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
+        val sports = args?.sportSelected
+        val allowDraws = args?.allowDraws
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -54,6 +61,10 @@ class SetParticipantsFragment : Fragment() {
             } else {
                 startActivity(Intent(activity, MainActivity::class.java))
             }
+
+            val game = GameParameters(sports, allowDraws, minSkill?.toInt(), maxSkill?.toInt())
+
+            viewModel.insertGame(game)
 
         }
 
@@ -81,7 +92,8 @@ class SetParticipantsFragment : Fragment() {
                 binding?.minSkillET?.setText("0")
             }
 
-            viewModel.minSkill(binding?.minSkillET?.text.toString().toInt())
+            minSkill = binding?.minSkillET?.text.toString()
+
         }
 
         binding?.decreaseSkill?.setOnClickListener {
@@ -92,7 +104,7 @@ class SetParticipantsFragment : Fragment() {
                 binding?.minSkillET?.setText("0")
             }
 
-            viewModel.minSkill(binding?.minSkillET?.text.toString().toInt())
+            minSkill = binding?.minSkillET?.text.toString()
         }
 
         binding?.increaseSkill2?.setOnClickListener {
@@ -103,7 +115,7 @@ class SetParticipantsFragment : Fragment() {
                 binding?.maxSkillET?.setText("0")
             }
 
-            viewModel.maxSkill(binding?.maxSkillET?.text.toString().toInt())
+            maxSkill = binding?.maxSkillET?.text.toString()
         }
 
         binding?.decreaseSkill2?.setOnClickListener {
@@ -114,7 +126,7 @@ class SetParticipantsFragment : Fragment() {
                 binding?.maxSkillET?.setText("0")
             }
 
-            viewModel.maxSkill(binding?.maxSkillET?.text.toString().toInt())
+            maxSkill = binding?.maxSkillET?.text.toString()
         }
 
         binding?.deleteAllFab?.setOnClickListener {
