@@ -3,47 +3,54 @@ package com.xkoranate.ui.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import com.xkoranate.data.repositories.GameParametersRepository
 import com.xkoranate.data.repositories.SetParticipantsRepository
+import com.xkoranate.db.game.GameParameters
 import com.xkoranate.db.participants.Participants
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = SetParticipantsRepository(application)
-    private val participants = repository.getAll()
+    private val participantsRepository = SetParticipantsRepository(application)
+    private val participants = participantsRepository.getAll()
 
-    var eventName = ""
-    private var allowDraws = false
-    private var minSkill = 0
-    private var maxSkill = 0
+    private val gameParametersRepository = GameParametersRepository(application)
+    private val game = gameParametersRepository.getGame()
+
+//    var eventName = ""
+//    private var allowDraws = false
+//    private var minSkill = 0
+//    private var maxSkill = 0
 
 
-    fun eventName(event: String) {
-        eventName = event
+    // Function calls for game
+    fun getGame(): LiveData<List<GameParameters>> {
+        return game
     }
 
-    fun allowDraws(draw: Boolean) {
-        allowDraws = draw
+    fun insertGame(gameParameters: GameParameters) {
+        gameParametersRepository.insertGame(gameParameters)
     }
 
-    fun minSkill(skill: Int) {
-        minSkill = skill
+    fun updateGame(gameParameters: GameParameters) {
+        gameParametersRepository.updateGame(gameParameters)
     }
 
-    fun maxSkill(skill: Int) {
-        maxSkill = skill
+    fun deleteGame() {
+        gameParametersRepository.deleteGame()
     }
 
 
+    // Function calls for participants
     fun getAllParticipants(): LiveData<List<Participants>> {
         return participants
     }
 
     fun insert(participants: Participants) {
-        repository.insert(participants)
+        participantsRepository.insert(participants)
     }
 
     fun delete() {
-        repository.deleteAll()
+        participantsRepository.deleteAll()
     }
 
 

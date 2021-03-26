@@ -5,18 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.xkoranate.R
 import com.xkoranate.databinding.FragmentChooseEventBinding
 import com.xkoranate.databinding.ItemSportBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 import java.io.IOException
 
 private const val SPORTS_FOLDER = "sports"
+var sportSelected = ""
 
 class ChooseEventFragment : Fragment() {
 
@@ -26,6 +27,7 @@ class ChooseEventFragment : Fragment() {
     private var sports: Array<String>? = null
     private var tempSports: Array<String>? = null
     lateinit var viewModel: SharedViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +40,17 @@ class ChooseEventFragment : Fragment() {
             .create(SharedViewModel::class.java)
 
         binding?.continueButtonChooseEvent?.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_chooseEventFragment_to_individualEventFragment)
+
+            if (sportSelected == "") {
+                Toast.makeText(this.requireContext(), "Pls choose a sport", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Navigation.findNavController(it)
+                    .navigate(
+                        ChooseEventFragmentDirections
+                            .actionChooseEventFragmentToIndividualEventFragment(sportSelected)
+                    )
+            }
         }
 
         sports = requireActivity().assets.list(SPORTS_FOLDER)
@@ -119,7 +130,8 @@ class ChooseEventFragment : Fragment() {
                     notifyItemChanged(selectedPosition)
                     selectedPosition = layoutPosition
                     notifyItemChanged(selectedPosition)
-                    viewModel.eventName = SPORTS_FOLDER[selectedPosition].toString()
+
+
                 }
             }
         }
@@ -132,6 +144,8 @@ class ChooseEventFragment : Fragment() {
             sport = sports.get(position)
             holder.bind(sport)
             holder.binding.background.isSelected = (selectedPosition == position)
+
+            sportSelected = sport
         }
 
         override fun getItemCount(): Int {

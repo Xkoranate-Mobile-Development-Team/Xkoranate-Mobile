@@ -25,7 +25,14 @@
         android:id="@+id/setParticipantsFragment"
         android:name="com.xkoranate.ui.fragments.SetParticipantsFragment"
         android:label="fragment_set_participants"
-        tools:layout="@layout/fragment_set_participants" />
+        tools:layout="@layout/fragment_set_participants">
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
+        <argument
+            android:name="allow_draws"
+            app:argType="boolean" />
+    </fragment>
     <fragment
         android:id="@+id/individualEventFragment"
         android:name="com.xkoranate.ui.fragments.IndividualEventFragment"
@@ -38,6 +45,9 @@
             app:exitAnim="@anim/slide_to_left_exit"
             app:popEnterAnim="@anim/slide_to_right_enter"
             app:popExitAnim="@anim/slide_to_right_exit" />
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/roundRobinFragment"
