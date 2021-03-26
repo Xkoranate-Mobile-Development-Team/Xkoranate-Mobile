@@ -1,7 +1,10 @@
 package com.xkoranate.db.participants
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface ParticipantsDao {
@@ -11,9 +14,6 @@ interface ParticipantsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(participants: Participants)
-
-    @Update
-    fun update(participants: Participants)
 
     @Query("DELETE FROM participants_table")
     fun clear()

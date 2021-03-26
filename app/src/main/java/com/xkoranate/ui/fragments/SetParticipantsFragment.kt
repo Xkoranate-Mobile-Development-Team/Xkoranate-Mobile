@@ -62,9 +62,13 @@ class SetParticipantsFragment : Fragment() {
                 startActivity(Intent(activity, MainActivity::class.java))
             }
 
-            val game = GameParameters(sports, allowDraws, minSkill?.toInt(), maxSkill?.toInt())
+            val game = GameParameters(
+                eventName = sports, allowDraws = allowDraws,
+                minSkill = minSkill?.toInt(), maxSkill = maxSkill?.toInt()
+            )
 
             viewModel.insertGame(game)
+            viewModel.getGame()
 
         }
 

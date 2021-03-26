@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
 
-        binding?.tvFullName?.text = viewModel.eventName
+
 
         return binding?.root
     }

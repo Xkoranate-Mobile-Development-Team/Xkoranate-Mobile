@@ -31,10 +31,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         gameParametersRepository.insertGame(gameParameters)
     }
 
-    fun updateGame(gameParameters: GameParameters) {
-        gameParametersRepository.updateGame(gameParameters)
-    }
-
     fun deleteGame() {
         gameParametersRepository.deleteGame()
     }
