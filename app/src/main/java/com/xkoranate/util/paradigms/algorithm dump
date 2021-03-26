@@ -1,0 +1,699 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ARCHERY
+
+#ifndef ARCHERYPARADIGM_H
+#define ARCHERYPARADIGM_H
+
+#include "paradigms/abstractparadigm.h"
+#include "paradigms/comparators/archeryresultcomparator.h"
+#include "paradigms/options/timedparadigmoptions.h"
+
+class XkorArcheryParadigm : public XkorAbstractParadigm
+{
+    public:
+    XkorArcheryParadigm() : XkorAbstractParadigm()
+    {
+        supportedCompetitions.insert("archery", true);
+        supportedCompetitions.insert("matches", true);
+    }
+
+    XkorArcheryParadigm(XkorSport * sport, QHash<QString, QVariant> userOptions) : XkorAbstractParadigm(sport, userOptions)
+    {
+        supportedCompetitions.insert("archery", true);
+        supportedCompetitions.insert("matches", true);
+    }
+
+    virtual void breakTie(QList<XkorAthlete> athletes, QString type = QString())
+    {
+        int maxScore = opt.value("maxScore", 0).toInt();
+        bool scorePointForX = (opt.value("scorePointForX") == "true");
+        if(type == "lots" || type == "closest")
+        {
+            for(QList<XkorAthlete>::iterator i = athletes.begin(); i != athletes.end(); ++i)
+            {
+                QVector<XkorResult>::iterator result = findResult(i->id);
+                result->result["lots"] = s->randUniform();
+                if(type == "closest")
+                    result->setOutput(result->output() + " (closest arrow)");
+                else
+                result->setOutput(result->output() + " (drawing of lots)");
+            }
+        }
+        else if(userOpt.value("rankingRound") == "true")
+        {
+            for(QList<XkorAthlete>::iterator i = athletes.begin(); i != athletes.end(); ++i)
+            {
+                QVector<XkorResult>::iterator result = findResult(i->id);
+                int score = 0;
+                for(int j = 0; j < opt.value("arrowsPerTiebreak").toInt(); ++j)
+                {
+                    if(maxScore != 0 && !scorePointForX)
+                        score += min(generateArrowScore(adjustSkill(i->skill)), maxScore);
+                    else
+                    score += generateArrowScore(adjustSkill(i->skill));
+                }
+                result->result["tbScore"] = result->result["tbScore"].toDouble() + score / pow(opt.value("maxScore").toDouble() * 2, result->result["tbArrows"].toDouble());
+                result->result["tbArrows"] = result->result["tbArrows"].toDouble() + 1;
+                if(result->output().right(1) == ")")
+                result->setOutput(result->output().left(result->output().size() - 1) + " " + QString::number(score) + ")");
+                else
+                result->setOutput(result->output() + " (tiebreak: " + QString::number(score) + ")");
+
+            }
+        }
+        else
+        {
+            int acc = 0;
+            for(QList<XkorAthlete>::iterator away = athletes.begin(); away != athletes.end(); ++away)
+            {
+                if(acc & 1)
+                {
+                    QList<XkorAthlete>::iterator home = away; // home = away - 1
+                    --home;
+
+                    int homeScore = 0, awayScore = 0, tries = 0;
+                    double homeLots = 0, awayLots = 0;
+                    while(homeScore == awayScore && tries < 3)
+                    {
+                        for(int i = 0; i < opt.value("arrowsPerTiebreak").toInt(); ++i)
+                        {
+                            if(maxScore != 0 && !scorePointForX)
+                            {
+                                homeScore += min(generateArrowScore(adjustSkill(home->skill)), maxScore);
+                                awayScore += min(generateArrowScore(adjustSkill(away->skill)), maxScore);
+                            }
+                            else
+                            {
+                                homeScore += generateArrowScore(adjustSkill(home->skill));
+                                awayScore += generateArrowScore(adjustSkill(away->skill));
+                            }
+                        }
+                        ++tries;
+                    }
+                    if(homeScore == awayScore)
+                    {
+                        homeLots = s->randUniform();
+                        awayLots = s->randUniform();
+                        findResult(home->id)->result["lots"] = homeLots;
+                        findResult(away->id)->result["lots"] = awayLots;
+                    }
+
+                    QVector<XkorResult>::iterator result = findResult(away->id);
+                    if(homeLots > awayLots)
+                        result->setOutput(result->output() + " (tiebreak: " + QString::number(homeScore) + "*–" + QString::number(awayScore) + ")");
+                    else if(awayLots > homeLots)
+                    result->setOutput(result->output() + " (tiebreak: " + QString::number(homeScore) + "–" + QString::number(awayScore) + "*)");
+                    else
+                    result->setOutput(result->output() + " (tiebreak: " + QString::number(homeScore) + "–" + QString::number(awayScore) + ")");
+
+                    // let the competition know who won
+                    findResult(home->id)->result["tbScore"] = homeScore;
+                    findResult(away->id)->result["tbScore"] = awayScore;
+                }
+                ++acc;
+            }
+        }
+        generateOutput();
+    }
+
+    virtual XkorAbstractResultComparator * comparisonFunction(QString type = QString::null)
+    {
+        if(userOpt.value("rankingRound") == "true")
+            return new XkorArcheryResultComparator("rankingRound", opt);
+        else
+        return new XkorArcheryResultComparator(type, opt);
+    }
+
+    virtual bool hasOptionsWidget() { return true; }
+
+    virtual XkorAbstractOptionsWidget * newOptionsWidget(QHash<QString, QVariant> paradigmOptions)
+    {
+        return new XkorTimedParadigmOptions(paradigmOptions);
+    }
+
+    virtual void scorinate(QList<XkorAthlete> athletes, QList<XkorResult> = QList<XkorResult>())
+    {
+        for(QStringList::iterator i = requiredValues.begin(); i != requiredValues.end(); ++i)
+        if(!(s->hasValue(*i)))
+        {
+            qDebug() << "missing parameter" << *i << "in XkorSQISParadigm::output(XkorResults *)";
+            out.append(qMakePair(QString(""), QString("Sport does not support this paradigm")));
+            return;
+        }
+
+        // load options
+        int nameWidth = userOpt.value("nameWidth", 20).toInt() + 2;
+        int resultWidth = opt.value("resultWidth", 3).toInt() + 2;
+
+        bool isRankingRound = (userOpt.value("rankingRound") == "true");
+
+        int arrows;
+        if(isRankingRound)
+            arrows = opt.value("rankingArrows").toInt();
+        else
+            arrows = opt.value("knockoutArrows").toInt();
+
+        int maxScore = opt.value("maxScore").toInt();
+
+        // initialize results
+        out.clear();
+        res.clear();
+
+        int i = 0;
+        QString homeScore;
+        for(QList<XkorAthlete>::iterator athlete = athletes.begin(); athlete != athletes.end(); ++athlete)
+        {
+            int score = 0;
+            int tens = 0;
+            int Xs = 0;
+            for(int j = 0; j < arrows; ++j)
+            {
+                int arrowScore = generateArrowScore(adjustSkill(athlete->rpSkill, isRankingRound));
+                if(opt.contains("maxScore"))
+                {
+                    if(opt.value("scorePointForX") == "true") // if an X counts at face value
+                        score += arrowScore;
+                    else // if an X counts the same as a 10
+                        score += min(maxScore, arrowScore);
+
+                    if(arrowScore >= maxScore)
+                        ++tens;
+                    if(arrowScore > maxScore)
+                        ++Xs;
+                }
+                else
+                    score += arrowScore;
+            }
+
+            QString result;
+            if(userOpt.value("rankingRound") == "true")
+            {
+                result = formatName(*athlete).leftJustified(nameWidth);
+                result += QString::number(score).rightJustified(resultWidth);
+                if(opt.contains("maxScore"))
+                {
+                    result += QString::number(tens).rightJustified(resultWidth);
+                    result += QString::number(Xs).rightJustified(resultWidth);
+                }
+            }
+            else
+            {
+                if(i & 1)
+                result = homeScore + "–" + QString::number(score) + " " + formatName(*athlete);
+                else
+                homeScore = formatName(*athlete) + " " + QString::number(score);
+            }
+            XkorResult r(score, *athlete);
+            r.setOutput(result);
+            r.result["tens"] = tens;
+            r.result["Xs"] = Xs;
+            res.append(r);
+            ++i;
+        }
+        generateOutput();
+    }
+
+    protected:
+    virtual double adjustSkill(double realSkill, bool isRankingRound = false)
+    {
+        double rankModifier, rankAdjustmentFactor;
+        if(isRankingRound)
+        {
+            rankModifier = opt.value("rankingRankModifier", 0).toDouble();
+            rankAdjustmentFactor = opt.value("rankingRankAdjustmentFactor", 1).toDouble();
+        }
+        else
+        {
+            rankModifier = opt.value("knockoutRankModifier", 0).toDouble();
+            rankAdjustmentFactor = opt.value("knockoutRankAdjustmentFactor", 1).toDouble();
+        }
+
+        // randomize the skill a bit to compensate for the fact that long sequences of arrows would otherwise be highly predictable
+        double rval = (realSkill + s->randUniform() * rankModifier) / (1 + rankModifier);
+        rval = rval * rankAdjustmentFactor + (1 - rankAdjustmentFactor) / 2;
+        return rval;
+    }
+
+    virtual XkorResult individualResult(double, double) { return XkorResult(); } // unused
+    virtual XkorResult individualResult(double, double, QString) { return XkorResult(); } // unused
+
+    virtual int generateArrowScore(double skill)
+    {
+        return s->individualScore("score", skill);
+    }
+};
+
+#endif // ARCHERYPARADIGM_H
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AUTO RACING
+#ifndef AUTORACINGPARADIGM_H
+#define AUTORACINGPARADIGM_H
+
+#include <QFormLayout>
+#include <QSpinBox>
+
+#include "paradigms/timedparadigm.h"
+#include "paradigms/options/autoracingparadigmoptions.h"
+
+struct XkorAutoRacingParadigm : public XkorTimedParadigm
+{
+	Q_OBJECT
+
+	public:
+		XkorAutoRacingParadigm() : XkorTimedParadigm()
+		{
+			supportedCompetitions.clear();
+			supportedCompetitions.insert("standard", true);
+		}
+
+		XkorAutoRacingParadigm(XkorSport * sport, QHash<QString, QVariant> userOptions) : XkorTimedParadigm(sport, userOptions)
+		{
+			supportedCompetitions.clear();
+			supportedCompetitions.insert("standard", true);
+		}
+
+		virtual XkorAbstractAthleteWidget * newAthleteWidget()
+		{
+			if(userOpt.value("skillType") == "attributes")
+				return new XkorAthleteWidget(QStringList() << "name" << "nation" << "acceleration" << "cornering" << "reliability",
+							     QStringList() << tr("Participant") << tr("Team") << tr("Acceleration") << tr("Cornering") << tr("Reliability"),
+							     QStringList() << "string" << "string" << "double" << "double" << "double",
+							     0, 10, 1);
+			else
+				return XkorAbstractParadigm::newAthleteWidget();
+		}
+
+		virtual XkorAbstractOptionsWidget * newOptionsWidget(QHash<QString, QVariant> paradigmOptions)
+		{
+			return new XkorAutoRacingParadigmOptions(paradigmOptions);
+		}
+
+	protected:
+
+		virtual XkorResult individualResult(XkorAthlete ath, int lap = 0)
+		{
+			double randCoeff = opt.value("randCoeff", 0.6).toDouble();
+			double randOffset = opt.value("randBase", 0.6).toDouble();
+			double skillCoeff = opt.value("skillCoeff", 0.3).toDouble();
+			double reliabilityCoeff = opt.value("reliabilityCoeff", 0.03).toDouble();
+
+			double lapRecord = userOpt.value("lapRecord", 90).toDouble();
+			double lapVariance = userOpt.value("lapVariance", 15).toDouble();
+			double trackAcceleration = userOpt.value("trackAcceleration", 5).toDouble();
+			double trackCornering = userOpt.value("trackCornering", 5).toDouble();
+			bool useAttributes = userOpt.value("skillType") == "attributes";
+
+			double reliability = (useAttributes ? ath.property("reliability").toDouble() : ath.skill * 10);
+			if(s->randUniform() < reliabilityCoeff / (1 + reliability))
+				return XkorResult(numeric_limits<double>::max(), opt.value("unreliableText", "DNF").toString() + QString(" lap %1").arg(lap), ath);
+
+			double lapTime = 0;
+			if(useAttributes)
+			{
+				double acceleration = ath.property("acceleration").toDouble(), cornering = ath.property("cornering").toDouble();
+				lapTime = lapRecord + lapVariance * pow(s->randUniform() * randCoeff + randOffset, skillCoeff * (acceleration * trackAcceleration + cornering * trackCornering) / (trackAcceleration + trackCornering));
+			}
+			else
+				lapTime = lapRecord + lapVariance * pow(s->randUniform() * randCoeff + randOffset, skillCoeff * (ath.skill * 9 + 1));
+
+			lapTime = roundScore(lapTime);
+			return XkorResult(lapTime, formatScore(lapTime), ath);
+		}
+
+		virtual QString outputLine(XkorResult r)
+		{
+			return XkorAbstractParadigm::outputLine(r);
+		}
+
+		virtual void scorinate(QList<XkorAthlete> athletes, QList<XkorResult> = QList<XkorResult>())
+		{
+			// initialize results
+			out.clear();
+			res.clear();
+
+			int laps = userOpt.value("laps", 50).toInt();
+			bool isQualifying = opt.value("totalType") == "best";
+			double startingGridMultiplier = (userOpt.value("useStartingGrid") == "true" ? opt.value("startingGridPenalty", 2).toDouble() : 0);
+
+			double startingGridPenalty = startingGridMultiplier;
+			for(QList<XkorAthlete>::iterator i = athletes.begin(); i != athletes.end(); ++i)
+			{
+				XkorResult r;
+				r.athlete = *i;
+
+				for(int j = 0; j < laps; ++j)
+				{
+					XkorResult result = individualResult(*i, j + 1);
+
+					QList<QVariant> attempts = r.result["attempts"].toList(), attemptStrings = r.result["attemptStrings"].toList();
+					attempts.append(result.score() + (j == 0 ? startingGridPenalty : 0));
+					if(j == 0)
+						qDebug() << startingGridPenalty;
+					attemptStrings.append(result.scoreString());
+					r.result["attempts"] = attempts;
+					r.result["attemptStrings"] = attemptStrings;
+
+					if(!isQualifying && result.score() == numeric_limits<double>::max())
+						break; // did not finish
+				}
+
+				calculateTotal(r);
+
+				res.append(r);
+				startingGridPenalty += startingGridMultiplier;
+			}
+
+			// who’s on first?
+			double firstPlaceTime = numeric_limits<double>::max();
+			for(QVector<XkorResult>::iterator i = res.begin(); i != res.end(); ++i)
+				if(i->score() < firstPlaceTime)
+					firstPlaceTime = i->score();
+
+			// calculate laps behind
+			for(QVector<XkorResult>::iterator i = res.begin(); i != res.end(); ++i)
+			{
+				QList<QVariant> attempts = i->result["attempts"].toList();
+				double currentTime = i->score();
+				if(currentTime != numeric_limits<double>::max() && currentTime > firstPlaceTime)
+					for(int j = 0; attempts.count() > 0; ++j)
+					{
+						i->setScore(currentTime + firstPlaceTime * j); // set the score according to finish on the current lap
+						currentTime -= attempts.takeLast().toDouble();
+						if(currentTime < firstPlaceTime)
+						{
+							// if j == 0, do nothing
+							if(j == 1)
+								i->setScoreString("−1 lap");
+							else if(j > 1)
+								i->setScoreString(QString("−%1 laps").arg(j));
+							i->setOutput(outputLine(*i));
+							break;
+						}
+					}
+			}
+
+			generateOutput();
+		}
+};
+
+#endif // AUTORACINGPARADIGM_H
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ELIMINATION RACE
+
+#ifndef ELIMINATIONRACEPARADIGM_H
+#define ELIMINATIONRACEPARADIGM_H
+
+#include <QFormLayout>
+#include <QSpinBox>
+
+#include "paradigms/timedparadigm.h"
+#include "paradigms/comparators/eliminationraceresultcomparator.h"
+
+struct XkorEliminationRaceParadigm : public XkorTimedParadigm
+{
+	Q_OBJECT
+
+	public:
+		XkorEliminationRaceParadigm() : XkorTimedParadigm()
+		{
+			supportedCompetitions.clear();
+			supportedCompetitions.insert("standard", true);
+		}
+
+		XkorEliminationRaceParadigm(XkorSport * sport, QHash<QString, QVariant> userOptions) : XkorTimedParadigm(sport, userOptions)
+		{
+			supportedCompetitions.clear();
+			supportedCompetitions.insert("standard", true);
+		}
+
+	protected:
+		void awardPoints(QList<XkorResult> & activeRes, int lap, bool isFinal = false)
+		{
+			QList<XkorResult>::iterator bestResult, secondBestResult, thirdBestResult;
+			bool bestResultFound = false, secondBestResultFound = false, thirdBestResultFound = false;
+			for(QList<XkorResult>::iterator j = activeRes.begin(); j != activeRes.end(); ++j)
+			{
+				if(!bestResultFound || lapTime(*j, lap) < lapTime(*bestResult, lap))
+				{
+					if(bestResultFound)
+					{
+						if(secondBestResultFound)
+						{
+							thirdBestResult = secondBestResult;
+							thirdBestResultFound = true;
+						}
+						secondBestResult = bestResult;
+						secondBestResultFound = true;
+					}
+					bestResult = j;
+					bestResultFound = true;
+				}
+				else if(!secondBestResultFound || lapTime(*j, lap) < lapTime(*secondBestResult, lap))
+				{
+					if(secondBestResultFound)
+					{
+						thirdBestResult = secondBestResult;
+						thirdBestResultFound = true;
+					}
+					secondBestResult = j;
+					secondBestResultFound = true;
+				}
+				else if(!thirdBestResultFound || lapTime(*j, lap) < lapTime(*thirdBestResult, lap))
+				{
+					thirdBestResult = j;
+					thirdBestResultFound = true;
+				}
+			}
+			if(bestResultFound)
+				bestResult->result["points"] = bestResult->value("points").toInt() + (isFinal ? 3 : 2);
+			if(secondBestResultFound)
+				secondBestResult->result["points"] = secondBestResult->value("points").toInt() + (isFinal ? 2 : 1);
+			if(thirdBestResultFound && isFinal)
+				thirdBestResult->result["points"] = thirdBestResult->value("points").toInt() + 1;
+		}
+
+		virtual XkorAbstractResultComparator * comparisonFunction(QString type = QString::null)
+		{
+			return new XkorEliminationRaceResultComparator(type, opt);
+		}
+
+		double lapTime(XkorResult r, int lap)
+		{
+            double rval = 0;
+			QList<QVariant> attempts = r.result["attempts"].toList();
+			for(int i = 0; i < lap && i < attempts.size(); ++i)
+				rval += attempts[i].toDouble();
+			return rval;
+		}
+
+		virtual QString outputLine(XkorResult r)
+		{
+			int nameWidth = userOpt.value("nameWidth", 20).toInt() + 2;
+			int resultWidth = opt.value("resultWidth", 9).toInt() + 2;
+			bool usePoints = (opt.value("usePoints") == "true");
+
+			QString rval = formatName(r.athlete.name, r.athlete.nation).leftJustified(nameWidth);
+			rval += r.scoreString().rightJustified(resultWidth);
+			if(usePoints && r.score() != numeric_limits<double>::max())
+				rval += r.value("points").toString().rightJustified(7);
+
+			return rval;
+		}
+
+		virtual void scorinate(QList<XkorAthlete> athletes, QList<XkorResult> = QList<XkorResult>())
+		{
+			int laps = opt.value("laps").toInt();
+			int eliminations = athletes.size() - opt.value("finishers", 5).toInt();
+			int firstElimination = opt.value("firstElimination", 12).toInt();
+			int lastElimination = opt.value("lastElimination", 72).toInt();
+			int eliminationSlots = (lastElimination - firstElimination) / 2 + 1;
+			int eliminationsPerSlot = eliminations / eliminationSlots; // integer division
+			int extraEliminations = eliminations - eliminationSlots * eliminationsPerSlot;
+			bool usePoints = (opt.value("usePoints") == "true");
+
+			// initialize results
+			out.clear();
+			res.clear();
+
+			QList<XkorResult> activeRes;
+			for(QList<XkorAthlete>::iterator i = athletes.begin(); i != athletes.end(); ++i)
+			{
+				XkorResult r;
+				r.athlete = *i;
+
+				for(int j = 0; j < laps; ++j)
+				{
+					XkorResult result = individualResult(*i, "score");
+
+					QList<QVariant> attempts = r.result["attempts"].toList(), attemptStrings = r.result["attemptStrings"].toList();
+					attempts.append(result.score());
+					attemptStrings.append(result.scoreString());
+					r.result["attempts"] = attempts;
+					r.result["attemptStrings"] = attemptStrings;
+				}
+				calculateTotal(r);
+
+				activeRes.append(r);
+			}
+
+			// award points for any sprints that don’t have corresponding eliminations
+			if(usePoints)
+				for(int i = 0; i < eliminationSlots - eliminations; ++i)
+					awardPoints(activeRes, firstElimination + i * 2);
+
+			int lastPointsSprint = 0;
+			for(int i = 0; i < eliminations; ++i)
+			{
+				int eliminationLap;
+				if(eliminationsPerSlot > 0)
+				{
+					int extraEliminationsPassed = min(extraEliminations, (i + 1) / (eliminationsPerSlot + 1)); // integer division
+					eliminationLap = lastElimination - (eliminationSlots - (i - extraEliminationsPassed) / eliminationsPerSlot - 1) * 2;
+				}
+				else
+					eliminationLap = lastElimination - (eliminations - i - 1) * 2;
+
+				// calculate points for previous lap if this is a points race
+				if(usePoints && lastPointsSprint < eliminationLap - 1)
+					awardPoints(activeRes, eliminationLap - 1);
+				lastPointsSprint = eliminationLap - 1;
+
+				QList<XkorResult>::iterator worstResult;
+				bool worstResultFound = false;
+				for(QList<XkorResult>::iterator j = activeRes.begin(); j != activeRes.end(); ++j)
+					if(!worstResultFound || lapTime(*j, eliminationLap) > lapTime(*worstResult, eliminationLap))
+					{
+						worstResult = j;
+						worstResultFound = true;
+					}
+				XkorResult eliminated = *worstResult;
+				eliminated.result["eliminationOrder"] = i + 1;
+				eliminated.setScore(numeric_limits<double>::max());
+				eliminated.setScoreString(QString("EL lap %1").arg(eliminationLap));
+				eliminated.setOutput(outputLine(eliminated));
+				res.append(eliminated);
+				activeRes.removeOne(eliminated);
+			}
+
+			// points for final finishing position
+			if(usePoints)
+				awardPoints(activeRes, laps, true);
+
+			// insert the actual finishers
+			for(QList<XkorResult>::iterator i = activeRes.begin(); i != activeRes.end(); ++i)
+			{
+				i->setOutput(outputLine(*i));
+				res.append(*i);
+			}
+		}
+};
+
+#endif // ELIMINATIONRACEPARADIGM_H
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FENCING
+#ifndef FENCINGPARADIGM_H
+#define FENCINGPARADIGM_H
+
+#include "paradigms/abstractparadigm.h"
+#include "paradigms/options/timedparadigmoptions.h"
+
+class XkorFencingParadigm : public XkorAbstractParadigm
+{
+	public:
+		XkorFencingParadigm() : XkorAbstractParadigm()
+		{
+			supportedCompetitions.insert("matches", true);
+			supportedCompetitions.insert("roundRobin", true);
+		}
+
+		XkorFencingParadigm(XkorSport * sport, QHash<QString, QVariant> userOptions) : XkorAbstractParadigm(sport, userOptions)
+		{
+			supportedCompetitions.insert("matches", true);
+			supportedCompetitions.insert("roundRobin", true);
+		}
+
+		virtual void breakTie(QList<XkorAthlete>)
+		{
+			qDebug() << "unexpected tie break request in fencing paradigm";
+		}
+
+		virtual bool hasOptionsWidget() { return true; }
+
+		virtual XkorAbstractOptionsWidget * newOptionsWidget(QHash<QString, QVariant> paradigmOptions)
+		{
+			return new XkorTimedParadigmOptions(paradigmOptions);
+		}
+
+		virtual void scorinate(QList<XkorAthlete> athletes, QList<XkorResult> = QList<XkorResult>())
+		{
+			for(QStringList::iterator i = requiredValues.begin(); i != requiredValues.end(); ++i)
+				if(!(s->hasValue(*i)))
+				{
+					qDebug() << "missing parameter" << *i << "in XkorSQISParadigm::output(XkorResults *)";
+					out.append(qMakePair(QString(""), QString("Sport does not support this paradigm")));
+					return;
+				}
+
+			// initialize results
+			out.clear();
+			res.clear();
+
+			int acc = 0;
+			for(QList<XkorAthlete>::iterator away = athletes.begin(); away != athletes.end(); ++away)
+			{
+				if(acc & 1) // if we’re on the second team in a match
+				{
+					QList<XkorAthlete>::iterator home = away; // home = away - 1
+					--home;
+
+					double matchLength = opt.value("matchLength").toDouble();
+					int winPoints = opt.value("winPoints").toInt();
+
+					// calculate number of points
+					double pointsRate = s->individualScore("pointRate");
+					int pointsPlayed = static_cast<int>(matchLength / pointsRate);
+
+					QPair<int, int> score;
+					for(int i = 0; score.first < winPoints && score.second < winPoints && (score.first + score.second < pointsPlayed || score.first == score.second); ++i)
+					{
+						QPair<double, double> currentPointScore = generatePointScore(home->rpSkill, away->rpSkill);
+
+						if(currentPointScore.first > currentPointScore.second)
+							++score.first;
+						else
+							++score.second;
+					}
+
+					QString result = formatName(home->name, home->nation) + " " + formatScore(score.first, score.second) + " " + formatName(away->name, away->nation);
+
+					out.append(qMakePair(home->name, result));
+					res.append(XkorResult(score.first, *home));
+					res.append(XkorResult(score.second, *away));
+				}
+				++acc;
+			}
+		}
+
+	protected:
+		virtual QString formatScore(int score1, int score2)
+		{
+			return QString::number(score1) + "–" + QString::number(score2);
+		}
+
+		virtual QPair<double, double> generatePointScore(double homeSkill, double awaySkill)
+		{
+			QPair<double, double> rval = qMakePair(0.0, 0.0);
+
+			double attackModifier = opt.value("attackModifier").toDouble();
+
+			rval.first = s->randWeighted(homeSkill, awaySkill) + s->randUniform() * attackModifier;
+			rval.second = s->randWeighted(awaySkill, homeSkill) + s->randUniform() * attackModifier;
+
+			return rval;
+		}
+};
+
+#endif // FENCINGPARADIGM_H

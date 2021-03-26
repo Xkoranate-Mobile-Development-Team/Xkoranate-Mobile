@@ -35,6 +35,8 @@ class MatchDayFragment : Fragment() {
 
         binding?.btnStart?.setOnClickListener {
             // Game starts
+            startCountDown()
+
             Toast.makeText(activity, getString(R.string.match_in_progress), Toast.LENGTH_SHORT)
                 .show()
             binding?.progressBarMD?.visibility = View.VISIBLE
@@ -44,6 +46,7 @@ class MatchDayFragment : Fragment() {
 
         binding?.btnStop?.setOnClickListener {
             // Game stops
+            stopCountdown()
 
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle(getString(R.string.stop_match))
@@ -64,8 +67,15 @@ class MatchDayFragment : Fragment() {
 
 
 
-
         return binding?.root
+    }
+
+    fun startCountDown() {
+        //Todo
+    }
+
+    fun stopCountdown() {
+        //Todo
     }
 
     companion object {
