@@ -6,20 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.activities.SetupGameActivity
+import com.xkoranate.ui.viewmodels.SharedViewModel
 
 
 class SettingsFragment : Fragment() {
 
     private var binding: FragmentSettingsBinding? = null
+    lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
+            .create(SharedViewModel::class.java)
 
         binding = FragmentSettingsBinding.inflate(inflater)
 //        viewModel = ViewModelProvider(this).get(SettingsFragmentViewModel::class.java)
