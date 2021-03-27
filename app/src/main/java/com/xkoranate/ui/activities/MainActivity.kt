@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.Navigation
 import com.xkoranate.R
 import com.xkoranate.databinding.ActivityMainBinding
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        darkMode()
 
         binding.menuIcon.setOnClickListener {
             binding.drawerLayout.open()
@@ -82,6 +85,18 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun darkMode() {
+        val darkMode: Boolean =
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+                .getBoolean("darkMode", false)
+
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
 

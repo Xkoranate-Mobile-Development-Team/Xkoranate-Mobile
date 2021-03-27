@@ -1,10 +1,12 @@
 package com.xkoranate.ui.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -23,6 +25,8 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        darkMode()
 
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
@@ -48,7 +52,9 @@ class SettingsFragment : Fragment() {
 
         binding?.darkModeSwitch?.setOnClickListener {
             if (binding?.darkModeSwitch!!.isChecked) {
-
+                this.activity?.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)?.edit()
+                    ?.putBoolean("darkMode", true)?.apply()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
         }
 
@@ -60,8 +66,16 @@ class SettingsFragment : Fragment() {
         binding = null
     }
 
-    fun darkMode() {
+    private fun darkMode() {
+        val darkMode: Boolean =
+            this.requireActivity().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+                .getBoolean("darkMode", false)
 
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
 }
