@@ -1,7 +1,10 @@
 <resources>
 
+
+    // Todo: Fix night mode by creating the other night style
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/gradient_red_like</item>
         <item name="colorPrimaryDark">@color/gradient_red_like</item>
