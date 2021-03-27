@@ -28,11 +28,8 @@ class SettingsFragment : Fragment() {
             .create(SharedViewModel::class.java)
 
         binding = FragmentSettingsBinding.inflate(inflater)
-//        viewModel = ViewModelProvider(this).get(SettingsFragmentViewModel::class.java)
 
         binding?.newGame?.setOnClickListener {
-
-            viewModel.deleteGame()
 
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle("New Game")
@@ -41,11 +38,18 @@ class SettingsFragment : Fragment() {
                     // Responds to cancel button
                 }
                 .setPositiveButton("Yes") { dialog, which ->
-                    // Todo: Clear the current game
+                    viewModel.deleteGame()
+                    viewModel.delete()
                     startActivity(Intent(activity, SetupGameActivity::class.java))
                 }
 
             dialog.show()
+        }
+
+        binding?.darkModeSwitch?.setOnClickListener {
+            if (binding?.darkModeSwitch!!.isChecked) {
+
+            }
         }
 
         return binding?.root
@@ -54,6 +58,10 @@ class SettingsFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    fun darkMode() {
+
     }
 
 }
