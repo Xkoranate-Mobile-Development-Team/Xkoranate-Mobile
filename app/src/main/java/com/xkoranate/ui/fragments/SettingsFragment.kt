@@ -32,6 +32,8 @@ class SettingsFragment : Fragment() {
 
         binding?.newGame?.setOnClickListener {
 
+            viewModel.deleteGame()
+
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle("New Game")
                 .setView(R.layout.dialog_new_game)
