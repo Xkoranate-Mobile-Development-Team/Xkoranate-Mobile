@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentHomeBinding
-import com.xkoranate.ui.activity.LoginActivity
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
 
