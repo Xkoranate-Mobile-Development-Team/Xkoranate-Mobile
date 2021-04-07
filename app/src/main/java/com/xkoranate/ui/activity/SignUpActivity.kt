@@ -1,4 +1,4 @@
-package com.xkoranate.ui.activities
+package com.xkoranate.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -31,9 +31,7 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
         overridePendingTransition(R.anim.right_to_left, R.anim.stay_put)
 
         signUpBinding.cancelButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+//            Navigation.findNavController(t)
         }
 
 
@@ -44,7 +42,7 @@ class SignUpActivity : AppCompatActivity(), AuthListener {
     }
 
     override fun onSuccess() {
-        val intent = Intent(this, SetupGameActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 

@@ -2,67 +2,24 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activities.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/gradient_red_like"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/menuIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:src="@drawable/ic_menu" />
-
-                <ImageView
-                    android:id="@+id/xkoranateImage"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/signature_xkoranate_20p8" />
-
-            </androidx.appcompat.widget.Toolbar>
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            android:layout_height="0dp"
                 app:defaultNavHost="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:navGraph="@navigation/nav_graph" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header"
-            app:itemIconTint="@color/dark"
-            app:itemTextColor="@color/dark"
-            app:itemTextAppearance="@style/NavigationViewTextAppearance"
-            app:menu="@menu/main_menu" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

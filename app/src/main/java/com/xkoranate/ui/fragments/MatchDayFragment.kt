@@ -28,7 +28,7 @@ class MatchDayFragment : Fragment() {
                     .show()
             } else {
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_matchDayFragment2_to_homeFragment)
+                    .navigate(R.id.homeFragment)
             }
 
         }

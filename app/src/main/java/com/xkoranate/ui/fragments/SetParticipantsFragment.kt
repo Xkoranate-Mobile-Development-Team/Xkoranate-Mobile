@@ -1,6 +1,5 @@
 package com.xkoranate.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
-import com.xkoranate.db.game.GameParameters
 import com.xkoranate.db.participants.Participants
-import com.xkoranate.ui.activities.MainActivity
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
@@ -42,9 +40,9 @@ class SetParticipantsFragment : Fragment() {
 
         refreshList()
 
-        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
-        val sports = args?.sportSelected
-        val allowDraws = args?.allowDraws
+//        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
+//        val sports = args?.sportSelected
+//        val allowDraws = args?.allowDraws
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -59,16 +57,19 @@ class SetParticipantsFragment : Fragment() {
                 ).show()
 
             } else {
-                startActivity(Intent(activity, MainActivity::class.java))
+                Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
+                    .navigate(
+                        SetParticipantsFragmentDirections.actionSetParticipantsFragment2ToHomeFragment()
+                    )
             }
-
-            val game = GameParameters(
-                eventName = sports, allowDraws = allowDraws,
-                minSkill = minSkill?.toInt(), maxSkill = maxSkill?.toInt()
-            )
-
-            viewModel.insertGame(game)
-            viewModel.getGame()
+//
+//            val game = GameParameters(
+//                eventName = sports, allowDraws = allowDraws,
+//                minSkill = minSkill?.toInt(), maxSkill = maxSkill?.toInt()
+//            )
+//
+//            viewModel.insertGame(game)
+//            viewModel.getGame()
 
         }
 

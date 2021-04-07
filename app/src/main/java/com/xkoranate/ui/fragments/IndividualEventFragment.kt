@@ -25,11 +25,6 @@ class IndividualEventFragment : Fragment() {
     ): View? {
         binding = FragmentIndividualEventBinding.inflate(inflater)
 
-        val args = arguments?.let { IndividualEventFragmentArgs.fromBundle(it) }
-        if (args != null) {
-            sportSelected = args.sportSelected
-        }
-
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
 
@@ -40,9 +35,7 @@ class IndividualEventFragment : Fragment() {
         binding?.continueButtonIndividualEvent?.setOnClickListener {
             Navigation.findNavController(it)
                 .navigate(
-                    IndividualEventFragmentDirections.actionIndividualEventFragmentToSetParticipantsFragment(
-                        sportSelected, allowDraw
-                    )
+                    IndividualEventFragmentDirections.actionIndividualEventFragment2ToSetParticipantsFragment2()
                 )
         }
 

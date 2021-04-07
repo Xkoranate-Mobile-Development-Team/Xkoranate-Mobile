@@ -48,7 +48,7 @@ class ChooseEventFragment : Fragment() {
                 Navigation.findNavController(it)
                     .navigate(
                         ChooseEventFragmentDirections
-                            .actionChooseEventFragmentToIndividualEventFragment(sportSelected)
+                            .actionChooseEventFragment2ToIndividualEventFragment2()
                     )
             }
         }

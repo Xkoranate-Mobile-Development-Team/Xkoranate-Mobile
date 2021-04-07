@@ -33,20 +33,6 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@color/black" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/darkModeSwitch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@string/dark_mode"
-                android:textColor="@color/dark"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@color/black" />
-
         </LinearLayout>
 
     </ScrollView>

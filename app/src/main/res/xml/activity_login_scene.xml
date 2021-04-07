@@ -30,13 +30,13 @@
 
         <Constraint
             android:id="@+id/progress_bar"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="50dp"
             android:visibility="invisible"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@+id/xkonarate_image"
@@ -89,13 +89,13 @@
 
         <Constraint
             android:id="@+id/progress_bar"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="50dp"
             android:visibility="invisible"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@+id/xkonarate_image"
@@ -134,17 +134,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="60dp"
-            motion:layout_constraintTop_toBottomOf="@+id/passwordLoginEditText"
-            motion:layout_constraintStart_toEndOf="@id/marginMid" />
+            motion:layout_constraintStart_toEndOf="@id/marginMid"
+            motion:layout_constraintTop_toBottomOf="@+id/passwordLoginEditText" />
 
         <Constraint
             android:id="@+id/signUpButtonForLoginActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
             android:layout_marginTop="60dp"
-            motion:layout_constraintTop_toBottomOf="@+id/passwordLoginEditText"
-            motion:layout_constraintEnd_toStartOf="@id/marginMid" />
+            android:layout_marginEnd="5dp"
+            motion:layout_constraintEnd_toStartOf="@id/marginMid"
+            motion:layout_constraintTop_toBottomOf="@+id/passwordLoginEditText" />
 
 
     </ConstraintSet>
@@ -153,13 +153,13 @@
 
         <Constraint
             android:id="@+id/progress_bar"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="50dp"
             android:visibility="visible"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@+id/xkonarate_image"

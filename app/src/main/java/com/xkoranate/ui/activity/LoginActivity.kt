@@ -1,4 +1,4 @@
-package com.xkoranate.ui.activities
+package com.xkoranate.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess() {
 
-        Intent(this, SetupGameActivity::class.java).also {
+        Intent(this, MainActivity::class.java).also {
             it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(it)
         }
