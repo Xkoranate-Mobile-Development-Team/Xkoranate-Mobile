@@ -1,6 +1,5 @@
 package com.xkoranate.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,8 +49,8 @@ class HomeFragment : Fragment() {
                 }
                 R.id.nav_log_out -> {
                     // Log the user out of the app
-                    this.activity?.startActivity(Intent(activity, LoginActivity::class.java))
-                    activity?.finish()
+                    Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
+                        .navigate(R.id.loginFragment)
                 }
                 R.id.nav_exit -> {
                     // Closes the app

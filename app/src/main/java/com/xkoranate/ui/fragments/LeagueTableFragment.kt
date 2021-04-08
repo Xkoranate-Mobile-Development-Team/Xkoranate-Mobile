@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.xkoranate.R
 import com.xkoranate.databinding.FragmentLeagueTableBinding
 
 
@@ -19,6 +21,10 @@ class LeagueTableFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentLeagueTableBinding.inflate(inflater)
 
+        binding?.toolbar?.setOnClickListener {
+            Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
+                .popBackStack()
+        }
 
         return binding?.root
     }

@@ -33,6 +33,11 @@ class MatchDayFragment : Fragment() {
 
         }
 
+        binding?.toolbar?.setOnClickListener {
+            Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
+                .popBackStack()
+        }
+
         binding?.btnStart?.setOnClickListener {
             // Game starts
             startCountDown()

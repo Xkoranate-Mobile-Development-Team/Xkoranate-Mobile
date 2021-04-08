@@ -54,6 +54,9 @@ class LoginFragment : Fragment(), AuthListener {
                 binding?.usernameTextLayout?.text.toString(),
                 binding?.passwordLoginEditText?.text.toString()
             )
+            Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment).navigate(
+                LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+            )
         }
 
         return binding?.root
