@@ -18,6 +18,12 @@
         <item name="buttonStyle">@style/ButtonElevatedStyle</item>
     </style>
 
+    <!-- ActionBar Text   -->
+    <style name="ActionBarText" parent="TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/meiryo_ui_w53_regular</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
     <!-- MaterialAlertDialog Theme-->
     <style name="MaterialAlertDialog.Rounded" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="shapeAppearanceOverlay">
