@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
+import com.xkoranate.db.game.GameParameters
 import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
 import com.xkoranate.ui.viewmodels.SharedViewModel
@@ -40,9 +41,9 @@ class SetParticipantsFragment : Fragment() {
 
         refreshList()
 
-//        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
-//        val sports = args?.sportSelected
-//        val allowDraws = args?.allowDraws
+        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
+        val sports = args?.sportSelected
+        val allowDraws = args?.allowDraws
 
         binding?.btnContinue?.setOnClickListener {
 
@@ -62,14 +63,14 @@ class SetParticipantsFragment : Fragment() {
                         SetParticipantsFragmentDirections.actionSetParticipantsFragment2ToHomeFragment()
                     )
             }
-//
-//            val game = GameParameters(
-//                eventName = sports, allowDraws = allowDraws,
-//                minSkill = minSkill?.toInt(), maxSkill = maxSkill?.toInt()
-//            )
-//
-//            viewModel.insertGame(game)
-//            viewModel.getGame()
+
+            val game = GameParameters(
+                eventName = sports, allowDraws = allowDraws,
+                minSkill = minSkill?.toInt(), maxSkill = maxSkill?.toInt()
+            )
+
+            viewModel.insertGame(game)
+            viewModel.getGame()
 
         }
 

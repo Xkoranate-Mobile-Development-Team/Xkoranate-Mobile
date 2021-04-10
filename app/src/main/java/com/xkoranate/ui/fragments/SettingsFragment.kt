@@ -46,8 +46,7 @@ class SettingsFragment : Fragment() {
                     viewModel.delete()
                     Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
                         .navigate(
-                            SetParticipantsFragmentDirections
-                                .actionSetParticipantsFragment2ToHomeFragment()
+                            SettingsFragmentDirections.actionSettingsFragmentToChooseEventFragment2()
                         )
                 }
 

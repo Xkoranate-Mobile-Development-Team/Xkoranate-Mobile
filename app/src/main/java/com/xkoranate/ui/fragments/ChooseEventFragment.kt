@@ -48,7 +48,7 @@ class ChooseEventFragment : Fragment() {
                 Navigation.findNavController(it)
                     .navigate(
                         ChooseEventFragmentDirections
-                            .actionChooseEventFragment2ToIndividualEventFragment2()
+                            .actionChooseEventFragment2ToIndividualEventFragment2(sportSelected)
                     )
             }
         }
@@ -112,7 +112,6 @@ class ChooseEventFragment : Fragment() {
         RecyclerView.Adapter<ChooseEventAdapter.SportViewHolder>() {
 
         private lateinit var sport: String
-        lateinit var viewModel: SharedViewModel
 
         private var selectedPosition = RecyclerView.NO_POSITION
 
@@ -121,9 +120,6 @@ class ChooseEventFragment : Fragment() {
 
             fun bind(sport: String) {
                 binding.tvSport.text = sport
-
-                viewModel = ViewModelProvider.AndroidViewModelFactory(context)
-                    .create(SharedViewModel::class.java)
 
                 itemView.setOnClickListener {
                     onSportsClicked.invoke(sport)

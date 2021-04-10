@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_individualEventFragment2_to_setParticipantsFragment2"
             app:destination="@id/setParticipantsFragment2" />
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/setParticipantsFragment2"
@@ -67,6 +70,12 @@
         <action
             android:id="@+id/action_setParticipantsFragment2_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="allow_draws"
+            app:argType="boolean" />
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

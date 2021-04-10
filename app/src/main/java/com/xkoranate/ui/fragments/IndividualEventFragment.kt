@@ -28,15 +28,26 @@ class IndividualEventFragment : Fragment() {
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
 
+        var args = arguments?.let { IndividualEventFragmentArgs.fromBundle(it) }
+        val sports = args?.sportSelected
+
         binding?.allowDraws?.setOnClickListener {
             allowDraw = binding?.allowDraws?.isChecked == true
         }
 
         binding?.continueButtonIndividualEvent?.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(
-                    IndividualEventFragmentDirections.actionIndividualEventFragment2ToSetParticipantsFragment2()
-                )
+            sports?.let { it1 ->
+                IndividualEventFragmentDirections
+                    .actionIndividualEventFragment2ToSetParticipantsFragment2(
+                        allowDraw,
+                        it1
+                    )
+            }?.let { it2 ->
+                Navigation.findNavController(it)
+                    .navigate(
+                        it2
+                    )
+            }
         }
 
         return binding?.root
