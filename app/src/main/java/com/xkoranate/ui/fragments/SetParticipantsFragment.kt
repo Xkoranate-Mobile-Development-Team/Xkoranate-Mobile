@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSetParticipantsBinding
 import com.xkoranate.db.game.GameParameters
@@ -50,12 +50,13 @@ class SetParticipantsFragment : Fragment() {
             if (binding?.minSkillET?.text?.isEmpty()!! || binding?.maxSkillET?.text?.isEmpty()!! ||
                 isParticipantsEmpty()
             ) {
-
-                Toast.makeText(
-                    activity,
-                    "Pls add participants and skills constraints",
-                    Toast.LENGTH_LONG
-                ).show()
+                binding?.root?.let {
+                    Snackbar.make(
+                        it,
+                        "Pls add participants and skills constraints", Snackbar.LENGTH_LONG
+                    )
+                        .show()
+                }
 
             } else {
                 Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
@@ -75,19 +76,23 @@ class SetParticipantsFragment : Fragment() {
         }
 
         binding?.minSkillET?.setOnClickListener {
-            Toast.makeText(
-                this.requireContext(),
-                getString(R.string.skills_instructions),
-                Toast.LENGTH_LONG
-            ).show()
+            binding?.root?.let {
+                Snackbar.make(
+                    it,
+                    getString(R.string.skills_instructions), Snackbar.LENGTH_LONG
+                )
+                    .show()
+            }
         }
 
         binding?.maxSkillET?.setOnClickListener {
-            Toast.makeText(
-                this.requireContext(),
-                getString(R.string.skills_instructions),
-                Toast.LENGTH_LONG
-            ).show()
+            binding?.root?.let {
+                Snackbar.make(
+                    it,
+                    getString(R.string.skills_instructions), Snackbar.LENGTH_LONG
+                )
+                    .show()
+            }
         }
 
         binding?.increaseSkill?.setOnClickListener {
@@ -167,8 +172,10 @@ class SetParticipantsFragment : Fragment() {
                     binding?.deleteAllFab?.visibility = View.VISIBLE
 
                 } else {
-                    Toast.makeText(activity, "Pls fill in all fields", Toast.LENGTH_SHORT)
-                        .show()
+                    binding?.root?.let {
+                        Snackbar.make(it, "Pls fill in all fields", Snackbar.LENGTH_LONG)
+                            .show()
+                    }
                     refreshList()
                 }
             }
@@ -183,11 +190,13 @@ class SetParticipantsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(
-            this.requireContext(),
-            getString(R.string.skills_instructions),
-            Toast.LENGTH_LONG
-        ).show()
+        binding?.root?.let {
+            Snackbar.make(
+                it,
+                getString(R.string.skills_instructions), Snackbar.LENGTH_LONG
+            )
+                .show()
+        }
     }
 
 
