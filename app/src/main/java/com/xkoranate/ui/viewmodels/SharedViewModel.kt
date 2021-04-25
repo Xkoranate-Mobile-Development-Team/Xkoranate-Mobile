@@ -59,7 +59,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         // Todo: Save game
     }
 
-
     // Function calls for game
     fun getGame(): LiveData<List<GameParameters>> {
         return game
