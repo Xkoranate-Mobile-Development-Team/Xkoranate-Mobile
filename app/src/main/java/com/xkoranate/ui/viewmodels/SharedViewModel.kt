@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.xkoranate.data.repositories.GameParametersRepository
 import com.xkoranate.data.repositories.SetParticipantsRepository
 import com.xkoranate.db.game.GameParameters
@@ -19,6 +20,8 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     private lateinit var timer: CountDownTimer
 
+    var matchTimeLeft: MutableLiveData<String> = MutableLiveData("10")
+
 //    var eventName = ""
 //    private var allowDraws = false
 //    private var minSkill = 0
@@ -26,16 +29,14 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     private var timeLeft = 10000L
 
-    fun getTimer(): String {
 
-        var matchTimeLeft = "0"
+    fun startTimer() {
 
         timer = object : CountDownTimer(timeLeft, 1000) {
 
             override fun onTick(p0: Long) {
                 timeLeft = p0 / 1000
-                matchTimeLeft = timeLeft.toString()
-
+                matchTimeLeft.value = timeLeft.toString()
             }
 
             override fun onFinish() {
@@ -43,7 +44,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             }
         }
 
-        return matchTimeLeft
+        timer.start()
     }
 
     // Function calls for match day
@@ -51,30 +52,24 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         // Todo: Save game
     }
 
-
     // Function calls for game
     fun getGame(): LiveData<List<GameParameters>> {
         return game
     }
-
     fun insertGame(gameParameters: GameParameters) {
         gameParametersRepository.insertGame(gameParameters)
     }
-
     fun deleteGame() {
         gameParametersRepository.deleteGame()
     }
-
 
     // Function calls for participants
     fun getAllParticipants(): LiveData<List<Participants>> {
         return participants
     }
-
     fun insert(participants: Participants) {
         participantsRepository.insert(participants)
     }
-
     fun delete() {
         participantsRepository.deleteAll()
     }

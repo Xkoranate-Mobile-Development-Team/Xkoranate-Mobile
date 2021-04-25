@@ -5,9 +5,8 @@
     tools:context=".ui.fragments.MatchDayFragment">
 
     <data>
-
         <variable
-            name="viewModel"
+            name="matchViewModel"
             type="com.xkoranate.ui.viewmodels.SharedViewModel" />
     </data>
 
@@ -48,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
-                android:text="@{viewModel.getTimer()}"
+                android:text="@{matchViewModel.matchTimeLeft}"
                 android:textSize="20sp" />
 
             <ProgressBar

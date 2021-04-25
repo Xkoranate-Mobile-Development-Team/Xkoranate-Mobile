@@ -28,6 +28,8 @@ class MatchDayFragment : Fragment() {
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
             .create(SharedViewModel::class.java)
 
+        binding?.matchViewModel = viewModel
+
         binding?.btnCheckResults?.setOnClickListener {
             if (binding?.progressBarMD?.visibility == View.VISIBLE) {
                 Toast.makeText(activity, getString(R.string.game_in_progress), Toast.LENGTH_SHORT)
@@ -83,7 +85,7 @@ class MatchDayFragment : Fragment() {
     }
 
     private fun startCountDown() {
-        binding?.tenSecondsCountdownTV?.text = viewModel.getTimer()
+        viewModel.startTimer()
     }
 
 
