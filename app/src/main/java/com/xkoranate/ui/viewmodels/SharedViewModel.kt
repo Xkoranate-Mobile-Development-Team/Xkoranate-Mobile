@@ -1,6 +1,7 @@
 package com.xkoranate.ui.viewmodels
 
 import android.app.Application
+import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.xkoranate.data.repositories.GameParametersRepository
@@ -16,10 +17,39 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val gameParametersRepository = GameParametersRepository(application)
     private val game = gameParametersRepository.getGame()
 
+    private lateinit var timer: CountDownTimer
+
 //    var eventName = ""
 //    private var allowDraws = false
 //    private var minSkill = 0
 //    private var maxSkill = 0
+
+    private var timeLeft = 10000L
+
+    fun getTimer(): String {
+
+        var matchTimeLeft = "0"
+
+        timer = object : CountDownTimer(timeLeft, 1000) {
+
+            override fun onTick(p0: Long) {
+                timeLeft = p0 / 1000
+                matchTimeLeft = timeLeft.toString()
+
+            }
+
+            override fun onFinish() {
+                saveGame()
+            }
+        }
+
+        return matchTimeLeft
+    }
+
+    // Function calls for match day
+    fun saveGame() {
+        // Todo: Save game
+    }
 
 
     // Function calls for game

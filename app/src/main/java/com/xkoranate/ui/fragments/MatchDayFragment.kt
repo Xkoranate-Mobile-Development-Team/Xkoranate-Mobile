@@ -6,21 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentMatchDayBinding
+import com.xkoranate.ui.viewmodels.SharedViewModel
 
 
 class MatchDayFragment : Fragment() {
 
     private var binding: FragmentMatchDayBinding? = null
+    lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMatchDayBinding.inflate(inflater)
+
+        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
+            .create(SharedViewModel::class.java)
 
         binding?.btnCheckResults?.setOnClickListener {
             if (binding?.progressBarMD?.visibility == View.VISIBLE) {
@@ -72,14 +78,16 @@ class MatchDayFragment : Fragment() {
 
 
 
+
         return binding?.root
     }
 
-    fun startCountDown() {
-        //Todo
+    private fun startCountDown() {
+        binding?.tenSecondsCountdownTV?.text = viewModel.getTimer()
     }
 
-    fun stopCountdown() {
+
+    private fun stopCountdown() {
         //Todo
     }
 
