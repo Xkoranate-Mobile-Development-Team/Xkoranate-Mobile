@@ -19,8 +19,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val game = gameParametersRepository.getGame()
 
     private lateinit var timer: CountDownTimer
-
-    var matchTimeLeft: MutableLiveData<String> = MutableLiveData("10")
+    val matchTimeLeft: MutableLiveData<String?> = MutableLiveData()
 
 //    var eventName = ""
 //    private var allowDraws = false
@@ -29,6 +28,13 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     private var timeLeft = 10000L
 
+
+//    @JvmName("setMatchTimeLeft1")
+//    fun setMatchTimeLeft(time: String) {
+//        this.matchTimeLeft = time
+//
+//
+//    }
 
     fun startTimer() {
 
@@ -40,6 +46,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             }
 
             override fun onFinish() {
+
                 saveGame()
             }
         }
@@ -51,6 +58,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     fun saveGame() {
         // Todo: Save game
     }
+
 
     // Function calls for game
     fun getGame(): LiveData<List<GameParameters>> {

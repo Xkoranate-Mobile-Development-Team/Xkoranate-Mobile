@@ -30,6 +30,8 @@ class MatchDayFragment : Fragment() {
 
         binding?.matchViewModel = viewModel
 
+        binding?.lifecycleOwner = this
+
         binding?.btnCheckResults?.setOnClickListener {
             if (binding?.progressBarMD?.visibility == View.VISIBLE) {
                 Toast.makeText(activity, getString(R.string.game_in_progress), Toast.LENGTH_SHORT)
