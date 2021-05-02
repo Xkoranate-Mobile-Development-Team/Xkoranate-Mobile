@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.xkoranate.ui.fragments.HomeFragment"
@@ -11,31 +11,99 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_matchDayFragment2"
-            app:destination="@id/matchDayFragment2" />
+            app:destination="@id/matchDayFragment2"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_homeFragment_to_leagueTableFragment"
-            app:destination="@id/leagueTableFragment" />
+            app:destination="@id/leagueTableFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/matchDayFragment2"
         android:name="com.xkoranate.ui.fragments.MatchDayFragment"
         android:label="fragment_match_day"
-        tools:layout="@layout/fragment_match_day">
-        <action
-            android:id="@+id/action_matchDayFragment2_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_match_day" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.xkoranate.ui.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_chooseEventFragment2"
+            app:destination="@id/chooseEventFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/leagueTableFragment"
         android:name="com.xkoranate.ui.fragments.LeagueTableFragment"
         android:label="fragment_league_table"
         tools:layout="@layout/fragment_league_table" />
+    <fragment
+        android:id="@+id/chooseEventFragment2"
+        android:name="com.xkoranate.ui.fragments.ChooseEventFragment"
+        android:label="fragment_choose_event"
+        tools:layout="@layout/fragment_choose_event">
+        <action
+            android:id="@+id/action_chooseEventFragment2_to_individualEventFragment2"
+            app:destination="@id/individualEventFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/individualEventFragment2"
+        android:name="com.xkoranate.ui.fragments.IndividualEventFragment"
+        android:label="fragment_individual_event"
+        tools:layout="@layout/fragment_individual_event">
+        <action
+            android:id="@+id/action_individualEventFragment2_to_setParticipantsFragment2"
+            app:destination="@id/setParticipantsFragment2" />
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/setParticipantsFragment2"
+        android:name="com.xkoranate.ui.fragments.SetParticipantsFragment"
+        android:label="fragment_set_participants"
+        tools:layout="@layout/fragment_set_participants">
+        <action
+            android:id="@+id/action_setParticipantsFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="allow_draws"
+            app:argType="boolean" />
+        <argument
+            android:name="sport_selected"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.xkoranate.ui.fragments.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_chooseEventFragment2"
+            app:destination="@id/chooseEventFragment2" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.xkoranate.ui.fragments.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_chooseEventFragment2"
+            app:destination="@id/chooseEventFragment2" />
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

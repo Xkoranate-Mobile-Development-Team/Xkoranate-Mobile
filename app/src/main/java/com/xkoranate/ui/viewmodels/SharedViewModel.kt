@@ -1,49 +1,84 @@
 package com.xkoranate.ui.viewmodels
 
 import android.app.Application
+import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.xkoranate.data.repositories.GameParametersRepository
 import com.xkoranate.data.repositories.SetParticipantsRepository
+import com.xkoranate.db.game.GameParameters
 import com.xkoranate.db.participants.Participants
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = SetParticipantsRepository(application)
-    private val participants = repository.getAll()
+    private val participantsRepository = SetParticipantsRepository(application)
+    private val participants = participantsRepository.getAll()
 
-    var eventName = ""
-    private var allowDraws = false
-    private var minSkill = 0
-    private var maxSkill = 0
+    private val gameParametersRepository = GameParametersRepository(application)
+    private val game = gameParametersRepository.getGame()
+
+    private lateinit var timer: CountDownTimer
+    val matchTimeLeft: MutableLiveData<String?> = MutableLiveData()
+
+//    var eventName = ""
+//    private var allowDraws = false
+//    private var minSkill = 0
+//    private var maxSkill = 0
+
+    private var timeLeft = 10000L
 
 
-    fun eventName(event: String) {
-        eventName = event
+//    @JvmName("setMatchTimeLeft1")
+//    fun setMatchTimeLeft(time: String) {
+//        this.matchTimeLeft = time
+//
+//
+//    }
+
+    fun startTimer() {
+
+        timer = object : CountDownTimer(timeLeft, 1000) {
+
+            override fun onTick(p0: Long) {
+                timeLeft = p0 / 1000
+                matchTimeLeft.value = timeLeft.toString()
+            }
+
+            override fun onFinish() {
+
+                saveGame()
+            }
+        }
+
+        timer.start()
     }
 
-    fun allowDraws(draw: Boolean) {
-        allowDraws = draw
+    // Function calls for match day
+    fun saveGame() {
+        // Todo: Save game
     }
 
-    fun minSkill(skill: Int) {
-        minSkill = skill
+    // Function calls for game
+    fun getGame(): LiveData<List<GameParameters>> {
+        return game
+    }
+    fun insertGame(gameParameters: GameParameters) {
+        gameParametersRepository.insertGame(gameParameters)
+    }
+    fun deleteGame() {
+        gameParametersRepository.deleteGame()
     }
 
-    fun maxSkill(skill: Int) {
-        maxSkill = skill
-    }
-
-
+    // Function calls for participants
     fun getAllParticipants(): LiveData<List<Participants>> {
         return participants
     }
-
     fun insert(participants: Participants) {
-        repository.insert(participants)
+        participantsRepository.insert(participants)
     }
-
     fun delete() {
-        repository.deleteAll()
+        participantsRepository.deleteAll()
     }
 
 

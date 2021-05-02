@@ -4,74 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.HomeFragment">
 
-    <ScrollView
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient_color"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-            <TextView
-                android:id="@+id/tv_full_name"
-                style="@style/PromptTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/text_rounded_bg"
-                android:paddingStart="60dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="60dp"
-                android:paddingBottom="20dp"
-                android:text="@string/jack_piper"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/welcome"
-                app:srcCompat="@drawable/ic_welcome_cuate"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
+                android:background="@drawable/gradient_color">
 
-            <TextView
-                android:id="@+id/tv_result"
-                style="@style/PromptTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/results"
-                android:textSize="24sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                tools:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_result"
-                tools:listitem="@layout/recyclerview_child" />
+                    <ImageView
+                        android:id="@+id/menuIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_menu" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/xkoranateImage"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/signature_xkoranate_20p8" />
 
-    </ScrollView>
+                </androidx.appcompat.widget.Toolbar>
+
+                <TextView
+                    android:id="@+id/tv_full_name"
+                    style="@style/PromptTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/text_rounded_bg"
+                    android:paddingStart="60dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="60dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/jack_piper"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/welcome"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_full_name"
+                    app:srcCompat="@drawable/ic_welcome_cuate" />
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    style="@style/PromptTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/results"
+                    android:textSize="24sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_result"
+                    tools:listitem="@layout/recyclerview_child"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header"
+            app:itemIconTint="@color/dark"
+            app:itemTextAppearance="@style/NavigationViewTextAppearance"
+            app:itemTextColor="@color/dark"
+            app:menu="@menu/main_menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>
