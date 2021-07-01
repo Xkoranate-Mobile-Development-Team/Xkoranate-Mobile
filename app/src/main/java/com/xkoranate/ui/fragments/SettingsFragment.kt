@@ -38,10 +38,10 @@ class SettingsFragment : Fragment() {
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle("New Game")
                 .setView(R.layout.dialog_new_game)
-                .setNegativeButton("Cancel") { dialog, which ->
+                .setNegativeButton("Cancel") { _, _ ->
                     // Responds to cancel button
                 }
-                .setPositiveButton("Yes") { dialog, which ->
+                .setPositiveButton("Yes") { _, _ ->
                     viewModel.deleteGame()
                     viewModel.delete()
                     Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
