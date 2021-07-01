@@ -5,6 +5,7 @@
     tools:context=".ui.fragments.MatchDayFragment">
 
     <data>
+
         <variable
             name="matchViewModel"
             type="com.xkoranate.ui.viewmodels.SharedViewModel" />

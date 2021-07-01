@@ -11,14 +11,14 @@ import com.xkoranate.R
 import com.xkoranate.databinding.FragmentHomeBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class HomeFragment : Fragment() {
 
     private var binding: FragmentHomeBinding? = null
     private lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
@@ -26,7 +26,6 @@ class HomeFragment : Fragment() {
         binding?.menuIcon?.setOnClickListener {
             binding?.drawerLayout?.open()
         }
-
 
         binding?.navView?.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -56,7 +55,6 @@ class HomeFragment : Fragment() {
                     // Closes the app
                     activity?.finishAffinity()
                 }
-
             }
 
             binding?.drawerLayout?.close()
@@ -70,8 +68,6 @@ class HomeFragment : Fragment() {
 
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
-
-
 
         return binding?.root
     }

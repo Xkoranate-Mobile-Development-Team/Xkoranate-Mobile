@@ -23,7 +23,8 @@ class LoginFragment : Fragment(), AuthListener {
     var binding: FragmentLoginBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -41,12 +42,10 @@ class LoginFragment : Fragment(), AuthListener {
 
         viewModel.authListener = this
 
-
         binding?.signUpButtonForLoginActivity?.setOnClickListener {
             Toast.makeText(activity, "👍👍👍", Toast.LENGTH_LONG).show()
             Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
                 .navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
-
         }
 
         binding?.materialButton?.setOnClickListener {
@@ -60,12 +59,10 @@ class LoginFragment : Fragment(), AuthListener {
         }
 
         return binding?.root
-
     }
 
     private fun login(email: String, password: String) {
         viewModel.login(email, password)
-
     }
 
     override fun onStarted() {
@@ -75,8 +72,6 @@ class LoginFragment : Fragment(), AuthListener {
             setTransitionDuration(1000)
             transitionToEnd()
         }
-
-
     }
 
     override fun onSuccess() {
@@ -89,5 +84,4 @@ class LoginFragment : Fragment(), AuthListener {
         binding?.progressBar?.visibility = View.INVISIBLE
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
-
 }

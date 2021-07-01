@@ -17,7 +17,6 @@ class SetParticipantsAdapter(private val participants: List<Participants>) :
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.rv_child_set_participants, parent, false)
         )
-
     }
 
     override fun getItemCount(): Int {
@@ -30,11 +29,9 @@ class SetParticipantsAdapter(private val participants: List<Participants>) :
         holder.skill.text = participants[position].skill.toString()
     }
 
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val participant: TextView = itemView.findViewById(R.id.rvParticipantTV)
         val team: TextView = itemView.findViewById(R.id.rvTeamTV)
         val skill: TextView = itemView.findViewById(R.id.rvSkillTV)
     }
-
 }

@@ -12,14 +12,14 @@ import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class SettingsFragment : Fragment() {
 
     private var binding: FragmentSettingsBinding? = null
     lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -60,5 +60,4 @@ class SettingsFragment : Fragment() {
         super.onDestroy()
         binding = null
     }
-
 }

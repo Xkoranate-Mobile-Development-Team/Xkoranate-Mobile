@@ -10,7 +10,6 @@ import androidx.navigation.Navigation
 import com.xkoranate.databinding.FragmentIndividualEventBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class IndividualEventFragment : Fragment() {
 
     private var binding: FragmentIndividualEventBinding? = null

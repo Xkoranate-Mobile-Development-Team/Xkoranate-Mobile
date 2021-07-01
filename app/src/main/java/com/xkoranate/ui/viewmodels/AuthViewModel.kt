@@ -33,11 +33,14 @@ class AuthViewModel : ViewModel() {
         val disposable = authRepository.register(email!!, password!!)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                authListener?.onSuccess()
-            }, {
-                authListener?.onFailure(it.message!!)
-            })
+            .subscribe(
+                {
+                    authListener?.onSuccess()
+                },
+                {
+                    authListener?.onFailure(it.message!!)
+                }
+            )
         disposables.add(disposable)
     }
 
@@ -50,19 +53,19 @@ class AuthViewModel : ViewModel() {
         val disposable = authRepository.login(email!!, password!!)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                authListener?.onSuccess()
-            }, {
-                authListener?.onFailure(it.message!!)
-            })
+            .subscribe(
+                {
+                    authListener?.onSuccess()
+                },
+                {
+                    authListener?.onFailure(it.message!!)
+                }
+            )
         disposables.add(disposable)
     }
-
 
     override fun onCleared() {
         super.onCleared()
         disposables.dispose()
     }
-
-
 }

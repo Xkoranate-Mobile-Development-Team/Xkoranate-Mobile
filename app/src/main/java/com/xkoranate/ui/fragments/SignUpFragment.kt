@@ -14,7 +14,6 @@ import com.xkoranate.other.AuthListener
 import com.xkoranate.ui.viewmodels.AuthViewModel
 import com.xkoranate.ui.viewmodels.AuthViewModelFactory
 
-
 class SignUpFragment : Fragment(), AuthListener {
 
     private val factory = AuthViewModelFactory()
@@ -24,7 +23,8 @@ class SignUpFragment : Fragment(), AuthListener {
     var binding: FragmentSignUpBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -38,7 +38,6 @@ class SignUpFragment : Fragment(), AuthListener {
             Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
                 .popBackStack()
         }
-
 
         return binding?.root
     }
@@ -56,5 +55,4 @@ class SignUpFragment : Fragment(), AuthListener {
     override fun onFailure(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
-
 }

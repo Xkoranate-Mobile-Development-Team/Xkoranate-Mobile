@@ -3,6 +3,6 @@
     android:shape="ring"
     android:useLevel="false">
 
-    <solid android:color="@color/white"/>
+    <solid android:color="@color/white" />
 
 </shape>

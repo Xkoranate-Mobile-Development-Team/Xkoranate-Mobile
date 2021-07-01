@@ -15,6 +15,4 @@ class Sport(
 
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
-
-
 }

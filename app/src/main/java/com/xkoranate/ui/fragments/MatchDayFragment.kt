@@ -14,14 +14,14 @@ import com.xkoranate.R
 import com.xkoranate.databinding.FragmentMatchDayBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class MatchDayFragment : Fragment() {
 
     private var binding: FragmentMatchDayBinding? = null
     lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMatchDayBinding.inflate(inflater)
@@ -33,8 +33,6 @@ class MatchDayFragment : Fragment() {
 
         binding?.lifecycleOwner = this
 
-
-
         binding?.btnCheckResults?.setOnClickListener {
             if (binding?.progressBarMD?.visibility == View.VISIBLE) {
                 Toast.makeText(activity, getString(R.string.game_in_progress), Toast.LENGTH_SHORT)
@@ -43,7 +41,6 @@ class MatchDayFragment : Fragment() {
                 Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                     .navigate(R.id.homeFragment)
             }
-
         }
 
         binding?.toolbar?.setOnClickListener {
@@ -80,23 +77,17 @@ class MatchDayFragment : Fragment() {
                     binding?.btnStart?.visibility = View.VISIBLE
                 }
             dialog.show()
-
         }
-
-
-
 
         return binding?.root
     }
-
 
     private fun startCountDown() {
         viewModel.startTimer()
     }
 
-
     private fun stopCountdown() {
-        //Todo
+        // Todo
     }
 
     companion object {

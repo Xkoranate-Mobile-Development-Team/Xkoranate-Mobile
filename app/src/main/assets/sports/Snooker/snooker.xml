@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sport version="0.3">
     <name>Snooker</name>
-<discipline>Snooker</discipline>
-    <event/> <!-- only a single  scorinator is available for this sport and this is the first one-->
-    <scorinator/>
-    
+    <discipline>Snooker</discipline>
+    <event /> <!-- only a single  scorinator is available for this sport and this is the first one-->
+    <scorinator />
+
     <paradigm>tennis</paradigm>
     <paradigmOptions>
         <int type="sets">1</int>

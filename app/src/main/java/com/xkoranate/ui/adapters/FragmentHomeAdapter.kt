@@ -22,10 +22,7 @@ class FragmentHomeAdapter(val list: List<Participants>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

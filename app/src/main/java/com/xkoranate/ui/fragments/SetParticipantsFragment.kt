@@ -19,7 +19,6 @@ import com.xkoranate.db.participants.Participants
 import com.xkoranate.ui.adapters.SetParticipantsAdapter
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class SetParticipantsFragment : Fragment() {
 
     private var binding: FragmentSetParticipantsBinding? = null
@@ -27,9 +26,9 @@ class SetParticipantsFragment : Fragment() {
     private var minSkill: String? = null
     private var maxSkill: String? = null
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -57,7 +56,6 @@ class SetParticipantsFragment : Fragment() {
                     )
                         .show()
                 }
-
             } else {
                 Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
                     .navigate(
@@ -72,7 +70,6 @@ class SetParticipantsFragment : Fragment() {
 
             viewModel.insertGame(game)
             viewModel.getGame()
-
         }
 
         binding?.minSkillET?.setOnClickListener {
@@ -104,7 +101,6 @@ class SetParticipantsFragment : Fragment() {
             }
 
             minSkill = binding?.minSkillET?.text.toString()
-
         }
 
         binding?.decreaseSkill?.setOnClickListener {
@@ -170,7 +166,6 @@ class SetParticipantsFragment : Fragment() {
 
                     refreshList()
                     binding?.deleteAllFab?.visibility = View.VISIBLE
-
                 } else {
                     binding?.root?.let {
                         Snackbar.make(it, "Pls fill in all fields", Snackbar.LENGTH_LONG)
@@ -181,9 +176,7 @@ class SetParticipantsFragment : Fragment() {
             }
 
             dialog.show()
-
         }
-
 
         return binding?.root
     }
@@ -199,21 +192,23 @@ class SetParticipantsFragment : Fragment() {
         }
     }
 
-
     private fun refreshList() {
 
         binding?.lifecycleOwner?.let {
-            viewModel.getAllParticipants().observe(it, Observer { list ->
+            viewModel.getAllParticipants().observe(
+                it,
+                Observer { list ->
 
-                binding?.recyclerView?.adapter = SetParticipantsAdapter(list)
+                    binding?.recyclerView?.adapter = SetParticipantsAdapter(list)
 
-                if (list.isEmpty()) {
-                    binding?.addImage?.visibility = View.VISIBLE
-                } else {
-                    binding?.addImage?.visibility = View.GONE
-                    binding?.deleteAllFab?.visibility = View.VISIBLE
+                    if (list.isEmpty()) {
+                        binding?.addImage?.visibility = View.VISIBLE
+                    } else {
+                        binding?.addImage?.visibility = View.GONE
+                        binding?.deleteAllFab?.visibility = View.VISIBLE
+                    }
                 }
-            })
+            )
         }
     }
 
@@ -221,14 +216,16 @@ class SetParticipantsFragment : Fragment() {
         var isEmpty = true
 
         binding?.lifecycleOwner?.let {
-            viewModel.getAllParticipants().observe(it, Observer { list ->
-                isEmpty = list.isEmpty()
-            })
+            viewModel.getAllParticipants().observe(
+                it,
+                Observer { list ->
+                    isEmpty = list.isEmpty()
+                }
+            )
         }
 
         return isEmpty
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

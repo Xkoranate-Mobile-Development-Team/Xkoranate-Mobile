@@ -4,8 +4,8 @@
     <alphabetizedName>Cycling, road—Women’s individual road race</alphabetizedName>
     <discipline>Cycling, road</discipline>
     <event>Women’s individual road race</event>
-    <scorinator/>
-    
+    <scorinator />
+
     <paradigm>timed</paradigm>
     <paradigmOptions>
         <int type="resultWidth">7</int>
@@ -23,7 +23,7 @@
             <double>2</double>
         </list>
     </paradigmOptions>
-    
+
     <dataPoints name="score">
         <dataPoint pos="0.0078125">15279</dataPoint>
         <dataPoint pos="0.0786830357143">14776.9285714286</dataPoint>
