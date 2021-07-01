@@ -132,7 +132,7 @@ class ChooseEventFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: SportViewHolder, position: Int) {
-            sport = sports.get(position)
+            sport = sports[position]
             holder.bind(sport)
             holder.binding.background.isSelected = (selectedPosition == position)
 

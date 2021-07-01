@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +39,7 @@ class SetParticipantsFragment : Fragment() {
 
         refreshList()
 
-        var args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
+        val args = arguments?.let { SetParticipantsFragmentArgs.fromBundle(it) }
         val sports = args?.sportSelected
         val allowDraws = args?.allowDraws
 
@@ -197,7 +196,7 @@ class SetParticipantsFragment : Fragment() {
         binding?.lifecycleOwner?.let {
             viewModel.getAllParticipants().observe(
                 it,
-                Observer { list ->
+                { list ->
 
                     binding?.recyclerView?.adapter = SetParticipantsAdapter(list)
 
@@ -218,7 +217,7 @@ class SetParticipantsFragment : Fragment() {
         binding?.lifecycleOwner?.let {
             viewModel.getAllParticipants().observe(
                 it,
-                Observer { list ->
+                { list ->
                     isEmpty = list.isEmpty()
                 }
             )

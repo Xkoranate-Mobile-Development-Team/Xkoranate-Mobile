@@ -35,7 +35,6 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?selectableItemBackground"
-                android:drawableStart="@drawable/ic_folder"
                 android:drawablePadding="24dp"
                 android:paddingTop="10dp"
                 android:paddingStart="24dp"
@@ -43,7 +42,8 @@
                 android:paddingBottom="10dp"
                 android:fontFamily="@font/meiryo_ui_w53_regular"
                 android:text="@string/new_game"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:drawableStartCompat="@drawable/ic_folder" />
 
             <ImageView
                 android:layout_width="match_parent"

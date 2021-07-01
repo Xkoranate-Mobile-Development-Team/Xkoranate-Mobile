@@ -27,7 +27,7 @@ class IndividualEventFragment : Fragment() {
         viewModel = ViewModelProvider.AndroidViewModelFactory(this.requireActivity().application)
             .create(SharedViewModel::class.java)
 
-        var args = arguments?.let { IndividualEventFragmentArgs.fromBundle(it) }
+        val args = arguments?.let { IndividualEventFragmentArgs.fromBundle(it) }
         val sports = args?.sportSelected
 
         binding?.allowDraws?.setOnClickListener {
