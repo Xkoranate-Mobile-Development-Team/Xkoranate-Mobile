@@ -20,5 +20,4 @@ interface GameParametersDao {
 
     @Query("DELETE FROM game_parameters_table")
     fun deleteGame()
-
 }

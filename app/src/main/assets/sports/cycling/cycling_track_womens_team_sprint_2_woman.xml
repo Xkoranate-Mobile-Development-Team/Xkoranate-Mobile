@@ -4,8 +4,8 @@
     <alphabetizedName>Cycling, track—Women’s team sprint-2 woman</alphabetizedName>
     <discipline>Cycling, track</discipline>
     <event>Women’s team sprint (2 woman)</event>
-    <scorinator/>
-    
+    <scorinator />
+
     <paradigm>timed</paradigm>
     <paradigmOptions>
         <int type="resultWidth">6</int>
@@ -17,7 +17,7 @@
             <double>0.030303030303</double>
         </list>
     </paradigmOptions>
-    
+
     <dataPoints name="score">
         <dataPoint pos="0.0185185185185">36.32</dataPoint>
         <dataPoint pos="0.116666666667">34.3185555556</dataPoint>

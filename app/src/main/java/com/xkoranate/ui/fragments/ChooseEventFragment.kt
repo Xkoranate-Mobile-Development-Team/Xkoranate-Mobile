@@ -28,7 +28,6 @@ class ChooseEventFragment : Fragment() {
     private var tempSports: Array<String>? = null
     lateinit var viewModel: SharedViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -91,13 +90,11 @@ class ChooseEventFragment : Fragment() {
                     false
                 }
             }
-
         } catch (e: IOException) {
             e.printStackTrace()
         }
         return true
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -126,8 +123,6 @@ class ChooseEventFragment : Fragment() {
                     notifyItemChanged(selectedPosition)
                     selectedPosition = layoutPosition
                     notifyItemChanged(selectedPosition)
-
-
                 }
             }
         }
@@ -137,7 +132,7 @@ class ChooseEventFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: SportViewHolder, position: Int) {
-            sport = sports.get(position)
+            sport = sports[position]
             holder.bind(sport)
             holder.binding.background.isSelected = (selectedPosition == position)
 
@@ -147,6 +142,5 @@ class ChooseEventFragment : Fragment() {
         override fun getItemCount(): Int {
             return sports.size
         }
-
     }
 }

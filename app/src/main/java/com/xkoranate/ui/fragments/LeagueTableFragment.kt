@@ -9,13 +9,13 @@ import androidx.navigation.Navigation
 import com.xkoranate.R
 import com.xkoranate.databinding.FragmentLeagueTableBinding
 
-
 class LeagueTableFragment : Fragment() {
 
     var binding: FragmentLeagueTableBinding? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -33,5 +33,4 @@ class LeagueTableFragment : Fragment() {
         super.onDestroy()
         binding = null
     }
-
 }

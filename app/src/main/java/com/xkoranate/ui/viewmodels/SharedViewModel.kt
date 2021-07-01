@@ -28,7 +28,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     private var timeLeft = 10000L
 
-
 //    @JvmName("setMatchTimeLeft1")
 //    fun setMatchTimeLeft(time: String) {
 //        this.matchTimeLeft = time
@@ -63,9 +62,11 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     fun getGame(): LiveData<List<GameParameters>> {
         return game
     }
+
     fun insertGame(gameParameters: GameParameters) {
         gameParametersRepository.insertGame(gameParameters)
     }
+
     fun deleteGame() {
         gameParametersRepository.deleteGame()
     }
@@ -74,13 +75,14 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     fun getAllParticipants(): LiveData<List<Participants>> {
         return participants
     }
+
     fun insert(participants: Participants) {
         participantsRepository.insert(participants)
     }
+
     fun delete() {
         participantsRepository.deleteAll()
     }
-
 
 //    private var viewModelJob = Job()
 //
@@ -88,5 +90,4 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 //        super.onCleared()
 //        viewModelJob.cancel()
 //    }
-
 }

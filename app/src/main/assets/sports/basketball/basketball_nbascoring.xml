@@ -2,12 +2,12 @@
 <sport version="0.3">
     <name>Basketball-NBA Rules</name>
     <discipline>Basketball</discipline>
-    <event>NBA Rules<event/> 
-    <scorinator/>
+    <event>NBA Rules</event>
+    <scorinator />
 
     <paradigm>xkoranate-h2h</paradigm>
     <paradigmOptions>
-                     
+
 
         <list type="tiebreakers">
             <string>extratime</string>
@@ -37,7 +37,8 @@
         <dataPoint pos="0.911901717209">141</dataPoint>
         <dataPoint pos="0.970633905736">150</dataPoint>
         <dataPoint pos="0.998447204969">160</dataPoint>
-    </dataPoints> <dataPoints name="etScore">
+    </dataPoints>
+    <dataPoints name="etScore">
         <dataPoint pos="0.0357142857143">3</dataPoint>
         <dataPoint pos="0.196428571429">7</dataPoint>
         <dataPoint pos="0.517857142857">9</dataPoint>

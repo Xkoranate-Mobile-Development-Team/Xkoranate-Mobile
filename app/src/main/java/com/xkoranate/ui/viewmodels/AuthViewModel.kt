@@ -20,10 +20,6 @@ class AuthViewModel : ViewModel() {
 
     private val disposables = CompositeDisposable()
 
-    val user by lazy {
-        authRepository.currentUser()
-    }
-
     fun signUp() {
         if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             authListener?.onFailure("Please input all values")
@@ -33,36 +29,39 @@ class AuthViewModel : ViewModel() {
         val disposable = authRepository.register(email!!, password!!)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                authListener?.onSuccess()
-            }, {
-                authListener?.onFailure(it.message!!)
-            })
+            .subscribe(
+                {
+                    authListener?.onSuccess()
+                },
+                {
+                    authListener?.onFailure(it.message!!)
+                }
+            )
         disposables.add(disposable)
     }
 
     fun login(email: String, password: String) {
-        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
+        if (email.isEmpty() || password.isEmpty()) {
             authListener?.onFailure("Please input all values")
             return
         }
         authListener?.onStarted()
-        val disposable = authRepository.login(email!!, password!!)
+        val disposable = authRepository.login(email, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                authListener?.onSuccess()
-            }, {
-                authListener?.onFailure(it.message!!)
-            })
+            .subscribe(
+                {
+                    authListener?.onSuccess()
+                },
+                {
+                    authListener?.onFailure(it.message!!)
+                }
+            )
         disposables.add(disposable)
     }
-
 
     override fun onCleared() {
         super.onCleared()
         disposables.dispose()
     }
-
-
 }

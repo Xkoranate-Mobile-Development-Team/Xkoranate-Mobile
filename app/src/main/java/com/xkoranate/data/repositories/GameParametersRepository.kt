@@ -34,5 +34,4 @@ class GameParametersRepository(application: Application) {
             dao.deleteGame()
         }
     }
-
 }

@@ -21,7 +21,7 @@ class FirebaseSource {
             }
     }
 
-    fun login(email: String, password: String) = Completable.create{ emitter ->
+    fun login(email: String, password: String) = Completable.create { emitter ->
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!emitter.isDisposed) {
@@ -36,5 +36,4 @@ class FirebaseSource {
     fun logout() = firebaseAuth.signOut()
 
     fun currentUser() = firebaseAuth.currentUser
-
 }

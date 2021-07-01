@@ -12,14 +12,14 @@ import com.xkoranate.R
 import com.xkoranate.databinding.FragmentSettingsBinding
 import com.xkoranate.ui.viewmodels.SharedViewModel
 
-
 class SettingsFragment : Fragment() {
 
     private var binding: FragmentSettingsBinding? = null
     lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -38,10 +38,10 @@ class SettingsFragment : Fragment() {
             val dialog = MaterialAlertDialogBuilder(this.requireContext())
                 .setTitle("New Game")
                 .setView(R.layout.dialog_new_game)
-                .setNegativeButton("Cancel") { dialog, which ->
+                .setNegativeButton("Cancel") { _, _ ->
                     // Responds to cancel button
                 }
-                .setPositiveButton("Yes") { dialog, which ->
+                .setPositiveButton("Yes") { _, _ ->
                     viewModel.deleteGame()
                     viewModel.delete()
                     Navigation.findNavController(this.requireActivity(), R.id.nav_host_fragment)
@@ -60,5 +60,4 @@ class SettingsFragment : Fragment() {
         super.onDestroy()
         binding = null
     }
-
 }

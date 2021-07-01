@@ -28,5 +28,4 @@ class SetParticipantsRepository(application: Application) {
             dao.clear()
         }
     }
-
 }
